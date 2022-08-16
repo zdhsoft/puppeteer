@@ -31,7 +31,7 @@ import {
 } from './IsolatedWorld.js';
 import {LifecycleWatcher, PuppeteerLifeCycleEvent} from './LifecycleWatcher.js';
 import {NetworkManager} from './NetworkManager.js';
-import {Page} from './Page.js';
+import {Page, WaitForOptions} from './Page.js';
 import {Target} from './Target.js';
 import {TimeoutSettings} from './TimeoutSettings.js';
 import {EvaluateFunc, HandleFor, NodeFor} from './types.js';
@@ -799,7 +799,6 @@ export class Frame {
       waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
     } = {}
   ): Promise<HTTPResponse | null> {
-    assertNoLegacyNavigationOptions(options);
     const {
       referer = this._frameManager.networkManager.extraHTTPHeaders()['referer'],
       waitUntil = ['load'],
@@ -861,38 +860,16 @@ export class Frame {
   }
 
   /**
-   * Waits for the frame to navigate. It is useful for when you run code which
-   * will indirectly cause the frame to navigate.
+   * Like {@link Page.waitForNavigation}, but on this frame.
    *
-   * Usage of the
-   * {@link https://developer.mozilla.org/en-US/docs/Web/API/History_API | History API}
-   * to change the URL is considered a navigation.
-   *
-   * @example
-   *
-   * ```ts
-   * const [response] = await Promise.all([
-   *   // The navigation promise resolves after navigation has finished
-   *   frame.waitForNavigation(),
-   *   // Clicking the link will indirectly cause a navigation
-   *   frame.click('a.my-link'),
-   * ]);
-   * ```
-   *
-   * @param options - options to configure when the navigation is consided
-   * finished.
-   * @returns a promise that resolves when the frame navigates to a new URL.
+   * @see {@link Page.waitForNavigation} for more details.
    */
   async waitForNavigation(
-    options: {
-      timeout?: number;
-      waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
-    } = {}
+    options: WaitForOptions = {}
   ): Promise<HTTPResponse | null> {
-    assertNoLegacyNavigationOptions(options);
     const {
-      waitUntil = ['load'],
       timeout = this._frameManager.timeoutSettings.navigationTimeout(),
+      waitUntil = ['load'],
     } = options;
     const watcher = new LifecycleWatcher(
       this._frameManager,
@@ -1487,21 +1464,4 @@ export class Frame {
     }
     this.#parentFrame = null;
   }
-}
-
-function assertNoLegacyNavigationOptions(options: {
-  [optionName: string]: unknown;
-}): void {
-  assert(
-    options['networkIdleTimeout'] === undefined,
-    'ERROR: networkIdleTimeout option is no longer supported.'
-  );
-  assert(
-    options['networkIdleInflight'] === undefined,
-    'ERROR: networkIdleInflight option is no longer supported.'
-  );
-  assert(
-    options['waitUntil'] !== 'networkidle',
-    'ERROR: "networkidle" option is no longer supported. Use "networkidle2" instead'
-  );
 }
