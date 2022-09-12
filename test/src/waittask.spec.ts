@@ -214,46 +214,6 @@ describe('waittask specs', function () {
       ]);
       expect(error).toBeUndefined();
     });
-    it('should throw on bad polling value', async () => {
-      const {page} = getTestState();
-
-      let error!: Error;
-      try {
-        await page.waitForFunction(
-          () => {
-            return !!document.body;
-          },
-          {
-            polling: 'unknown',
-          }
-        );
-      } catch (error_) {
-        if (isErrorLike(error_)) {
-          error = error_ as Error;
-        }
-      }
-      expect(error?.message).toContain('polling');
-    });
-    it('should throw negative polling interval', async () => {
-      const {page} = getTestState();
-
-      let error!: Error;
-      try {
-        await page.waitForFunction(
-          () => {
-            return !!document.body;
-          },
-          {polling: -10}
-        );
-      } catch (error_) {
-        if (isErrorLike(error_)) {
-          error = error_ as Error;
-        }
-      }
-      expect(error?.message).toContain(
-        'Cannot poll with non-positive interval'
-      );
-    });
     it('should return the success value as a JSHandle', async () => {
       const {page} = getTestState();
 
