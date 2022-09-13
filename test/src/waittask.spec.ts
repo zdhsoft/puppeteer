@@ -15,7 +15,6 @@
  */
 
 import expect from 'expect';
-import {isErrorLike} from '../../lib/cjs/puppeteer/util/ErrorLike.js';
 import {
   getTestState,
   setupTestBrowserHooks,
@@ -31,11 +30,9 @@ describe('waittask specs', function () {
     it('should accept a string', async () => {
       const {page} = getTestState();
 
-      const watchdog = page.waitForFunction(() => {
-        return (window as unknown as {__FOO: number}).__FOO === 1;
-      });
+      const watchdog = page.waitForFunction('self.__FOO === 1');
       await page.evaluate(() => {
-        return ((globalThis as any).__FOO = 1);
+        return ((self as unknown as {__FOO: number}).__FOO = 1);
       });
       await watchdog;
     });
@@ -54,55 +51,18 @@ describe('waittask specs', function () {
     });
     it('should poll on interval', async () => {
       const {page} = getTestState();
-
-      let success = false;
       const startTime = Date.now();
       const polling = 100;
-      const watchdog = page
-        .waitForFunction(
-          () => {
-            return (globalThis as any).__FOO === 'hit';
-          },
-          {
-            polling,
-          }
-        )
-        .then(() => {
-          return (success = true);
-        });
+      const watchdog = page.waitForFunction(
+        () => {
+          return (globalThis as any).__FOO === 'hit';
+        },
+        {polling}
+      );
       await page.evaluate(() => {
-        return ((globalThis as any).__FOO = 'hit');
-      });
-      expect(success).toBe(false);
-      await page.evaluate(() => {
-        return document.body.appendChild(document.createElement('div'));
-      });
-      await watchdog;
-      expect(Date.now() - startTime).not.toBeLessThan(polling / 2);
-    });
-    it('should poll on interval async', async () => {
-      const {page} = getTestState();
-      let success = false;
-      const startTime = Date.now();
-      const polling = 100;
-      const watchdog = page
-        .waitForFunction(
-          async () => {
-            return (globalThis as any).__FOO === 'hit';
-          },
-          {
-            polling,
-          }
-        )
-        .then(() => {
-          return (success = true);
-        });
-      await page.evaluate(async () => {
-        return ((globalThis as any).__FOO = 'hit');
-      });
-      expect(success).toBe(false);
-      await page.evaluate(async () => {
-        return document.body.appendChild(document.createElement('div'));
+        setTimeout(() => {
+          (globalThis as any).__FOO = 'hit';
+        }, 50);
       });
       await watchdog;
       expect(Date.now() - startTime).not.toBeLessThan(polling / 2);
@@ -273,7 +233,7 @@ describe('waittask specs', function () {
         });
 
       expect(error).toBeInstanceOf(puppeteer.errors.TimeoutError);
-      expect(error?.message).toContain('waiting for function failed: timeout');
+      expect(error?.message).toContain('Waiting failed: 10ms exceeded');
     });
     it('should respect default timeout', async () => {
       const {page, puppeteer} = getTestState();
@@ -288,7 +248,7 @@ describe('waittask specs', function () {
           return (error = error_);
         });
       expect(error).toBeInstanceOf(puppeteer.errors.TimeoutError);
-      expect(error?.message).toContain('waiting for function failed: timeout');
+      expect(error?.message).toContain('Waiting failed: 1ms exceeded');
     });
     it('should disable timeout when its set to 0', async () => {
       const {page} = getTestState();
@@ -621,9 +581,7 @@ describe('waittask specs', function () {
         return (error = error_);
       });
       expect(error).toBeInstanceOf(puppeteer.errors.TimeoutError);
-      expect(error?.message).toContain(
-        'waiting for selector `div` failed: timeout'
-      );
+      expect(error?.message).toContain('Waiting failed: 10ms exceeded');
     });
     it('should have an error message specifically for awaiting an element to be hidden', async () => {
       const {page} = getTestState();
@@ -636,9 +594,7 @@ describe('waittask specs', function () {
           return (error = error_);
         });
       expect(error).toBeTruthy();
-      expect(error?.message).toContain(
-        'waiting for selector `div` to be hidden failed: timeout'
-      );
+      expect(error?.message).toContain('Waiting failed: 10ms exceeded');
     });
 
     it('should respond to node attribute mutation', async () => {
@@ -673,9 +629,9 @@ describe('waittask specs', function () {
       await page.waitForSelector('.zombo', {timeout: 10}).catch(error_ => {
         return (error = error_);
       });
-      expect(error?.stack).toContain('waiting for selector `.zombo` failed');
+      expect(error?.stack).toContain('Waiting failed: 10ms exceeded');
       // The extension is ts here as Mocha maps back via sourcemaps.
-      expect(error?.stack).toContain('waittask.spec.ts');
+      expect(error?.stack).toContain('WaitTask.ts');
     });
   });
 
@@ -705,9 +661,7 @@ describe('waittask specs', function () {
         return (error = error_);
       });
       expect(error).toBeInstanceOf(puppeteer.errors.TimeoutError);
-      expect(error?.message).toContain(
-        'waiting for selector `.//div` failed: timeout 10ms exceeded'
-      );
+      expect(error?.message).toContain('Waiting failed: 10ms exceeded');
     });
     it('should run in specified frame', async () => {
       const {page, server} = getTestState();

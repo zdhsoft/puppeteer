@@ -4,12 +4,18 @@ import {
 } from '../util/DeferredPromise.js';
 import {assert} from '../util/assert.js';
 
-interface Poller<T> {
+/**
+ * @internal
+ */
+export interface Poller<T> {
   start(): Promise<T>;
   stop(): Promise<void>;
   result(): Promise<T>;
 }
 
+/**
+ * @internal
+ */
 export class MutationPoller<T> implements Poller<T> {
   #fn: () => Promise<T>;
 
@@ -54,6 +60,7 @@ export class MutationPoller<T> implements Poller<T> {
     }
     if (this.#observer) {
       this.#observer.disconnect();
+      this.#observer = undefined;
     }
   }
 
@@ -146,6 +153,7 @@ export class IntervalPoller<T> implements Poller<T> {
     }
     if (this.#interval) {
       clearInterval(this.#interval);
+      this.#interval = undefined;
     }
   }
 

@@ -523,9 +523,7 @@ describe('AriaQueryHandler', () => {
           return (error = error_);
         });
       expect(error).toBeTruthy();
-      expect(error.message).toContain(
-        'waiting for selector `[role="button"]` failed: timeout'
-      );
+      expect(error.message).toContain('Waiting failed: 10ms exceeded');
       expect(error).toBeInstanceOf(puppeteer.errors.TimeoutError);
     });
 
@@ -540,9 +538,7 @@ describe('AriaQueryHandler', () => {
           return (error = error_);
         });
       expect(error).toBeTruthy();
-      expect(error.message).toContain(
-        'waiting for selector `[role="main"]` to be hidden failed: timeout'
-      );
+      expect(error.message).toContain('Waiting failed: 10ms exceeded');
     });
 
     it('should respond to node attribute mutation', async () => {
@@ -581,7 +577,7 @@ describe('AriaQueryHandler', () => {
       await page.waitForSelector('aria/zombo', {timeout: 10}).catch(error_ => {
         return (error = error_);
       });
-      expect(error!.stack).toContain('waiting for selector `zombo` failed');
+      expect(error!.stack).toContain('Waiting failed: 10ms exceeded');
     });
   });
 
