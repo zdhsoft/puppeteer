@@ -522,9 +522,7 @@ export class IsolatedWorld {
               getPuppeteerUtil(): Promise<PuppeteerUtil | undefined>;
             }
           ).getPuppeteerUtil();
-        } catch (error) {
-          console.log(error);
-        }
+        } catch {}
         if (!PuppeteerUtil) {
           return;
         }
