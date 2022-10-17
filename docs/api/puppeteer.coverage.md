@@ -4,7 +4,8 @@ sidebar_label: Coverage
 
 # Coverage class
 
-The Coverage class provides methods to gathers information about parts of JavaScript and CSS that were used by the page.
+The Coverage class provides methods to gathers information about parts of
+JavaScript and CSS that were used by the page.
 
 **Signature:**
 
@@ -14,11 +15,14 @@ export declare class Coverage
 
 ## Remarks
 
-To output coverage in a form consumable by [Istanbul](https://github.com/istanbuljs), see [puppeteer-to-istanbul](https://github.com/istanbuljs/puppeteer-to-istanbul).
+To output coverage in a form consumable by
+[Istanbul](https://github.com/istanbuljs), see
+[puppeteer-to-istanbul](https://github.com/istanbuljs/puppeteer-to-istanbul).
 
 ## Example
 
-An example of using JavaScript and CSS coverage to get percentage of initially executed code:
+An example of using JavaScript and CSS coverage to get percentage of initially
+executed code:
 
 ```ts
 // Enable both JavaScript and CSS coverage

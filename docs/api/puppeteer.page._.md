@@ -4,7 +4,8 @@ sidebar_label: Page.$
 
 # Page.$() method
 
-Runs `document.querySelector` within the page. If no element matches the selector, the return value resolves to `null`.
+Runs `document.querySelector` within the page. If no element matches the
+selector, the return value resolves to `null`.
 
 **Signature:**
 
@@ -24,4 +25,5 @@ class Page {
 
 **Returns:**
 
-Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;[NodeFor](./puppeteer.nodefor.md)&lt;Selector&gt;&gt; \| null&gt;
+Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;[NodeFor](./puppeteer.nodefor.md)&lt;Selector&gt;&gt;
+\| null&gt;

@@ -6,7 +6,8 @@ sidebar_label: networkConditions
 
 > Warning: This API is now obsolete.
 >
-> Import [PredefinedNetworkConditions](./puppeteer.predefinednetworkconditions.md).
+> Import
+> [PredefinedNetworkConditions](./puppeteer.predefinednetworkconditions.md).
 
 **Signature:**
 

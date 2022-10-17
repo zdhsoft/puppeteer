@@ -16,4 +16,5 @@ interface PDFOptions {
 
 ## Remarks
 
-If the path is relative, it's resolved relative to the current working directory.
+If the path is relative, it's resolved relative to the current working
+directory.

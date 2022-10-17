@@ -6,7 +6,8 @@ sidebar_label: registerCustomQueryHandler
 
 > Warning: This API is now obsolete.
 >
-> Import [Puppeteer](./puppeteer.puppeteer.md) and use the static method [Puppeteer.registerCustomQueryHandler()](./puppeteer.puppeteer.registercustomqueryhandler.md)
+> Import [Puppeteer](./puppeteer.puppeteer.md) and use the static method
+> [Puppeteer.registerCustomQueryHandler()](./puppeteer.puppeteer.registercustomqueryhandler.md)
 
 **Signature:**
 

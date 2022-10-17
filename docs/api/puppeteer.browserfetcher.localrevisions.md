@@ -16,7 +16,8 @@ class BrowserFetcher {
 
 Promise&lt;string\[\]&gt;
 
-A promise with a list of all revision strings (for the current `product`) available locally on disk.
+A promise with a list of all revision strings (for the current `product`)
+available locally on disk.
 
 ## Remarks
 

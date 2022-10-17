@@ -26,4 +26,5 @@ class ElementHandle {
 
 Promise&lt;Array&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;[NodeFor](./puppeteer.nodefor.md)&lt;Selector&gt;&gt;&gt;&gt;
 
-An array of [element handles](./puppeteer.elementhandle.md) that point to elements matching the given selector.
+An array of [element handles](./puppeteer.elementhandle.md) that point to
+elements matching the given selector.

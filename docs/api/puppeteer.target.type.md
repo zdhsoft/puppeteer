@@ -23,8 +23,10 @@ class Target {
 
 **Returns:**
 
-'page' \| 'background_page' \| 'service_worker' \| 'shared_worker' \| 'other' \| 'browser' \| 'webview'
+'page' \| 'background_page' \| 'service_worker' \| 'shared_worker' \| 'other' \|
+'browser' \| 'webview'
 
 ## Remarks
 
-See [docs](https://developer.chrome.com/extensions/background_pages) for more info about background pages.
+See [docs](https://developer.chrome.com/extensions/background_pages) for more
+info about background pages.

@@ -6,7 +6,8 @@ sidebar_label: clearCustomQueryHandlers
 
 > Warning: This API is now obsolete.
 >
-> Import [Puppeteer](./puppeteer.puppeteer.md) and use the static method [Puppeteer.clearCustomQueryHandlers()](./puppeteer.puppeteer.clearcustomqueryhandlers.md)
+> Import [Puppeteer](./puppeteer.puppeteer.md) and use the static method
+> [Puppeteer.clearCustomQueryHandlers()](./puppeteer.puppeteer.clearcustomqueryhandlers.md)
 
 **Signature:**
 

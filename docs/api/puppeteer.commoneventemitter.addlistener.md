@@ -4,6 +4,10 @@ sidebar_label: CommonEventEmitter.addListener
 
 # CommonEventEmitter.addListener() method
 
+To maintain parity with the built in NodeJS event emitter which uses
+removeListener rather than `off`. If you're implementing new code you should use
+`off`.
+
 **Signature:**
 
 ```typescript

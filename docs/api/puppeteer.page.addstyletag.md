@@ -4,7 +4,8 @@ sidebar_label: Page.addStyleTag
 
 # Page.addStyleTag() method
 
-Adds a `<link rel="stylesheet">` tag into the page with the desired URL or a `<style type="text/css">` tag with the content.
+Adds a `<link rel="stylesheet">` tag into the page with the desired URL or a
+`<style type="text/css">` tag with the content.
 
 Shortcut for .
 
@@ -28,4 +29,5 @@ class Page {
 
 Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;HTMLStyleElement&gt;&gt;
 
-An [element handle](./puppeteer.elementhandle.md) to the injected `<link>` or `<style>` element.
+An [element handle](./puppeteer.elementhandle.md) to the injected `<link>` or
+`<style>` element.

@@ -30,7 +30,8 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-To use this, request interception should be enabled with [Page.setRequestInterception()](./puppeteer.page.setrequestinterception.md).
+To use this, request interception should be enabled with
+[Page.setRequestInterception()](./puppeteer.page.setrequestinterception.md).
 
 Exception is immediately thrown if the request interception is not enabled.
 

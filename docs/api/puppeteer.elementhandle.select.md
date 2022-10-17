@@ -4,7 +4,9 @@ sidebar_label: ElementHandle.select
 
 # ElementHandle.select() method
 
-Triggers a `change` and `input` event once all the provided options have been selected. If there's no `<select>` element matching `selector`, the method throws an error.
+Triggers a `change` and `input` event once all the provided options have been
+selected. If there's no `<select>` element matching `selector`, the method
+throws an error.
 
 **Signature:**
 

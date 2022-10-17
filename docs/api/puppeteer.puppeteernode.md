@@ -4,9 +4,11 @@ sidebar_label: PuppeteerNode
 
 # PuppeteerNode class
 
-Extends the main [Puppeteer](./puppeteer.puppeteer.md) class with Node specific behaviour for fetching and downloading browsers.
+Extends the main [Puppeteer](./puppeteer.puppeteer.md) class with Node specific
+behaviour for fetching and downloading browsers.
 
-If you're using Puppeteer in a Node environment, this is the class you'll get when you run `require('puppeteer')` (or the equivalent ES `import`).
+If you're using Puppeteer in a Node environment, this is the class you'll get
+when you run `require('puppeteer')` (or the equivalent ES `import`).
 
 **Signature:**
 
@@ -18,11 +20,16 @@ export declare class PuppeteerNode extends Puppeteer
 
 ## Remarks
 
-The most common method to use is [launch](./puppeteer.puppeteernode.launch.md), which is used to launch and connect to a new browser instance.
+The most common method to use is [launch](./puppeteer.puppeteernode.launch.md),
+which is used to launch and connect to a new browser instance.
 
-See [the main Puppeteer class](./puppeteer.puppeteer.md) for methods common to all environments, such as [Puppeteer.connect()](./puppeteer.puppeteer.connect.md).
+See [the main Puppeteer class](./puppeteer.puppeteer.md) for methods common to
+all environments, such as
+[Puppeteer.connect()](./puppeteer.puppeteer.connect.md).
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `PuppeteerNode` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`PuppeteerNode` class.
 
 ## Example
 
@@ -40,7 +47,9 @@ const puppeteer = require('puppeteer');
 })();
 ```
 
-Once you have created a `page` you have access to a large API to interact with the page, navigate, or find certain elements in that page. The [\`page\` documentation](./puppeteer.page.md) lists all the available methods.
+Once you have created a `page` you have access to a large API to interact with
+the page, navigate, or find certain elements in that page. The
+[\`page\` documentation](./puppeteer.page.md) lists all the available methods.
 
 ## Properties
 

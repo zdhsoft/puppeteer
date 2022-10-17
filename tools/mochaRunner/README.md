@@ -1,6 +1,8 @@
 # Mocha Runner
 
-Mocha Runner is a test runner on top of mocha. It uses `/test/TestSuites.json` and `/test/TestExpectations.json` files to run mocha tests in multiple configurations and interpret results.
+Mocha Runner is a test runner on top of mocha. It uses `/test/TestSuites.json`
+and `/test/TestExpectations.json` files to run mocha tests in multiple
+configurations and interpret results.
 
 ## Running tests for Mocha Runner itself.
 
@@ -23,9 +25,10 @@ npm run build:test && npm run test -- --test-suite chrome-headless
 
 ## TestSuites.json
 
-Define test suites via the `testSuites` attribute. `parameters` can be used in the `TestExpectations.json` to disable tests
-based on parameters. The meaning for parameters is defined in `parameterDefinitons` which tell what env object corresponds
-to the given parameter.
+Define test suites via the `testSuites` attribute. `parameters` can be used in
+the `TestExpectations.json` to disable tests based on parameters. The meaning
+for parameters is defined in `parameterDefinitons` which tell what env object
+corresponds to the given parameter.
 
 ## TestExpectations.json
 
@@ -40,8 +43,11 @@ An expectation looks like this:
   }
 ```
 
-`testIdPattern` defines a string that will be used to prefix-match tests. `platforms` defines the platforms the expectation is for (`or`-logic).
-`parameters` defines the parameters that the test has to match (`and`-logic). `expectations` is the list of test results that are considered to be acceptable.
+`testIdPattern` defines a string that will be used to prefix-match tests.
+`platforms` defines the platforms the expectation is for (`or`-logic).
+`parameters` defines the parameters that the test has to match (`and`-logic).
+`expectations` is the list of test results that are considered to be acceptable.
 
-Currently, expectations are updated manually. The test runner outputs the suggested changes to the expectation file if the test run does not match
+Currently, expectations are updated manually. The test runner outputs the
+suggested changes to the expectation file if the test run does not match
 expectations.

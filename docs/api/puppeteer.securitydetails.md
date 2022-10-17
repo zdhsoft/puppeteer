@@ -4,7 +4,8 @@ sidebar_label: SecurityDetails
 
 # SecurityDetails class
 
-The SecurityDetails class represents the security details of a response that was received over a secure connection.
+The SecurityDetails class represents the security details of a response that was
+received over a secure connection.
 
 **Signature:**
 
@@ -14,7 +15,9 @@ export declare class SecurityDetails
 
 ## Remarks
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `SecurityDetails` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`SecurityDetails` class.
 
 ## Methods
 

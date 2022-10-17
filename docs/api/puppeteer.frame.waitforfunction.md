@@ -50,7 +50,8 @@ const puppeteer = require('puppeteer');
 })();
 ```
 
-To pass arguments from Node.js to the predicate of `page.waitForFunction` function:
+To pass arguments from Node.js to the predicate of `page.waitForFunction`
+function:
 
 ```ts
 const selector = '.foo';

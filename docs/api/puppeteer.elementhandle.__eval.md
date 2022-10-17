@@ -4,9 +4,11 @@ sidebar_label: ElementHandle.$$eval
 
 # ElementHandle.$$eval() method
 
-Runs the given function on an array of elements matching the given selector in the current element.
+Runs the given function on an array of elements matching the given selector in
+the current element.
 
-If the given function returns a promise, then this method will wait till the promise resolves.
+If the given function returns a promise, then this method will wait till the
+promise resolves.
 
 **Signature:**
 

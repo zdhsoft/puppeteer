@@ -4,7 +4,8 @@ sidebar_label: BrowserContext.isIncognito
 
 # BrowserContext.isIncognito() method
 
-Returns whether BrowserContext is incognito. The default browser context is the only non-incognito browser context.
+Returns whether BrowserContext is incognito. The default browser context is the
+only non-incognito browser context.
 
 **Signature:**
 

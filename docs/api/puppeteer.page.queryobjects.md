@@ -4,7 +4,8 @@ sidebar_label: Page.queryObjects
 
 # Page.queryObjects() method
 
-This method iterates the JavaScript heap and finds all objects with the given prototype.
+This method iterates the JavaScript heap and finds all objects with the given
+prototype.
 
 **Signature:**
 

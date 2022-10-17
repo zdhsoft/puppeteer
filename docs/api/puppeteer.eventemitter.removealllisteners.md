@@ -4,7 +4,8 @@ sidebar_label: EventEmitter.removeAllListeners
 
 # EventEmitter.removeAllListeners() method
 
-Removes all listeners. If given an event argument, it will remove only listeners for that event.
+Removes all listeners. If given an event argument, it will remove only listeners
+for that event.
 
 **Signature:**
 

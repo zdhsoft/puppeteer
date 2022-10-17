@@ -20,4 +20,5 @@ The frame's `name` attribute as specified in the tag.
 
 ## Remarks
 
-This value is calculated once when the frame is created, and will not update if the attribute is changed later.
+This value is calculated once when the frame is created, and will not update if
+the attribute is changed later.

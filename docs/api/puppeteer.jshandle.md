@@ -4,11 +4,19 @@ sidebar_label: JSHandle
 
 # JSHandle class
 
-Represents a reference to a JavaScript object. Instances can be created using [Page.evaluateHandle()](./puppeteer.page.evaluatehandle.md).
+Represents a reference to a JavaScript object. Instances can be created using
+[Page.evaluateHandle()](./puppeteer.page.evaluatehandle.md).
 
-Handles prevent the referenced JavaScript object from being garbage-collected unless the handle is purposely [disposed](./puppeteer.jshandle.dispose.md). JSHandles are auto-disposed when their associated frame is navigated away or the parent context gets destroyed.
+Handles prevent the referenced JavaScript object from being garbage-collected
+unless the handle is purposely [disposed](./puppeteer.jshandle.dispose.md).
+JSHandles are auto-disposed when their associated frame is navigated away or the
+parent context gets destroyed.
 
-Handles can be used as arguments for any evaluation function such as [Page.$eval()](./puppeteer.page._eval.md), [Page.evaluate()](./puppeteer.page.evaluate.md), and [Page.evaluateHandle()](./puppeteer.page.evaluatehandle.md). They are resolved to their referenced object.
+Handles can be used as arguments for any evaluation function such as
+[Page.$eval()](./puppeteer.page._eval.md),
+[Page.evaluate()](./puppeteer.page.evaluate.md), and
+[Page.evaluateHandle()](./puppeteer.page.evaluatehandle.md). They are resolved
+to their referenced object.
 
 **Signature:**
 
@@ -18,7 +26,9 @@ export declare class JSHandle<T = unknown>
 
 ## Remarks
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `JSHandle` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`JSHandle` class.
 
 ## Example
 

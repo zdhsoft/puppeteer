@@ -4,7 +4,8 @@ sidebar_label: Frame.type
 
 # Frame.type() method
 
-Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character in the text.
+Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character in
+the text.
 
 **Signature:**
 
@@ -34,7 +35,8 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-To press a special key, like `Control` or `ArrowDown`, use [Keyboard.press()](./puppeteer.keyboard.press.md).
+To press a special key, like `Control` or `ArrowDown`, use
+[Keyboard.press()](./puppeteer.keyboard.press.md).
 
 ## Example
 

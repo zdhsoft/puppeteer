@@ -1,17 +1,17 @@
 /**
  * Copyright 2017 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {Protocol} from 'devtools-protocol';
@@ -36,8 +36,7 @@ const SOURCE_URL_REGEX = /^[\040\t]*\/\/[@#] sourceURL=\s*(\S*?)\s*$/m;
 /**
  * Represents a context for JavaScript execution.
  *
- * @example
- * A {@link Page} can have several execution contexts:
+ * @example A {@link Page} can have several execution contexts:
  *
  * - Each {@link Frame} of a {@link Page | page} has a "default" execution
  *   context that is always created after frame is attached to DOM. This context
@@ -45,13 +44,11 @@ const SOURCE_URL_REGEX = /^[\040\t]*\/\/[@#] sourceURL=\s*(\S*?)\s*$/m;
  * - Each {@link https://developer.chrome.com/extensions | Chrome extensions}
  *   creates additional execution contexts to isolate their code.
  *
- * @remarks
- * By definition, each context is isolated from one another, however they are
- * all able to manipulate non-JavaScript resources (such as DOM).
+ * @remarks By definition, each context is isolated from one another, however
+ * they are all able to manipulate non-JavaScript resources (such as DOM).
  *
- * @remarks
- * Besides pages, execution contexts can be found in
- * {@link WebWorker | workers}.
+ * @remarks Besides pages, execution contexts can be found in {@link WebWorker |
+ * workers}.
  *
  * @internal
  */
@@ -98,15 +95,14 @@ export class ExecutionContext {
    * console.log(result); // prints "56"
    * ```
    *
-   * @example
-   * A string can also be passed in instead of a function:
+   * @example A string can also be passed in instead of a function:
    *
    * ```ts
    * console.log(await executionContext.evaluate('1 + 2')); // prints "3"
    * ```
    *
-   * @example
-   * Handles can also be passed as `args`. They resolve to their referenced object:
+   * @example Handles can also be passed as `args`. They resolve to their
+   * referenced object:
    *
    * ```ts
    * const oneHandle = await executionContext.evaluateHandle(() => 1);
@@ -121,11 +117,10 @@ export class ExecutionContext {
    * console.log(result); // prints '3'.
    * ```
    *
-   * @param pageFunction - The function to evaluate.
-   * @param args - Additional arguments to pass into the function.
-   * @returns The result of evaluating the function. If the result is an object,
-   * a vanilla object containing the serializable properties of the result is
-   * returned.
+   * @param pageFunction - The function to evaluate. @param args - Additional
+   * arguments to pass into the function. @returns The result of evaluating the
+   * function. If the result is an object, a vanilla object containing the
+   * serializable properties of the result is returned.
    */
   async evaluate<
     Params extends unknown[],
@@ -155,15 +150,14 @@ export class ExecutionContext {
    * );
    * ```
    *
-   * @example
-   * A string can also be passed in instead of a function.
+   * @example A string can also be passed in instead of a function.
    *
    * ```ts
    * const handle: JSHandle<number> = await context.evaluateHandle('1 + 2');
    * ```
    *
-   * @example
-   * Handles can also be passed as `args`. They resolve to their referenced object:
+   * @example Handles can also be passed as `args`. They resolve to their
+   * referenced object:
    *
    * ```ts
    * const bodyHandle: ElementHandle<HTMLBodyElement> =
@@ -180,11 +174,10 @@ export class ExecutionContext {
    * await stringHandle.dispose();
    * ```
    *
-   * @param pageFunction - The function to evaluate.
-   * @param args - Additional arguments to pass into the function.
-   * @returns A {@link JSHandle | handle} to the result of evaluating the
-   * function. If the result is a `Node`, then this will return an
-   * {@link ElementHandle | element handle}.
+   * @param pageFunction - The function to evaluate. @param args - Additional
+   * arguments to pass into the function. @returns A {@link JSHandle | handle}
+   * to the result of evaluating the function. If the result is a `Node`, then
+   * this will return an {@link ElementHandle | element handle}.
    */
   async evaluateHandle<
     Params extends unknown[],

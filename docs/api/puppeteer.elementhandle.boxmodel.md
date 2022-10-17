@@ -4,7 +4,8 @@ sidebar_label: ElementHandle.boxModel
 
 # ElementHandle.boxModel() method
 
-This method returns boxes of the element, or `null` if the element is not visible.
+This method returns boxes of the element, or `null` if the element is not
+visible.
 
 **Signature:**
 
@@ -20,4 +21,5 @@ Promise&lt;[BoxModel](./puppeteer.boxmodel.md) \| null&gt;
 
 ## Remarks
 
-Boxes are represented as an array of points; Each Point is an object `{x, y}`. Box points are sorted clock-wise.
+Boxes are represented as an array of points; Each Point is an object `{x, y}`.
+Box points are sorted clock-wise.

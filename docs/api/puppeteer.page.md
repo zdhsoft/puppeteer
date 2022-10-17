@@ -4,7 +4,9 @@ sidebar_label: Page
 
 # Page class
 
-Page provides methods to interact with a single tab or [extension background page](https://developer.chrome.com/extensions/background_pages) in Chromium.
+Page provides methods to interact with a single tab or
+[extension background page](https://developer.chrome.com/extensions/background_pages)
+in Chromium.
 
 :::note
 
@@ -22,7 +24,9 @@ export declare class Page extends EventEmitter
 
 ## Remarks
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `Page` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the `Page`
+class.
 
 ## Example 1
 
@@ -40,7 +44,10 @@ const puppeteer = require('puppeteer');
 })();
 ```
 
-The Page class extends from Puppeteer's [EventEmitter](./puppeteer.eventemitter.md) class and will emit various events which are documented in the [PageEmittedEvents](./puppeteer.pageemittedevents.md) enum.
+The Page class extends from Puppeteer's
+[EventEmitter](./puppeteer.eventemitter.md) class and will emit various events
+which are documented in the
+[PageEmittedEvents](./puppeteer.pageemittedevents.md) enum.
 
 ## Example 2
 
@@ -176,9 +183,13 @@ const puppeteer = require('puppeteer');
 })();
 ```
 
-|
-| [waitForTimeout(milliseconds)](./puppeteer.page.waitfortimeout.md) | | |
-| [waitForXPath(xpath, options)](./puppeteer.page.waitforxpath.md) | | <p>Wait for the <code>xpath</code> to appear in page. If at the moment of calling the method the <code>xpath</code> already exists, the method will return immediately. If the <code>xpath</code> doesn't appear after the <code>timeout</code> milliseconds of waiting, the function will throw.</p><p>This method works across navigation</p>
+| | [waitForTimeout(milliseconds)](./puppeteer.page.waitfortimeout.md) | | | |
+[waitForXPath(xpath, options)](./puppeteer.page.waitforxpath.md) | | <p>Wait for
+the <code>xpath</code> to appear in page. If at the moment of calling the method
+the <code>xpath</code> already exists, the method will return immediately. If
+the <code>xpath</code> doesn't appear after the <code>timeout</code>
+milliseconds of waiting, the function will throw.</p><p>This method works across
+navigation</p>
 
 ```ts
 const puppeteer = require('puppeteer');
@@ -200,5 +211,4 @@ const puppeteer = require('puppeteer');
 })();
 ```
 
-|
-| [workers()](./puppeteer.page.workers.md) | | |
+| | [workers()](./puppeteer.page.workers.md) | | |

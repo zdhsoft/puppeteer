@@ -46,4 +46,5 @@ Object containing metrics as key/value pairs.
 
 ## Remarks
 
-All timestamps are in monotonic time: monotonically increasing time in seconds since an arbitrary point in the past.
+All timestamps are in monotonic time: monotonically increasing time in seconds
+since an arbitrary point in the past.

@@ -6,7 +6,10 @@ sidebar_label: Frame
 
 Represents a DOM frame.
 
-To understand frames, you can think of frames as `<iframe>` elements. Just like iframes, frames can be nested, and when JavaScript is executed in a frame, the JavaScript does not effect frames inside the ambient frame the JavaScript executes in.
+To understand frames, you can think of frames as `<iframe>` elements. Just like
+iframes, frames can be nested, and when JavaScript is executed in a frame, the
+JavaScript does not effect frames inside the ambient frame the JavaScript
+executes in.
 
 **Signature:**
 
@@ -16,15 +19,22 @@ export declare class Frame
 
 ## Remarks
 
-Frame lifecycles are controlled by three events that are all dispatched on the parent [page](./puppeteer.frame.page.md):
+Frame lifecycles are controlled by three events that are all dispatched on the
+parent [page](./puppeteer.frame.page.md):
 
-- [PageEmittedEvents.FrameAttached](./puppeteer.pageemittedevents.md) - [PageEmittedEvents.FrameNavigated](./puppeteer.pageemittedevents.md) - [PageEmittedEvents.FrameDetached](./puppeteer.pageemittedevents.md)
+- [PageEmittedEvents.FrameAttached](./puppeteer.pageemittedevents.md) -
+  [PageEmittedEvents.FrameNavigated](./puppeteer.pageemittedevents.md) -
+  [PageEmittedEvents.FrameDetached](./puppeteer.pageemittedevents.md)
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `Frame` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the `Frame`
+class.
 
 ## Example 1
 
-At any point in time, [pages](./puppeteer.page.md) expose their current frame tree via the [Page.mainFrame()](./puppeteer.page.mainframe.md) and [Frame.childFrames()](./puppeteer.frame.childframes.md) methods.
+At any point in time, [pages](./puppeteer.page.md) expose their current frame
+tree via the [Page.mainFrame()](./puppeteer.page.mainframe.md) and
+[Frame.childFrames()](./puppeteer.frame.childframes.md) methods.
 
 ## Example 2
 

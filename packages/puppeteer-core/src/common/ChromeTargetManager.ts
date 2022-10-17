@@ -1,17 +1,17 @@
 /**
  * Copyright 2022 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import Protocol from 'devtools-protocol';
@@ -29,9 +29,9 @@ import {
 } from './TargetManager.js';
 
 /**
- * ChromeTargetManager uses the CDP's auto-attach mechanism to intercept
- * new targets and allow the rest of Puppeteer to configure listeners while
- * the target is paused.
+ * ChromeTargetManager uses the CDP's auto-attach mechanism to intercept new
+ * targets and allow the rest of Puppeteer to configure listeners while the
+ * target is paused.
  *
  * @internal
  */
@@ -41,17 +41,16 @@ export class ChromeTargetManager extends EventEmitter implements TargetManager {
    * Keeps track of the following events: 'Target.targetCreated',
    * 'Target.targetDestroyed', 'Target.targetInfoChanged'.
    *
-   * A target becomes discovered when 'Target.targetCreated' is received.
-   * A target is removed from this map once 'Target.targetDestroyed' is
-   * received.
+   * A target becomes discovered when 'Target.targetCreated' is received. A
+   * target is removed from this map once 'Target.targetDestroyed' is received.
    *
    * `targetFilterCallback` has no effect on this map.
    */
   #discoveredTargetsByTargetId: Map<string, Protocol.Target.TargetInfo> =
     new Map();
   /**
-   * A target is added to this map once ChromeTargetManager has created
-   * a Target and attached at least once to it.
+   * A target is added to this map once ChromeTargetManager has created a Target
+   * and attached at least once to it.
    */
   #attachedTargetsByTargetId: Map<string, Target> = new Map();
   /**
@@ -61,7 +60,8 @@ export class ChromeTargetManager extends EventEmitter implements TargetManager {
   #attachedTargetsBySessionId: Map<string, Target> = new Map();
   /**
    * If a target was filtered out by `targetFilterCallback`, we still receive
-   * events about it from CDP, but we don't forward them to the rest of Puppeteer.
+   * events about it from CDP, but we don't forward them to the rest of
+   * Puppeteer.
    */
   #ignoredTargets = new Set<string>();
   #targetFilterCallback: TargetFilterCallback | undefined;

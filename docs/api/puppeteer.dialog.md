@@ -4,7 +4,8 @@ sidebar_label: Dialog
 
 # Dialog class
 
-Dialog instances are dispatched by the [Page](./puppeteer.page.md) via the `dialog` event.
+Dialog instances are dispatched by the [Page](./puppeteer.page.md) via the
+`dialog` event.
 
 **Signature:**
 
@@ -14,7 +15,9 @@ export declare class Dialog
 
 ## Remarks
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `Dialog` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the `Dialog`
+class.
 
 ## Example
 

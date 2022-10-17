@@ -1,17 +1,17 @@
 /**
  * Copyright 2017 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 import {assert} from '../util/assert.js';
 import {debug} from './Debug.js';
@@ -90,8 +90,8 @@ export class Connection extends EventEmitter {
   }
 
   /**
-   * @param sessionId - The session id
-   * @returns The current CDP session if it exists
+   * @param sessionId - The session id @returns The current CDP session if it
+   * exists
    */
   session(sessionId: string): CDPSession | null {
     return this.#sessions.get(sessionId) || null;
@@ -251,8 +251,8 @@ export class Connection extends EventEmitter {
   }
 
   /**
-   * @param targetInfo - The target info
-   * @returns The CDP session that is created
+   * @param targetInfo - The target info @returns The CDP session that is
+   * created
    */
   async createSession(
     targetInfo: Protocol.Target.TargetInfo
@@ -286,11 +286,13 @@ export const CDPSessionEmittedEvents = {
  *
  * @remarks
  *
- * Protocol methods can be called with {@link CDPSession.send} method and protocol
- * events can be subscribed to with `CDPSession.on` method.
+ * Protocol methods can be called with {@link CDPSession.send} method and
+ * protocol events can be subscribed to with `CDPSession.on` method.
  *
- * Useful links: {@link https://chromedevtools.github.io/devtools-protocol/ | DevTools Protocol Viewer}
- * and {@link https://github.com/aslushnikov/getting-started-with-cdp/blob/HEAD/README.md | Getting Started with DevTools Protocol}.
+ * Useful links: {@link https://chromedevtools.github.io/devtools-protocol/ |
+ * DevTools Protocol Viewer} and {@link
+ * https://github.com/aslushnikov/getting-started-with-cdp/blob/HEAD/README.md |
+ * Getting Started with DevTools Protocol}.
  *
  * @example
  *
@@ -332,8 +334,8 @@ export class CDPSession extends EventEmitter {
   }
 
   /**
-   * Detaches the cdpSession from the target. Once detached, the cdpSession object
-   * won't emit any events and can't be used to send messages.
+   * Detaches the cdpSession from the target. Once detached, the cdpSession
+   * object won't emit any events and can't be used to send messages.
    */
   async detach(): Promise<void> {
     throw new Error('Not implemented');
@@ -424,8 +426,8 @@ export class CDPSessionImpl extends CDPSession {
   }
 
   /**
-   * Detaches the cdpSession from the target. Once detached, the cdpSession object
-   * won't emit any events and can't be used to send messages.
+   * Detaches the cdpSession from the target. Once detached, the cdpSession
+   * object won't emit any events and can't be used to send messages.
    */
   override async detach(): Promise<void> {
     if (!this.#connection) {

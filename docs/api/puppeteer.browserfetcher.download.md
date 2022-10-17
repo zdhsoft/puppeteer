@@ -26,9 +26,11 @@ class BrowserFetcher {
 
 **Returns:**
 
-Promise&lt;[BrowserFetcherRevisionInfo](./puppeteer.browserfetcherrevisioninfo.md) \| undefined&gt;
+Promise&lt;[BrowserFetcherRevisionInfo](./puppeteer.browserfetcherrevisioninfo.md)
+\| undefined&gt;
 
-A promise with revision information when the revision is downloaded and extracted.
+A promise with revision information when the revision is downloaded and
+extracted.
 
 ## Remarks
 

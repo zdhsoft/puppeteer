@@ -4,7 +4,9 @@ sidebar_label: Frame.evaluateHandle
 
 # Frame.evaluateHandle() method
 
-Behaves identically to [Page.evaluateHandle()](./puppeteer.page.evaluatehandle.md) except it's run within the context of this frame.
+Behaves identically to
+[Page.evaluateHandle()](./puppeteer.page.evaluatehandle.md) except it's run
+within the context of this frame.
 
 **Signature:**
 

@@ -16,4 +16,5 @@ class HTTPResponse {
 
 boolean
 
-True if the response was served from either the browser's disk cache or memory cache.
+True if the response was served from either the browser's disk cache or memory
+cache.

@@ -12,4 +12,5 @@ export declare type HandleFor<T> = T extends Node
   : JSHandle<T>;
 ```
 
-**References:** [ElementHandle](./puppeteer.elementhandle.md), [JSHandle](./puppeteer.jshandle.md)
+**References:** [ElementHandle](./puppeteer.elementhandle.md),
+[JSHandle](./puppeteer.jshandle.md)

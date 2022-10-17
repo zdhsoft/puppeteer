@@ -4,7 +4,8 @@ sidebar_label: Mouse
 
 # Mouse class
 
-The Mouse class operates in main-frame CSS pixels relative to the top-left corner of the viewport.
+The Mouse class operates in main-frame CSS pixels relative to the top-left
+corner of the viewport.
 
 **Signature:**
 
@@ -14,9 +15,12 @@ export declare class Mouse
 
 ## Remarks
 
-Every `page` object has its own Mouse, accessible with \[`page.mouse`\](\#pagemouse).
+Every `page` object has its own Mouse, accessible with
+\[`page.mouse`\](\#pagemouse).
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `Mouse` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the `Mouse`
+class.
 
 ## Example 1
 
@@ -31,9 +35,14 @@ await page.mouse.move(0, 0);
 await page.mouse.up();
 ```
 
-**Note**: The mouse events trigger synthetic `MouseEvent`s. This means that it does not fully replicate the functionality of what a normal user would be able to do with their mouse.
+**Note**: The mouse events trigger synthetic `MouseEvent`s. This means that it
+does not fully replicate the functionality of what a normal user would be able
+to do with their mouse.
 
-For example, dragging and selecting text is not possible using `page.mouse`. Instead, you can use the [\`DocumentOrShadowRoot.getSelection()\`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentOrShadowRoot/getSelection) functionality implemented in the platform.
+For example, dragging and selecting text is not possible using `page.mouse`.
+Instead, you can use the
+[\`DocumentOrShadowRoot.getSelection()\`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentOrShadowRoot/getSelection)
+functionality implemented in the platform.
 
 ## Example 2
 
@@ -54,7 +63,8 @@ await page.evaluate(
 );
 ```
 
-If you then would want to copy-paste your selection, you can use the clipboard api:
+If you then would want to copy-paste your selection, you can use the clipboard
+api:
 
 ```ts
 // The clipboard api does not allow you to copy, unless the tab is focused.
@@ -67,7 +77,8 @@ await page.evaluate(() => {
 });
 ```
 
-**Note**: If you want access to the clipboard API, you have to give it permission to do so:
+**Note**: If you want access to the clipboard API, you have to give it
+permission to do so:
 
 ```ts
 await browser

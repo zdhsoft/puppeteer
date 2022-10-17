@@ -4,7 +4,8 @@ sidebar_label: Keyboard.press
 
 # Keyboard.press() method
 
-Shortcut for [Keyboard.down()](./puppeteer.keyboard.down.md) and [Keyboard.up()](./puppeteer.keyboard.up.md).
+Shortcut for [Keyboard.down()](./puppeteer.keyboard.down.md) and
+[Keyboard.up()](./puppeteer.keyboard.up.md).
 
 **Signature:**
 
@@ -33,6 +34,9 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-If `key` is a single character and no modifier keys besides `Shift` are being held down, a `keypress`/`input` event will also generated. The `text` option can be specified to force an input event to be generated.
+If `key` is a single character and no modifier keys besides `Shift` are being
+held down, a `keypress`/`input` event will also generated. The `text` option can
+be specified to force an input event to be generated.
 
-Modifier keys DO effect [Keyboard.press()](./puppeteer.keyboard.press.md). Holding down `Shift` will type the text in upper case.
+Modifier keys DO effect [Keyboard.press()](./puppeteer.keyboard.press.md).
+Holding down `Shift` will type the text in upper case.

@@ -16,7 +16,8 @@ class JSHandle {
 
 Promise&lt;T&gt;
 
-A vanilla object representing the serializable portions of the referenced object.
+A vanilla object representing the serializable portions of the referenced
+object.
 
 ## Exceptions
 

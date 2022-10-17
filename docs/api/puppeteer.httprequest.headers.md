@@ -16,4 +16,5 @@ class HTTPRequest {
 
 Record&lt;string, string&gt;
 
-an object with HTTP headers associated with the request. All header names are lower-case.
+an object with HTTP headers associated with the request. All header names are
+lower-case.

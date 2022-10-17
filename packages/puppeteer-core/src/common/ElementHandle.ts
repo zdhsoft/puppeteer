@@ -1,17 +1,17 @@
 /**
  * Copyright 2019 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {Protocol} from 'devtools-protocol';
@@ -49,8 +49,7 @@ const applyOffsetsToQuad = (
 /**
  * ElementHandle represents an in-page DOM element.
  *
- * @remarks
- * ElementHandles can be created with the {@link Page.$} method.
+ * @remarks ElementHandles can be created with the {@link Page.$} method.
  *
  * ```ts
  * const puppeteer = require('puppeteer');
@@ -65,9 +64,9 @@ const applyOffsetsToQuad = (
  * })();
  * ```
  *
- * ElementHandle prevents the DOM element from being garbage-collected unless the
- * handle is {@link JSHandle.dispose | disposed}. ElementHandles are auto-disposed
- * when their origin frame gets navigated.
+ * ElementHandle prevents the DOM element from being garbage-collected unless
+ * the handle is {@link JSHandle.dispose | disposed}. ElementHandles are
+ * auto-disposed when their origin frame gets navigated.
  *
  * ElementHandle instances can be used as arguments in {@link Page.$eval} and
  * {@link Page.evaluate} methods.
@@ -112,9 +111,9 @@ export class ElementHandle<
   /**
    * Queries the current element for an element matching the given selector.
    *
-   * @param selector - The selector to query for.
-   * @returns A {@link ElementHandle | element handle} to the first element
-   * matching the given selector. Otherwise, `null`.
+   * @param selector - The selector to query for. @returns A {@link
+   * ElementHandle | element handle} to the first element matching the given
+   * selector. Otherwise, `null`.
    */
   async $<Selector extends string>(
     selector: Selector
@@ -134,9 +133,9 @@ export class ElementHandle<
   /**
    * Queries the current element for all elements matching the given selector.
    *
-   * @param selector - The selector to query for.
-   * @returns An array of {@link ElementHandle | element handles} that point to
-   * elements matching the given selector.
+   * @param selector - The selector to query for. @returns An array of {@link
+   * ElementHandle | element handles} that point to elements matching the given
+   * selector.
    */
   async $$<Selector extends string>(
     selector: Selector
@@ -171,12 +170,11 @@ export class ElementHandle<
    * );
    * ```
    *
-   * @param selector - The selector to query for.
-   * @param pageFunction - The function to be evaluated in this element's page's
-   * context. The first element matching the selector will be passed in as the
-   * first argument.
-   * @param args - Additional arguments to pass to `pageFunction`.
-   * @returns A promise to the result of the function.
+   * @param selector - The selector to query for. @param pageFunction - The
+   * function to be evaluated in this element's page's context. The first
+   * element matching the selector will be passed in as the first argument.
+   * @param args - Additional arguments to pass to `pageFunction`. @returns A
+   * promise to the result of the function.
    */
   async $eval<
     Selector extends string,
@@ -207,8 +205,7 @@ export class ElementHandle<
    * If the given function returns a promise, then this method will wait till
    * the promise resolves.
    *
-   * @example
-   * HTML:
+   * @example HTML:
    *
    * ```html
    * <div class="feed">
@@ -226,12 +223,11 @@ export class ElementHandle<
    * ).toEqual(['Hello!', 'Hi!']);
    * ```
    *
-   * @param selector - The selector to query for.
-   * @param pageFunction - The function to be evaluated in the element's page's
-   * context. An array of elements matching the given selector will be passed to
-   * the function as its first argument.
-   * @param args - Additional arguments to pass to `pageFunction`.
-   * @returns A promise to the result of the function.
+   * @param selector - The selector to query for. @param pageFunction - The
+   * function to be evaluated in the element's page's context. An array of
+   * elements matching the given selector will be passed to the function as its
+   * first argument. @param args - Additional arguments to pass to
+   * `pageFunction`. @returns A promise to the result of the function.
    */
   async $$eval<
     Selector extends string,
@@ -272,12 +268,14 @@ export class ElementHandle<
    *
    * Example: `await elementHandle.$$('xpath/' + xpathExpression)`
    *
-   * The method evaluates the XPath expression relative to the elementHandle.
-   * If `xpath` starts with `//` instead of `.//`, the dot will be appended
+   * The method evaluates the XPath expression relative to the elementHandle. If
+   * `xpath` starts with `//` instead of `.//`, the dot will be appended
    * automatically.
    *
    * If there are no such elements, the method will resolve to an empty array.
-   * @param expression - Expression to {@link https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate | evaluate}
+   * @param expression - Expression to {@link
+   * https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate |
+   * evaluate}
    */
   async $x(expression: string): Promise<Array<ElementHandle<Node>>> {
     if (expression.startsWith('//')) {
@@ -318,10 +316,10 @@ export class ElementHandle<
    * })();
    * ```
    *
-   * @param selector - The selector to query and wait for.
-   * @param options - Options for customizing waiting behavior.
-   * @returns An element matching the given selector.
-   * @throws Throws if an element matching the given selector doesn't appear.
+   * @param selector - The selector to query and wait for. @param options -
+   * Options for customizing waiting behavior. @returns An element matching the
+   * given selector. @throws Throws if an element matching the given selector
+   * doesn't appear.
    */
   async waitForSelector<Selector extends string>(
     selector: Selector,
@@ -375,15 +373,12 @@ export class ElementHandle<
    * })();
    * ```
    *
-   * @param xpath - A
-   * {@link https://developer.mozilla.org/en-US/docs/Web/XPath | xpath} of an
-   * element to wait for
-   * @param options - Optional waiting parameters
-   * @returns Promise which resolves when element specified by xpath string is
-   * added to DOM. Resolves to `null` if waiting for `hidden: true` and xpath is
-   * not found in DOM.
-   * @remarks
-   * The optional Argument `options` have properties:
+   * @param xpath - A {@link https://developer.mozilla.org/en-US/docs/Web/XPath
+   * | xpath} of an element to wait for @param options - Optional waiting
+   * parameters @returns Promise which resolves when element specified by xpath
+   * string is added to DOM. Resolves to `null` if waiting for `hidden: true`
+   * and xpath is not found in DOM. @remarks The optional Argument `options`
+   * have properties:
    *
    * - `visible`: A boolean to wait for element to be present in DOM and to be
    *   visible, i.e. to not have `display: none` or `visibility: hidden` CSS
@@ -417,8 +412,8 @@ export class ElementHandle<
   }
 
   /**
-   * Resolves to the content frame for element handles referencing
-   * iframe nodes, or null otherwise
+   * Resolves to the content frame for element handles referencing iframe nodes,
+   * or null otherwise
    */
   async contentFrame(): Promise<Frame | null> {
     const nodeInfo = await this.client.send('DOM.describeNode', {
@@ -511,7 +506,8 @@ export class ElementHandle<
   }
 
   /**
-   * Returns the middle point within an element unless a specific offset is provided.
+   * Returns the middle point within an element unless a specific offset is
+   * provided.
    */
   async clickablePoint(offset?: Offset): Promise<Point> {
     const [result, layoutMetrics] = await Promise.all([
@@ -614,9 +610,9 @@ export class ElementHandle<
   }
 
   /**
-   * This method scrolls element into view if needed, and then
-   * uses {@link Page.mouse} to hover over the center of the element.
-   * If the element is detached from DOM, the method throws an error.
+   * This method scrolls element into view if needed, and then uses {@link
+   * Page.mouse} to hover over the center of the element. If the element is
+   * detached from DOM, the method throws an error.
    */
   async hover(this: ElementHandle<Element>): Promise<void> {
     await this.#scrollIntoViewIfNeeded();
@@ -625,9 +621,9 @@ export class ElementHandle<
   }
 
   /**
-   * This method scrolls element into view if needed, and then
-   * uses {@link Page.mouse} to click in the center of the element.
-   * If the element is detached from DOM, the method throws an error.
+   * This method scrolls element into view if needed, and then uses {@link
+   * Page.mouse} to click in the center of the element. If the element is
+   * detached from DOM, the method throws an error.
    */
   async click(
     this: ElementHandle<Element>,
@@ -705,9 +701,9 @@ export class ElementHandle<
   }
 
   /**
-   * Triggers a `change` and `input` event once all the provided options have been
-   * selected. If there's no `<select>` element matching `selector`, the method
-   * throws an error.
+   * Triggers a `change` and `input` event once all the provided options have
+   * been selected. If there's no `<select>` element matching `selector`, the
+   * method throws an error.
    *
    * @example
    *
@@ -765,14 +761,15 @@ export class ElementHandle<
   }
 
   /**
-   * This method expects `elementHandle` to point to an
-   * {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input | input element}.
+   * This method expects `elementHandle` to point to an {@link
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input | input
+   * element}.
    *
-   * @param filePaths - Sets the value of the file input to these paths.
-   * If a path is relative, then it is resolved against the
-   * {@link https://nodejs.org/api/process.html#process_process_cwd | current working directory}.
-   * Note for locals script connecting to remote chrome environments,
-   * paths must be absolute.
+   * @param filePaths - Sets the value of the file input to these paths. If a
+   * path is relative, then it is resolved against the {@link
+   * https://nodejs.org/api/process.html#process_process_cwd | current working
+   * directory}. Note for locals script connecting to remote chrome
+   * environments, paths must be absolute.
    */
   async uploadFile(
     this: ElementHandle<HTMLInputElement>,
@@ -809,9 +806,10 @@ export class ElementHandle<
     const {node} = await this.client.send('DOM.describeNode', {objectId});
     const {backendNodeId} = node;
 
-    /*  The zero-length array is a special case, it seems that
-         DOM.setFileInputFiles does not actually update the files in that case,
-         so the solution is to eval the element value to a new FileList directly.
+    /**
+     * The zero-length array is a special case, it seems that
+     * DOM.setFileInputFiles does not actually update the files in that case, so
+     * the solution is to eval the element value to a new FileList directly.
      */
     if (files.length === 0) {
       await this.evaluate(element => {
@@ -831,9 +829,9 @@ export class ElementHandle<
   }
 
   /**
-   * This method scrolls element into view if needed, and then uses
-   * {@link Touchscreen.tap} to tap in the center of the element.
-   * If the element is detached from DOM, the method throws an error.
+   * This method scrolls element into view if needed, and then uses {@link
+   * Touchscreen.tap} to tap in the center of the element. If the element is
+   * detached from DOM, the method throws an error.
    */
   async tap(this: ElementHandle<Element>): Promise<void> {
     await this.#scrollIntoViewIfNeeded();
@@ -842,7 +840,9 @@ export class ElementHandle<
   }
 
   /**
-   * Calls {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus | focus} on the element.
+   * Calls {@link
+   * https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus | focus}
+   * on the element.
    */
   async focus(): Promise<void> {
     await this.evaluate(element => {
@@ -857,8 +857,8 @@ export class ElementHandle<
    * Focuses the element, and then sends a `keydown`, `keypress`/`input`, and
    * `keyup` event for each character in the text.
    *
-   * To press a special key, like `Control` or `ArrowDown`,
-   * use {@link ElementHandle.press}.
+   * To press a special key, like `Control` or `ArrowDown`, use {@link
+   * ElementHandle.press}.
    *
    * @example
    *
@@ -867,8 +867,8 @@ export class ElementHandle<
    * await elementHandle.type('World', {delay: 100}); // Types slower, like a user
    * ```
    *
-   * @example
-   * An example of typing into a text field and then submitting the form:
+   * @example An example of typing into a text field and then submitting the
+   * form:
    *
    * ```ts
    * const elementHandle = await page.$('input');
@@ -882,18 +882,19 @@ export class ElementHandle<
   }
 
   /**
-   * Focuses the element, and then uses {@link Keyboard.down} and {@link Keyboard.up}.
+   * Focuses the element, and then uses {@link Keyboard.down} and {@link
+   * Keyboard.up}.
    *
-   * @remarks
-   * If `key` is a single character and no modifier keys besides `Shift`
-   * are being held down, a `keypress`/`input` event will also be generated.
-   * The `text` option can be specified to force an input event to be generated.
+   * @remarks If `key` is a single character and no modifier keys besides
+   * `Shift` are being held down, a `keypress`/`input` event will also be
+   * generated. The `text` option can be specified to force an input event to be
+   * generated.
    *
-   * **NOTE** Modifier keys DO affect `elementHandle.press`. Holding down `Shift`
-   * will type the text in upper case.
+   * **NOTE** Modifier keys DO affect `elementHandle.press`. Holding down
+   * `Shift` will type the text in upper case.
    *
-   * @param key - Name of key to press, such as `ArrowLeft`.
-   * See {@link KeyInput} for a list of all key names.
+   * @param key - Name of key to press, such as `ArrowLeft`. See {@link
+   * KeyInput} for a list of all key names.
    */
   async press(key: KeyInput, options?: PressOptions): Promise<void> {
     await this.focus();
@@ -901,8 +902,8 @@ export class ElementHandle<
   }
 
   /**
-   * This method returns the bounding box of the element (relative to the main frame),
-   * or `null` if the element is not visible.
+   * This method returns the bounding box of the element (relative to the main
+   * frame), or `null` if the element is not visible.
    */
   async boundingBox(): Promise<BoundingBox | null> {
     const result = await this.#getBoxModel();
@@ -922,12 +923,13 @@ export class ElementHandle<
   }
 
   /**
-   * This method returns boxes of the element, or `null` if the element is not visible.
+   * This method returns boxes of the element, or `null` if the element is not
+   * visible.
    *
    * @remarks
    *
-   * Boxes are represented as an array of points;
-   * Each Point is an object `{x, y}`. Box points are sorted clock-wise.
+   * Boxes are represented as an array of points; Each Point is an object
+   * `{x, y}`. Box points are sorted clock-wise.
    */
   async boxModel(): Promise<BoxModel | null> {
     const result = await this.#getBoxModel();
@@ -966,9 +968,9 @@ export class ElementHandle<
   }
 
   /**
-   * This method scrolls element into view if needed, and then uses
-   * {@link Page.screenshot} to take a screenshot of the element.
-   * If the element is detached from DOM, the method throws an error.
+   * This method scrolls element into view if needed, and then uses {@link
+   * Page.screenshot} to take a screenshot of the element. If the element is
+   * detached from DOM, the method throws an error.
    */
   async screenshot(
     this: ElementHandle<Element>,

@@ -8,13 +8,15 @@ The extra HTTP headers will be sent with every request the page initiates.
 
 :::tip
 
-All HTTP header names are lowercased. (HTTP headers are case-insensitive, so this shouldn’t impact your server code.)
+All HTTP header names are lowercased. (HTTP headers are case-insensitive, so
+this shouldn’t impact your server code.)
 
 :::
 
 :::note
 
-page.setExtraHTTPHeaders does not guarantee the order of headers in the outgoing requests.
+page.setExtraHTTPHeaders does not guarantee the order of headers in the outgoing
+requests.
 
 :::
 

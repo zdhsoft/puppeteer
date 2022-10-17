@@ -32,8 +32,18 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-If `key` is a single character and no modifier keys besides `Shift` are being held down, a `keypress`/`input` event will also generated. The `text` option can be specified to force an input event to be generated. If `key` is a modifier key, `Shift`, `Meta`, `Control`, or `Alt`, subsequent key presses will be sent with that modifier active. To release the modifier key, use [Keyboard.up()](./puppeteer.keyboard.up.md).
+If `key` is a single character and no modifier keys besides `Shift` are being
+held down, a `keypress`/`input` event will also generated. The `text` option can
+be specified to force an input event to be generated. If `key` is a modifier
+key, `Shift`, `Meta`, `Control`, or `Alt`, subsequent key presses will be sent
+with that modifier active. To release the modifier key, use
+[Keyboard.up()](./puppeteer.keyboard.up.md).
 
-After the key is pressed once, subsequent calls to [Keyboard.down()](./puppeteer.keyboard.down.md) will have [repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat) set to true. To release the key, use [Keyboard.up()](./puppeteer.keyboard.up.md).
+After the key is pressed once, subsequent calls to
+[Keyboard.down()](./puppeteer.keyboard.down.md) will have
+[repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat)
+set to true. To release the key, use
+[Keyboard.up()](./puppeteer.keyboard.up.md).
 
-Modifier keys DO influence [Keyboard.down()](./puppeteer.keyboard.down.md). Holding down `Shift` will type the text in upper case.
+Modifier keys DO influence [Keyboard.down()](./puppeteer.keyboard.down.md).
+Holding down `Shift` will type the text in upper case.

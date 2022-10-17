@@ -6,7 +6,8 @@ sidebar_label: PageEventObject
 
 Denotes the objects received by callback functions for page events.
 
-See [PageEmittedEvents](./puppeteer.pageemittedevents.md) for more detail on the events and when they are emitted.
+See [PageEmittedEvents](./puppeteer.pageemittedevents.md) for more detail on the
+events and when they are emitted.
 
 **Signature:**
 

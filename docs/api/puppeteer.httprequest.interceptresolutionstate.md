@@ -16,8 +16,11 @@ class HTTPRequest {
 
 [InterceptResolutionState](./puppeteer.interceptresolutionstate.md)
 
-An InterceptResolutionState object describing the current resolution action and priority.
+An InterceptResolutionState object describing the current resolution action and
+priority.
 
-InterceptResolutionState contains: action: InterceptResolutionAction priority?: number
+InterceptResolutionState contains: action: InterceptResolutionAction priority?:
+number
 
-InterceptResolutionAction is one of: `abort`, `respond`, `continue`, `disabled`, `none`, or `already-handled`.
+InterceptResolutionAction is one of: `abort`, `respond`, `continue`, `disabled`,
+`none`, or `already-handled`.

@@ -4,7 +4,9 @@ sidebar_label: Browser
 
 # Browser class
 
-A Browser is created when Puppeteer connects to a Chromium instance, either through [PuppeteerNode.launch()](./puppeteer.puppeteernode.launch.md) or [Puppeteer.connect()](./puppeteer.puppeteer.connect.md).
+A Browser is created when Puppeteer connects to a Chromium instance, either
+through [PuppeteerNode.launch()](./puppeteer.puppeteernode.launch.md) or
+[Puppeteer.connect()](./puppeteer.puppeteer.connect.md).
 
 **Signature:**
 
@@ -16,13 +18,19 @@ export declare class Browser extends EventEmitter
 
 ## Remarks
 
-The Browser class extends from Puppeteer's [EventEmitter](./puppeteer.eventemitter.md) class and will emit various events which are documented in the [BrowserEmittedEvents](./puppeteer.browseremittedevents.md) enum.
+The Browser class extends from Puppeteer's
+[EventEmitter](./puppeteer.eventemitter.md) class and will emit various events
+which are documented in the
+[BrowserEmittedEvents](./puppeteer.browseremittedevents.md) enum.
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `Browser` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the `Browser`
+class.
 
 ## Example 1
 
-An example of using a [Browser](./puppeteer.browser.md) to create a [Page](./puppeteer.page.md):
+An example of using a [Browser](./puppeteer.browser.md) to create a
+[Page](./puppeteer.page.md):
 
 ```ts
 const puppeteer = require('puppeteer');
@@ -37,7 +45,8 @@ const puppeteer = require('puppeteer');
 
 ## Example 2
 
-An example of disconnecting from and reconnecting to a [Browser](./puppeteer.browser.md):
+An example of disconnecting from and reconnecting to a
+[Browser](./puppeteer.browser.md):
 
 ```ts
 const puppeteer = require('puppeteer');

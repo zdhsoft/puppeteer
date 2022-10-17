@@ -4,9 +4,11 @@ sidebar_label: ElementHandle.waitForSelector
 
 # ElementHandle.waitForSelector() method
 
-Wait for an element matching the given selector to appear in the current element.
+Wait for an element matching the given selector to appear in the current
+element.
 
-Unlike [Frame.waitForSelector()](./puppeteer.frame.waitforselector.md), this method does not work across navigations or if the element is detached from DOM.
+Unlike [Frame.waitForSelector()](./puppeteer.frame.waitforselector.md), this
+method does not work across navigations or if the element is detached from DOM.
 
 **Signature:**
 
@@ -28,7 +30,8 @@ class ElementHandle {
 
 **Returns:**
 
-Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;[NodeFor](./puppeteer.nodefor.md)&lt;Selector&gt;&gt; \| null&gt;
+Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;[NodeFor](./puppeteer.nodefor.md)&lt;Selector&gt;&gt;
+\| null&gt;
 
 An element matching the given selector.
 

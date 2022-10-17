@@ -4,7 +4,8 @@ sidebar_label: Page.$$
 
 # Page.$$() method
 
-The method runs `document.querySelectorAll` within the page. If no elements match the selector, the return value resolves to `[]`.
+The method runs `document.querySelectorAll` within the page. If no elements
+match the selector, the return value resolves to `[]`.
 
 **Signature:**
 

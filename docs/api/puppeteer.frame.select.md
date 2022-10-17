@@ -4,7 +4,8 @@ sidebar_label: Frame.select
 
 # Frame.select() method
 
-Selects a set of value on the first `<select>` element that matches the `selector`.
+Selects a set of value on the first `<select>` element that matches the
+`selector`.
 
 **Signature:**
 

@@ -12,4 +12,5 @@ export declare type EvaluateFunc<T extends unknown[]> = (
 ) => Awaitable<unknown>;
 ```
 
-**References:** [InnerParams](./puppeteer.innerparams.md), [Awaitable](./puppeteer.awaitable.md)
+**References:** [InnerParams](./puppeteer.innerparams.md),
+[Awaitable](./puppeteer.awaitable.md)

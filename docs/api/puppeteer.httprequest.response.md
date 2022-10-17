@@ -16,4 +16,5 @@ class HTTPRequest {
 
 [HTTPResponse](./puppeteer.httpresponse.md) \| null
 
-A matching `HTTPResponse` object, or null if the response has not been received yet.
+A matching `HTTPResponse` object, or null if the response has not been received
+yet.

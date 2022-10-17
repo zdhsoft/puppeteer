@@ -26,4 +26,6 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-NOTE: CSP bypassing happens at the moment of CSP initialization rather than evaluation. Usually, this means that `page.setBypassCSP` should be called before navigating to the domain.
+NOTE: CSP bypassing happens at the moment of CSP initialization rather than
+evaluation. Usually, this means that `page.setBypassCSP` should be called before
+navigating to the domain.

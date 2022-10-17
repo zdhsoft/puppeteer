@@ -26,4 +26,5 @@ class Frame {
 
 Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;HTMLScriptElement&gt;&gt;
 
-An [element handle](./puppeteer.elementhandle.md) to the injected `<script>` element.
+An [element handle](./puppeteer.elementhandle.md) to the injected `<script>`
+element.

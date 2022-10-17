@@ -4,7 +4,9 @@ sidebar_label: Keyboard
 
 # Keyboard class
 
-Keyboard provides an api for managing a virtual keyboard. The high level api is [Keyboard.type()](./puppeteer.keyboard.type.md), which takes raw characters and generates proper keydown, keypress/input, and keyup events on your page.
+Keyboard provides an api for managing a virtual keyboard. The high level api is
+[Keyboard.type()](./puppeteer.keyboard.type.md), which takes raw characters and
+generates proper keydown, keypress/input, and keyup events on your page.
 
 **Signature:**
 
@@ -14,11 +16,17 @@ export declare class Keyboard
 
 ## Remarks
 
-For finer control, you can use [Keyboard.down()](./puppeteer.keyboard.down.md), [Keyboard.up()](./puppeteer.keyboard.up.md), and [Keyboard.sendCharacter()](./puppeteer.keyboard.sendcharacter.md) to manually fire events as if they were generated from a real keyboard.
+For finer control, you can use [Keyboard.down()](./puppeteer.keyboard.down.md),
+[Keyboard.up()](./puppeteer.keyboard.up.md), and
+[Keyboard.sendCharacter()](./puppeteer.keyboard.sendcharacter.md) to manually
+fire events as if they were generated from a real keyboard.
 
-On macOS, keyboard shortcuts like `⌘ A` -&gt; Select All do not work. See [\#1313](https://github.com/puppeteer/puppeteer/issues/1313).
+On macOS, keyboard shortcuts like `⌘ A` -&gt; Select All do not work. See
+[\#1313](https://github.com/puppeteer/puppeteer/issues/1313).
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `Keyboard` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`Keyboard` class.
 
 ## Example 1
 

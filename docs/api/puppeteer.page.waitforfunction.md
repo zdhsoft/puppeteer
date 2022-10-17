@@ -35,7 +35,8 @@ Promise&lt;[HandleFor](./puppeteer.handlefor.md)&lt;Awaited&lt;ReturnType&lt;Fun
 
 ## Example 1
 
-The [Page.waitForFunction()](./puppeteer.page.waitforfunction.md) can be used to observe viewport size change:
+The [Page.waitForFunction()](./puppeteer.page.waitforfunction.md) can be used to
+observe viewport size change:
 
 ```ts
 const puppeteer = require('puppeteer');
@@ -51,7 +52,8 @@ const puppeteer = require('puppeteer');
 
 ## Example 2
 
-To pass arguments from node.js to the predicate of [Page.waitForFunction()](./puppeteer.page.waitforfunction.md) function:
+To pass arguments from node.js to the predicate of
+[Page.waitForFunction()](./puppeteer.page.waitforfunction.md) function:
 
 ```ts
 const selector = '.foo';
@@ -64,7 +66,8 @@ await page.waitForFunction(
 
 ## Example 3
 
-The predicate of [Page.waitForFunction()](./puppeteer.page.waitforfunction.md) can be asynchronous too:
+The predicate of [Page.waitForFunction()](./puppeteer.page.waitforfunction.md)
+can be asynchronous too:
 
 ```ts
 const username = 'github-username';

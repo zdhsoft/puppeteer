@@ -14,11 +14,16 @@ export declare class FileChooser
 
 ## Remarks
 
-`FileChooser` instances are returned via the [Page.waitForFileChooser()](./puppeteer.page.waitforfilechooser.md) method.
+`FileChooser` instances are returned via the
+[Page.waitForFileChooser()](./puppeteer.page.waitforfilechooser.md) method.
 
-In browsers, only one file chooser can be opened at a time. All file choosers must be accepted or canceled. Not doing so will prevent subsequent file choosers from appearing.
+In browsers, only one file chooser can be opened at a time. All file choosers
+must be accepted or canceled. Not doing so will prevent subsequent file choosers
+from appearing.
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `FileChooser` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`FileChooser` class.
 
 ## Example
 

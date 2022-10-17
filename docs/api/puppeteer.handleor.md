@@ -10,4 +10,5 @@ sidebar_label: HandleOr
 export declare type HandleOr<T> = HandleFor<T> | JSHandle<T> | T;
 ```
 
-**References:** [HandleFor](./puppeteer.handlefor.md), [JSHandle](./puppeteer.jshandle.md)
+**References:** [HandleFor](./puppeteer.handlefor.md),
+[JSHandle](./puppeteer.jshandle.md)

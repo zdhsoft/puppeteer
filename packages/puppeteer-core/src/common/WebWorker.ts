@@ -1,17 +1,17 @@
 /**
  * Copyright 2018 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 import {Protocol} from 'devtools-protocol';
 import {CDPSession} from './Connection.js';
@@ -40,12 +40,12 @@ export type ExceptionThrownCallback = (
 ) => void;
 
 /**
- * This class represents a
- * {@link https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API | WebWorker}.
+ * This class represents a {@link
+ * https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API |
+ * WebWorker}.
  *
- * @remarks
- * The events `workercreated` and `workerdestroyed` are emitted on the page
- * object to signal the worker lifecycle.
+ * @remarks The events `workercreated` and `workerdestroyed` are emitted on the
+ * page object to signal the worker lifecycle.
  *
  * @example
  *
@@ -127,12 +127,12 @@ export class WebWorker extends EventEmitter {
    * non-serializable value, then `worker.evaluate` resolves to `undefined`.
    * DevTools Protocol also supports transferring some additional values that
    * are not serializable by `JSON`: `-0`, `NaN`, `Infinity`, `-Infinity`, and
-   * bigint literals.
-   * Shortcut for `await worker.executionContext()).evaluate(pageFunction, ...args)`.
+   * bigint literals. Shortcut for
+   * `await worker.executionContext()).evaluate(pageFunction, ...args)`.
    *
    * @param pageFunction - Function to be evaluated in the worker context.
-   * @param args - Arguments to pass to `pageFunction`.
-   * @returns Promise which resolves to the return value of `pageFunction`.
+   * @param args - Arguments to pass to `pageFunction`. @returns Promise which
+   * resolves to the return value of `pageFunction`.
    */
   async evaluate<
     Params extends unknown[],
@@ -153,9 +153,9 @@ export class WebWorker extends EventEmitter {
    * its value. Shortcut for
    * `await worker.executionContext()).evaluateHandle(pageFunction, ...args)`
    *
-   * @param pageFunction - Function to be evaluated in the page context.
-   * @param args - Arguments to pass to `pageFunction`.
-   * @returns Promise which resolves to the return value of `pageFunction`.
+   * @param pageFunction - Function to be evaluated in the page context. @param
+   * args - Arguments to pass to `pageFunction`. @returns Promise which resolves
+   * to the return value of `pageFunction`.
    */
   async evaluateHandle<
     Params extends unknown[],

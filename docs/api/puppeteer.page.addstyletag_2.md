@@ -22,4 +22,5 @@ class Page {
 
 **Returns:**
 
-Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;HTMLStyleElement \| HTMLLinkElement&gt;&gt;
+Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;HTMLStyleElement \|
+HTMLLinkElement&gt;&gt;

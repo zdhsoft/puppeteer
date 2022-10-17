@@ -4,7 +4,8 @@ sidebar_label: PDFOptions
 
 # PDFOptions interface
 
-Valid options to configure PDF generation via [Page.pdf()](./puppeteer.page.pdf.md).
+Valid options to configure PDF generation via
+[Page.pdf()](./puppeteer.page.pdf.md).
 
 **Signature:**
 

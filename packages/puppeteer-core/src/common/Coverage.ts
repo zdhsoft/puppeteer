@@ -1,17 +1,17 @@
 /**
  * Copyright 2017 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {assert} from '../util/assert.js';
@@ -28,8 +28,7 @@ import {removeEventListeners} from './util.js';
 export {PuppeteerEventListener};
 
 /**
- * The CoverageEntry class represents one entry of the coverage report.
- * @public
+ * The CoverageEntry class represents one entry of the coverage report. @public
  */
 export interface CoverageEntry {
   /**
@@ -47,8 +46,7 @@ export interface CoverageEntry {
 }
 
 /**
- * The CoverageEntry class for JavaScript
- * @public
+ * The CoverageEntry class for JavaScript @public
  */
 export interface JSCoverageEntry extends CoverageEntry {
   /**
@@ -58,8 +56,7 @@ export interface JSCoverageEntry extends CoverageEntry {
 }
 
 /**
- * Set of configurable options for JS coverage.
- * @public
+ * Set of configurable options for JS coverage. @public
  */
 export interface JSCoverageOptions {
   /**
@@ -75,16 +72,15 @@ export interface JSCoverageOptions {
    */
   includeRawScriptCoverage?: boolean;
   /**
-   * Whether to collect coverage information at the block level.
-   * If true, coverage will be collected at the block level (this is the default).
-   * If false, coverage will be collected at the function level.
+   * Whether to collect coverage information at the block level. If true,
+   * coverage will be collected at the block level (this is the default). If
+   * false, coverage will be collected at the function level.
    */
   useBlockCoverage?: boolean;
 }
 
 /**
- * Set of configurable options for CSS coverage.
- * @public
+ * Set of configurable options for CSS coverage. @public
  */
 export interface CSSCoverageOptions {
   /**
@@ -97,13 +93,12 @@ export interface CSSCoverageOptions {
  * The Coverage class provides methods to gathers information about parts of
  * JavaScript and CSS that were used by the page.
  *
- * @remarks
- * To output coverage in a form consumable by {@link https://github.com/istanbuljs | Istanbul},
- * see {@link https://github.com/istanbuljs/puppeteer-to-istanbul | puppeteer-to-istanbul}.
+ * @remarks To output coverage in a form consumable by {@link
+ * https://github.com/istanbuljs | Istanbul}, see {@link
+ * https://github.com/istanbuljs/puppeteer-to-istanbul | puppeteer-to-istanbul}.
  *
- * @example
- * An example of using JavaScript and CSS coverage to get percentage of initially
- * executed code:
+ * @example An example of using JavaScript and CSS coverage to get percentage of
+ * initially executed code:
  *
  * ```ts
  * // Enable both JavaScript and CSS coverage
@@ -142,12 +137,11 @@ export class Coverage {
   /**
    * @param options - Set of configurable options for coverage defaults to
    * `resetOnNavigation : true, reportAnonymousScripts : false,`
-   * `includeRawScriptCoverage : false, useBlockCoverage : true`
-   * @returns Promise that resolves when coverage is started.
+   * `includeRawScriptCoverage : false, useBlockCoverage : true` @returns
+   * Promise that resolves when coverage is started.
    *
-   * @remarks
-   * Anonymous scripts are ones that don't have an associated url. These are
-   * scripts that are dynamically created on the page using `eval` or
+   * @remarks Anonymous scripts are ones that don't have an associated url.
+   * These are scripts that are dynamically created on the page using `eval` or
    * `new Function`. If `reportAnonymousScripts` is set to `true`, anonymous
    * scripts URL will start with `debugger://VM` (unless a magic //# sourceURL
    * comment is present, in which case that will the be URL).
@@ -157,11 +151,10 @@ export class Coverage {
   }
 
   /**
-   * @returns Promise that resolves to the array of coverage reports for
-   * all scripts.
+   * @returns Promise that resolves to the array of coverage reports for all
+   * scripts.
    *
-   * @remarks
-   * JavaScript Coverage doesn't include anonymous scripts by default.
+   * @remarks JavaScript Coverage doesn't include anonymous scripts by default.
    * However, scripts with sourceURLs are reported.
    */
   async stopJSCoverage(): Promise<JSCoverageEntry[]> {
@@ -170,19 +163,17 @@ export class Coverage {
 
   /**
    * @param options - Set of configurable options for coverage, defaults to
-   * `resetOnNavigation : true`
-   * @returns Promise that resolves when coverage is started.
+   * `resetOnNavigation : true` @returns Promise that resolves when coverage is
+   * started.
    */
   async startCSSCoverage(options: CSSCoverageOptions = {}): Promise<void> {
     return await this.#cssCoverage.start(options);
   }
 
   /**
-   * @returns Promise that resolves to the array of coverage reports
-   * for all stylesheets.
-   * @remarks
-   * CSS Coverage doesn't include dynamically injected style tags
-   * without sourceURLs.
+   * @returns Promise that resolves to the array of coverage reports for all
+   * stylesheets. @remarks CSS Coverage doesn't include dynamically injected
+   * style tags without sourceURLs.
    */
   async stopCSSCoverage(): Promise<CoverageEntry[]> {
     return await this.#cssCoverage.stop();

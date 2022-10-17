@@ -1,17 +1,17 @@
 /**
  * Copyright 2020 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 import {Protocol} from 'devtools-protocol';
 import {ProtocolMapping} from 'devtools-protocol/types/protocol-mapping.js';
@@ -80,8 +80,7 @@ interface CDPSession extends EventEmitter {
 }
 
 /**
- * Represents an HTTP request sent by a page.
- * @remarks
+ * Represents an HTTP request sent by a page. @remarks
  *
  * Whenever the page sends a request, such as for a network resource, the
  * following events are emitted by Puppeteer's `page`:
@@ -105,8 +104,8 @@ interface CDPSession extends EventEmitter {
  * `requestfinished` event.
  *
  * If request gets a 'redirect' response, the request is successfully finished
- * with the `requestfinished` event, and a new request is issued to a
- * redirected url.
+ * with the `requestfinished` event, and a new request is issued to a redirected
+ * url.
  *
  * @public
  */
@@ -205,9 +204,9 @@ export class HTTPRequest {
   }
 
   /**
-   * @returns the `ContinueRequestOverrides` that will be used
-   * if the interception is allowed to continue (ie, `abort()` and
-   * `respond()` aren't called).
+   * @returns the `ContinueRequestOverrides` that will be used if the
+   * interception is allowed to continue (ie, `abort()` and `respond()` aren't
+   * called).
    */
   continueRequestOverrides(): ContinueRequestOverrides {
     assert(this.#allowInterception, 'Request Interception is not enabled!');
@@ -215,8 +214,8 @@ export class HTTPRequest {
   }
 
   /**
-   * @returns The `ResponseForRequest` that gets used if the
-   * interception is allowed to respond (ie, `abort()` is not called).
+   * @returns The `ResponseForRequest` that gets used if the interception is
+   * allowed to respond (ie, `abort()` is not called).
    */
   responseForRequest(): Partial<ResponseForRequest> | null {
     assert(this.#allowInterception, 'Request Interception is not enabled!');
@@ -232,11 +231,10 @@ export class HTTPRequest {
   }
 
   /**
-   * @returns An InterceptResolutionState object describing the current resolution
-   * action and priority.
+   * @returns An InterceptResolutionState object describing the current
+   * resolution action and priority.
    *
-   * InterceptResolutionState contains:
-   * action: InterceptResolutionAction
+   * InterceptResolutionState contains: action: InterceptResolutionAction
    * priority?: number
    *
    * InterceptResolutionAction is one of: `abort`, `respond`, `continue`,
@@ -261,10 +259,9 @@ export class HTTPRequest {
   }
 
   /**
-   * Adds an async request handler to the processing queue.
-   * Deferred handlers are not guaranteed to execute in any particular order,
-   * but they are guaranteed to resolve before the request interception
-   * is finalized.
+   * Adds an async request handler to the processing queue. Deferred handlers
+   * are not guaranteed to execute in any particular order, but they are
+   * guaranteed to resolve before the request interception is finalized.
    */
   enqueueInterceptAction(
     pendingHandler: () => void | PromiseLike<unknown>
@@ -273,8 +270,8 @@ export class HTTPRequest {
   }
 
   /**
-   * Awaits pending interception handlers and then decides how to fulfill
-   * the request interception.
+   * Awaits pending interception handlers and then decides how to fulfill the
+   * request interception.
    */
   async finalizeInterceptions(): Promise<void> {
     await this.#interceptHandlers.reduce((promiseChain, interceptAction) => {
@@ -341,7 +338,8 @@ export class HTTPRequest {
   }
 
   /**
-   * @returns true if the request is the driver of the current frame's navigation.
+   * @returns true if the request is the driver of the current frame's
+   * navigation.
    */
   isNavigationRequest(): boolean {
     return this.#isNavigationRequest;
@@ -370,7 +368,8 @@ export class HTTPRequest {
    * console.log(chain[0].url()); // 'http://example.com'
    * ```
    *
-   * If the website `https://google.com` has no redirects, then the chain will be empty:
+   * If the website `https://google.com` has no redirects, then the chain will
+   * be empty:
    *
    * ```ts
    * const response = await page.goto('https://google.com');
@@ -419,8 +418,8 @@ export class HTTPRequest {
    *
    * @remarks
    *
-   * To use this, request
-   * interception should be enabled with {@link Page.setRequestInterception}.
+   * To use this, request interception should be enabled with {@link
+   * Page.setRequestInterception}.
    *
    * Exception is immediately thrown if the request interception is not enabled.
    *
@@ -438,10 +437,9 @@ export class HTTPRequest {
    * });
    * ```
    *
-   * @param overrides - optional overrides to apply to the request.
-   * @param priority - If provided, intercept is resolved using
-   * cooperative handling rules. Otherwise, intercept is resolved
-   * immediately.
+   * @param overrides - optional overrides to apply to the request. @param
+   * priority - If provided, intercept is resolved using cooperative handling
+   * rules. Otherwise, intercept is resolved immediately.
    */
   async continue(
     overrides: ContinueRequestOverrides = {},
@@ -512,13 +510,12 @@ export class HTTPRequest {
    *
    * @remarks
    *
-   * To use this, request
-   * interception should be enabled with {@link Page.setRequestInterception}.
+   * To use this, request interception should be enabled with {@link
+   * Page.setRequestInterception}.
    *
    * Exception is immediately thrown if the request interception is not enabled.
    *
-   * @example
-   * An example of fulfilling all requests with 404 responses:
+   * @example An example of fulfilling all requests with 404 responses:
    *
    * ```ts
    * await page.setRequestInterception(true);
@@ -531,13 +528,12 @@ export class HTTPRequest {
    * });
    * ```
    *
-   * NOTE: Mocking responses for dataURL requests is not supported.
-   * Calling `request.respond` for a dataURL request is a noop.
+   * NOTE: Mocking responses for dataURL requests is not supported. Calling
+   * `request.respond` for a dataURL request is a noop.
    *
-   * @param response - the response to fulfill the request with.
-   * @param priority - If provided, intercept is resolved using
-   * cooperative handling rules. Otherwise, intercept is resolved
-   * immediately.
+   * @param response - the response to fulfill the request with. @param
+   * priority - If provided, intercept is resolved using cooperative handling
+   * rules. Otherwise, intercept is resolved immediately.
    */
   async respond(
     response: Partial<ResponseForRequest>,
@@ -623,15 +619,13 @@ export class HTTPRequest {
   /**
    * Aborts a request.
    *
-   * @remarks
-   * To use this, request interception should be enabled with
-   * {@link Page.setRequestInterception}. If it is not enabled, this method will
-   * throw an exception immediately.
+   * @remarks To use this, request interception should be enabled with {@link
+   * Page.setRequestInterception}. If it is not enabled, this method will throw
+   * an exception immediately.
    *
-   * @param errorCode - optional error code to provide.
-   * @param priority - If provided, intercept is resolved using
-   * cooperative handling rules. Otherwise, intercept is resolved
-   * immediately.
+   * @param errorCode - optional error code to provide. @param priority - If
+   * provided, intercept is resolved using cooperative handling rules.
+   * Otherwise, intercept is resolved immediately.
    */
   async abort(
     errorCode: ErrorCode = 'failed',

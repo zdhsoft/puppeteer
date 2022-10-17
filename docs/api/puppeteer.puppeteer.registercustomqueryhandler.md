@@ -30,7 +30,9 @@ void
 
 ## Remarks
 
-After registration, the handler can be used everywhere where a selector is expected by prepending the selection string with `<name>/`. The name is only allowed to consist of lower- and upper case latin letters.
+After registration, the handler can be used everywhere where a selector is
+expected by prepending the selection string with `<name>/`. The name is only
+allowed to consist of lower- and upper case latin letters.
 
 ## Example
 

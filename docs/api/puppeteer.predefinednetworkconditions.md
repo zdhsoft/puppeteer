@@ -4,7 +4,8 @@ sidebar_label: PredefinedNetworkConditions
 
 # PredefinedNetworkConditions variable
 
-A list of network conditions to be used with [Page.emulateNetworkConditions()](./puppeteer.page.emulatenetworkconditions.md).
+A list of network conditions to be used with
+[Page.emulateNetworkConditions()](./puppeteer.page.emulatenetworkconditions.md).
 
 **Signature:**
 

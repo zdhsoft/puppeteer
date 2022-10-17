@@ -4,7 +4,10 @@ sidebar_label: BrowserContext
 
 # BrowserContext class
 
-BrowserContexts provide a way to operate multiple independent browser sessions. When a browser is launched, it has a single BrowserContext used by default. The method [Browser.newPage](./puppeteer.browser.newpage.md) creates a page in the default browser context.
+BrowserContexts provide a way to operate multiple independent browser sessions.
+When a browser is launched, it has a single BrowserContext used by default. The
+method [Browser.newPage](./puppeteer.browser.newpage.md) creates a page in the
+default browser context.
 
 **Signature:**
 
@@ -16,13 +19,21 @@ export declare class BrowserContext extends EventEmitter
 
 ## Remarks
 
-The Browser class extends from Puppeteer's [EventEmitter](./puppeteer.eventemitter.md) class and will emit various events which are documented in the [BrowserContextEmittedEvents](./puppeteer.browsercontextemittedevents.md) enum.
+The Browser class extends from Puppeteer's
+[EventEmitter](./puppeteer.eventemitter.md) class and will emit various events
+which are documented in the
+[BrowserContextEmittedEvents](./puppeteer.browsercontextemittedevents.md) enum.
 
-If a page opens another page, e.g. with a `window.open` call, the popup will belong to the parent page's browser context.
+If a page opens another page, e.g. with a `window.open` call, the popup will
+belong to the parent page's browser context.
 
-Puppeteer allows creation of "incognito" browser contexts with [Browser.createIncognitoBrowserContext](./puppeteer.browser.createincognitobrowsercontext.md) method. "Incognito" browser contexts don't write any browsing data to disk.
+Puppeteer allows creation of "incognito" browser contexts with
+[Browser.createIncognitoBrowserContext](./puppeteer.browser.createincognitobrowsercontext.md)
+method. "Incognito" browser contexts don't write any browsing data to disk.
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `BrowserContext` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`BrowserContext` class.
 
 ## Example
 

@@ -1,17 +1,17 @@
 /**
  * Copyright 2017 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {exec as execChildProcess} from 'child_process';
@@ -176,24 +176,20 @@ export interface BrowserFetcherRevisionInfo {
  * BrowserFetcher can download and manage different versions of Chromium and
  * Firefox.
  *
- * @remarks
- * BrowserFetcher operates on revision strings that specify a precise version of
- * Chromium, e.g. `"533271"`. Revision strings can be obtained from
+ * @remarks BrowserFetcher operates on revision strings that specify a precise
+ * version of Chromium, e.g. `"533271"`. Revision strings can be obtained from
  * {@link http://omahaproxy.appspot.com/ | omahaproxy.appspot.com}. For Firefox,
  * BrowserFetcher downloads Firefox Nightly and operates on version numbers such
  * as `"75"`.
  *
- * @remarks
- * The default constructed fetcher will always be for Chromium unless otherwise
- * specified.
+ * @remarks The default constructed fetcher will always be for Chromium unless
+ * otherwise specified.
  *
- * @remarks
- * BrowserFetcher is not designed to work concurrently with other instances of
- * BrowserFetcher that share the same downloads directory.
+ * @remarks BrowserFetcher is not designed to work concurrently with other
+ * instances of BrowserFetcher that share the same downloads directory.
  *
- * @example
- * An example of using BrowserFetcher to download a specific version of Chromium
- * and running Puppeteer against it:
+ * @example An example of using BrowserFetcher to download a specific version of
+ * Chromium and running Puppeteer against it:
  *
  * ```ts
  * const browserFetcher = new BrowserFetcher();
@@ -290,12 +286,10 @@ export class BrowserFetcher {
   }
 
   /**
-   * Initiates a HEAD request to check if the revision is available.
-   * @remarks
-   * This method is affected by the current `product`.
-   * @param revision - The revision to check availability for.
-   * @returns A promise that resolves to `true` if the revision could be downloaded
-   * from the host.
+   * Initiates a HEAD request to check if the revision is available. @remarks
+   * This method is affected by the current `product`. @param revision - The
+   * revision to check availability for. @returns A promise that resolves to
+   * `true` if the revision could be downloaded from the host.
    */
   canDownload(revision: string): Promise<boolean> {
     const url = downloadURL(
@@ -321,14 +315,12 @@ export class BrowserFetcher {
   }
 
   /**
-   * Initiates a GET request to download the revision from the host.
-   * @remarks
-   * This method is affected by the current `product`.
-   * @param revision - The revision to download.
-   * @param progressCallback - A function that will be called with two arguments:
-   * How many bytes have been downloaded and the total number of bytes of the download.
-   * @returns A promise with revision information when the revision is downloaded
-   * and extracted.
+   * Initiates a GET request to download the revision from the host. @remarks
+   * This method is affected by the current `product`. @param revision - The
+   * revision to download. @param progressCallback - A function that will be
+   * called with two arguments: How many bytes have been downloaded and the
+   * total number of bytes of the download. @returns A promise with revision
+   * information when the revision is downloaded and extracted.
    */
   async download(
     revision: string,
@@ -372,9 +364,8 @@ export class BrowserFetcher {
   }
 
   /**
-   * @remarks
-   * This method is affected by the current `product`.
-   * @returns A promise with a list of all revision strings (for the current `product`)
+   * @remarks This method is affected by the current `product`. @returns A
+   * promise with a list of all revision strings (for the current `product`)
    * available locally on disk.
    */
   async localRevisions(): Promise<string[]> {
@@ -399,11 +390,10 @@ export class BrowserFetcher {
   }
 
   /**
-   * @remarks
-   * This method is affected by the current `product`.
-   * @param revision - A revision to remove for the current `product`.
-   * @returns A promise that resolves when the revision has been removes or
-   * throws if the revision has not been downloaded.
+   * @remarks This method is affected by the current `product`. @param
+   * revision - A revision to remove for the current `product`. @returns A
+   * promise that resolves when the revision has been removes or throws if the
+   * revision has not been downloaded.
    */
   async remove(revision: string): Promise<void> {
     const folderPath = this.#getFolderPath(revision);
@@ -417,8 +407,8 @@ export class BrowserFetcher {
   }
 
   /**
-   * @param revision - The revision to get info for.
-   * @returns The revision info for the given revision.
+   * @param revision - The revision to get info for. @returns The revision info
+   * for the given revision.
    */
   revisionInfo(revision: string): BrowserFetcherRevisionInfo {
     const folderPath = this.#getFolderPath(revision);
@@ -523,8 +513,7 @@ function parseFolderPath(
 }
 
 /**
- * Windows 11 is identified by 10.0.22000 or greater
- * @internal
+ * Windows 11 is identified by 10.0.22000 or greater @internal
  */
 function isWindows11(version: string): boolean {
   const parts = version.split('.');

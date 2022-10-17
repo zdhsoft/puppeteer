@@ -26,8 +26,10 @@ class Page {
 
 Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;HTMLScriptElement&gt;&gt;
 
-An [element handle](./puppeteer.elementhandle.md) to the injected `<script>` element.
+An [element handle](./puppeteer.elementhandle.md) to the injected `<script>`
+element.
 
 ## Remarks
 
-Shortcut for [page.mainFrame().addScriptTag(options)](./puppeteer.frame.addscripttag.md).
+Shortcut for
+[page.mainFrame().addScriptTag(options)](./puppeteer.frame.addscripttag.md).

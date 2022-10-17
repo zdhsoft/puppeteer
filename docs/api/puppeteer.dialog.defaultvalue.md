@@ -16,4 +16,5 @@ class Dialog {
 
 string
 
-The default value of the prompt, or an empty string if the dialog is not a `prompt`.
+The default value of the prompt, or an empty string if the dialog is not a
+`prompt`.

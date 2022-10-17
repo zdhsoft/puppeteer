@@ -1,17 +1,17 @@
 /**
  * Copyright 2019 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {Page, PageEmittedEvents} from '../api/Page.js';
@@ -155,7 +155,8 @@ export class Target {
   }
 
   /**
-   * If the target is not of type `"page"` or `"background_page"`, returns `null`.
+   * If the target is not of type `"page"` or `"background_page"`, returns
+   * `null`.
    */
   async page(): Promise<Page | null> {
     if (this._isPageTargetCallback(this.#targetInfo) && !this.#pagePromise) {
@@ -177,7 +178,8 @@ export class Target {
   }
 
   /**
-   * If the target is not of type `"service_worker"` or `"shared_worker"`, returns `null`.
+   * If the target is not of type `"service_worker"` or `"shared_worker"`,
+   * returns `null`.
    */
   async worker(): Promise<WebWorker | null> {
     if (
@@ -213,7 +215,8 @@ export class Target {
    *
    * @remarks
    *
-   * See {@link https://developer.chrome.com/extensions/background_pages | docs} for more info about background pages.
+   * See {@link https://developer.chrome.com/extensions/background_pages | docs}
+   * for more info about background pages.
    */
   type():
     | 'page'

@@ -6,7 +6,8 @@ sidebar_label: InterceptResolutionStrategy
 
 > Warning: This API is now obsolete.
 >
-> please use [InterceptResolutionAction](./puppeteer.interceptresolutionaction.md) instead.
+> please use
+> [InterceptResolutionAction](./puppeteer.interceptresolutionaction.md) instead.
 
 **Signature:**
 
@@ -14,4 +15,5 @@ sidebar_label: InterceptResolutionStrategy
 export declare type InterceptResolutionStrategy = InterceptResolutionAction;
 ```
 
-**References:** [InterceptResolutionAction](./puppeteer.interceptresolutionaction.md)
+**References:**
+[InterceptResolutionAction](./puppeteer.interceptresolutionaction.md)

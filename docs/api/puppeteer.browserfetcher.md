@@ -4,7 +4,8 @@ sidebar_label: BrowserFetcher
 
 # BrowserFetcher class
 
-BrowserFetcher can download and manage different versions of Chromium and Firefox.
+BrowserFetcher can download and manage different versions of Chromium and
+Firefox.
 
 **Signature:**
 
@@ -14,11 +15,13 @@ export declare class BrowserFetcher
 
 ## Remarks
 
-BrowserFetcher is not designed to work concurrently with other instances of BrowserFetcher that share the same downloads directory.
+BrowserFetcher is not designed to work concurrently with other instances of
+BrowserFetcher that share the same downloads directory.
 
 ## Example
 
-An example of using BrowserFetcher to download a specific version of Chromium and running Puppeteer against it:
+An example of using BrowserFetcher to download a specific version of Chromium
+and running Puppeteer against it:
 
 ```ts
 const browserFetcher = new BrowserFetcher();

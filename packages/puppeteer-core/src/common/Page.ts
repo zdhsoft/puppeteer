@@ -1,17 +1,17 @@
 /**
  * Copyright 2017 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {Protocol} from 'devtools-protocol';
@@ -358,13 +358,12 @@ export class CDPPage extends Page {
    *
    * :::
    *
-   * @remarks
-   * In non-headless Chromium, this method results in the native file picker
-   * dialog `not showing up` for the user.
+   * @remarks In non-headless Chromium, this method results in the native file
+   * picker dialog `not showing up` for the user.
    *
-   * @example
-   * The following example clicks a button that issues a file chooser
-   * and then responds with `/tmp/myfile.pdf` as if a user has selected this file.
+   * @example The following example clicks a button that issues a file chooser
+   * and then responds with `/tmp/myfile.pdf` as if a user has selected this
+   * file.
    *
    * ```ts
    * const [fileChooser] = await Promise.all([
@@ -404,8 +403,7 @@ export class CDPPage extends Page {
   /**
    * Sets the page's geolocation.
    *
-   * @remarks
-   * Consider using {@link BrowserContext.overridePermissions} to grant
+   * @remarks Consider using {@link BrowserContext.overridePermissions} to grant
    * permissions for the page to read its geolocation.
    *
    * @example
@@ -488,8 +486,8 @@ export class CDPPage extends Page {
   /**
    * @returns The page's main frame.
    *
-   * @remarks
-   * Page is guaranteed to have a main frame which persists during navigations.
+   * @remarks Page is guaranteed to have a main frame which persists during
+   * navigations.
    */
   override mainFrame(): Frame {
     return this.#frameManager.mainFrame();
@@ -527,16 +525,15 @@ export class CDPPage extends Page {
    * https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API |
    * WebWorkers} associated with the page.
    *
-   * @remarks
-   * This does not contain ServiceWorkers
+   * @remarks This does not contain ServiceWorkers
    */
   override workers(): WebWorker[] {
     return Array.from(this.#workers.values());
   }
 
   /**
-   * Activating request interception enables {@link HTTPRequest.abort},
-   * {@link HTTPRequest.continue} and {@link HTTPRequest.respond} methods. This
+   * Activating request interception enables {@link HTTPRequest.abort}, {@link
+   * HTTPRequest.continue} and {@link HTTPRequest.respond} methods. This
    * provides the capability to modify network requests that are made by a page.
    *
    * Once request interception is enabled, every request will stall unless it's
@@ -544,12 +541,11 @@ export class CDPPage extends Page {
    *
    * Enabling request interception disables page caching.
    *
-   * See the
-   * {@link https://pptr.dev/next/guides/request-interception|Request interception guide}
-   * for more details.
+   * See the {@link https://pptr.dev/next/guides/request-interception|Request
+   * interception guide} for more details.
    *
-   * @example
-   * An example of a naïve request interceptor that aborts all image requests:
+   * @example An example of a naïve request interceptor that aborts all image
+   * requests:
    *
    * ```ts
    * const puppeteer = require('puppeteer');
@@ -579,10 +575,9 @@ export class CDPPage extends Page {
   /**
    * @param enabled - Whether to enable drag interception.
    *
-   * @remarks
-   * Activating drag interception enables the `Input.drag`,
-   * methods This provides the capability to capture drag events emitted
-   * on the page, which can then be used to simulate drag-and-drop.
+   * @remarks Activating drag interception enables the `Input.drag`, methods
+   * This provides the capability to capture drag events emitted on the page,
+   * which can then be used to simulate drag-and-drop.
    */
   override async setDragInterception(enabled: boolean): Promise<void> {
     this.#userDragInterceptionEnabled = enabled;
@@ -615,8 +610,8 @@ export class CDPPage extends Page {
    *
    * - {@link Page.setContent | page.setContent(html,options)}
    *
-   * - {@link Page.waitForNavigation | page.waitForNavigation(options)}
-   *   @param timeout - Maximum navigation time in milliseconds.
+   * - {@link Page.waitForNavigation | page.waitForNavigation(options)} @param
+   *   timeout - Maximum navigation time in milliseconds.
    */
   override setDefaultNavigationTimeout(timeout: number): void {
     this.#timeoutSettings.setDefaultNavigationTimeout(timeout);
@@ -640,8 +635,8 @@ export class CDPPage extends Page {
    * Runs `document.querySelector` within the page. If no element matches the
    * selector, the return value resolves to `null`.
    *
-   * @param selector - A `selector` to query page for
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
+   * @param selector - A `selector` to query page for {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
    * to query page for.
    */
   override async $<Selector extends string>(
@@ -652,10 +647,9 @@ export class CDPPage extends Page {
 
   /**
    * The method runs `document.querySelectorAll` within the page. If no elements
-   * match the selector, the return value resolves to `[]`.
-   * @remarks
-   * Shortcut for {@link Frame.$$ | Page.mainFrame().$$(selector) }.
-   * @param selector - A `selector` to query page for
+   * match the selector, the return value resolves to `[]`. @remarks Shortcut
+   * for {@link Frame.$$ | Page.mainFrame().$$(selector) }. @param selector - A
+   * `selector` to query page for
    */
   override async $$<Selector extends string>(
     selector: Selector
@@ -682,8 +676,8 @@ export class CDPPage extends Page {
    * const aHandle = await page.evaluateHandle('document');
    * ```
    *
-   * @example
-   * {@link JSHandle} instances can be passed as arguments to the `pageFunction`:
+   * @example {@link JSHandle} instances can be passed as arguments to the
+   * `pageFunction`:
    *
    * ```ts
    * const aHandle = await page.evaluateHandle(() => document.body);
@@ -695,9 +689,9 @@ export class CDPPage extends Page {
    * await resultHandle.dispose();
    * ```
    *
-   * Most of the time this function returns a {@link JSHandle},
-   * but if `pageFunction` returns a reference to an element,
-   * you instead get an {@link ElementHandle} back:
+   * Most of the time this function returns a {@link JSHandle}, but if
+   * `pageFunction` returns a reference to an element, you instead get an {@link
+   * ElementHandle} back:
    *
    * @example
    *
@@ -709,16 +703,16 @@ export class CDPPage extends Page {
    * await button.click();
    * ```
    *
-   * The TypeScript definitions assume that `evaluateHandle` returns
-   * a `JSHandle`, but if you know it's going to return an
-   * `ElementHandle`, pass it as the generic argument:
+   * The TypeScript definitions assume that `evaluateHandle` returns a
+   * `JSHandle`, but if you know it's going to return an `ElementHandle`, pass
+   * it as the generic argument:
    *
    * ```ts
    * const button = await page.evaluateHandle<ElementHandle>(...);
    * ```
    *
-   * @param pageFunction - a function that is run within the page
-   * @param args - arguments to be passed to the pageFunction
+   * @param pageFunction - a function that is run within the page @param args -
+   * arguments to be passed to the pageFunction
    */
   override async evaluateHandle<
     Params extends unknown[],
@@ -750,9 +744,8 @@ export class CDPPage extends Page {
    * await mapPrototype.dispose();
    * ```
    *
-   * @param prototypeHandle - a handle to the object prototype.
-   * @returns Promise which resolves to a handle to an array of objects with
-   * this prototype.
+   * @param prototypeHandle - a handle to the object prototype. @returns Promise
+   * which resolves to a handle to an array of objects with this prototype.
    */
   override async queryObjects<Prototype>(
     prototypeHandle: JSHandle<Prototype>
@@ -789,10 +782,9 @@ export class CDPPage extends Page {
    * const html = await page.$eval('.main-container', el => el.outerHTML);
    * ```
    *
-   * If you are using TypeScript, you may have to provide an explicit type to the
-   * first argument of the `pageFunction`.
-   * By default it is typed as `Element`, but you may need to provide a more
-   * specific sub-type:
+   * If you are using TypeScript, you may have to provide an explicit type to
+   * the first argument of the `pageFunction`. By default it is typed as
+   * `Element`, but you may need to provide a more specific sub-type:
    *
    * @example
    *
@@ -805,8 +797,8 @@ export class CDPPage extends Page {
    * );
    * ```
    *
-   * The compiler should be able to infer the return type
-   * from the `pageFunction` you provide. If it is unable to, you can use the generic
+   * The compiler should be able to infer the return type from the
+   * `pageFunction` you provide. If it is unable to, you can use the generic
    * type to tell the compiler what return type you expect from `$eval`:
    *
    * @example
@@ -820,13 +812,12 @@ export class CDPPage extends Page {
    * );
    * ```
    *
-   * @param selector - the
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
-   * to query for
-   * @param pageFunction - the function to be evaluated in the page context.
-   * Will be passed the result of `document.querySelector(selector)` as its
-   * first argument.
-   * @param args - any additional arguments to pass through to `pageFunction`.
+   * @param selector - the {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
+   * to query for @param pageFunction - the function to be evaluated in the page
+   * context. Will be passed the result of `document.querySelector(selector)` as
+   * its first argument. @param args - any additional arguments to pass through
+   * to `pageFunction`.
    *
    * @returns The result of calling `pageFunction`. If it returns an element it
    * is wrapped in an {@link ElementHandle}, else the raw value itself is
@@ -850,9 +841,8 @@ export class CDPPage extends Page {
    * This method runs `Array.from(document.querySelectorAll(selector))` within
    * the page and passes the result as the first argument to the `pageFunction`.
    *
-   * @remarks
-   * If `pageFunction` returns a promise `$$eval` will wait for the promise to
-   * resolve and then return its value.
+   * @remarks If `pageFunction` returns a promise `$$eval` will wait for the
+   * promise to resolve and then return its value.
    *
    * @example
    *
@@ -866,10 +856,9 @@ export class CDPPage extends Page {
    * });
    * ```
    *
-   * If you are using TypeScript, you may have to provide an explicit type to the
-   * first argument of the `pageFunction`.
-   * By default it is typed as `Element[]`, but you may need to provide a more
-   * specific sub-type:
+   * If you are using TypeScript, you may have to provide an explicit type to
+   * the first argument of the `pageFunction`. By default it is typed as
+   * `Element[]`, but you may need to provide a more specific sub-type:
    *
    * @example
    *
@@ -881,8 +870,8 @@ export class CDPPage extends Page {
    * });
    * ```
    *
-   * The compiler should be able to infer the return type
-   * from the `pageFunction` you provide. If it is unable to, you can use the generic
+   * The compiler should be able to infer the return type from the
+   * `pageFunction` you provide. If it is unable to, you can use the generic
    * type to tell the compiler what return type you expect from `$$eval`:
    *
    * @example
@@ -896,11 +885,10 @@ export class CDPPage extends Page {
    * );
    * ```
    *
-   * @param selector - the
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
-   * to query for
-   * @param pageFunction - the function to be evaluated in the page context.
-   * Will be passed the result of
+   * @param selector - the {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
+   * to query for @param pageFunction - the function to be evaluated in the page
+   * context. Will be passed the result of
    * `Array.from(document.querySelectorAll(selector))` as its first argument.
    * @param args - any additional arguments to pass through to `pageFunction`.
    *
@@ -927,8 +915,7 @@ export class CDPPage extends Page {
    * its context node. If there are no such elements, the method resolves to an
    * empty array.
    *
-   * @remarks
-   * Shortcut for {@link Frame.$x | Page.mainFrame().$x(expression) }.
+   * @remarks Shortcut for {@link Frame.$x | Page.mainFrame().$x(expression) }.
    *
    * @param expression - Expression to evaluate
    */
@@ -1010,13 +997,11 @@ export class CDPPage extends Page {
   /**
    * Adds a `<script>` tag into the page with the desired URL or content.
    *
-   * @remarks
-   * Shortcut for
-   * {@link Frame.addScriptTag | page.mainFrame().addScriptTag(options)}.
+   * @remarks Shortcut for {@link Frame.addScriptTag |
+   * page.mainFrame().addScriptTag(options)}.
    *
-   * @param options - Options for the script.
-   * @returns An {@link ElementHandle | element handle} to the injected
-   * `<script>` element.
+   * @param options - Options for the script. @returns An {@link ElementHandle |
+   * element handle} to the injected `<script>` element.
    */
   override async addScriptTag(
     options: FrameAddScriptTagOptions
@@ -1028,8 +1013,8 @@ export class CDPPage extends Page {
    * Adds a `<link rel="stylesheet">` tag into the page with the desired URL or
    * a `<style type="text/css">` tag with the content.
    *
-   * Shortcut for
-   * {@link Frame.addStyleTag | page.mainFrame().addStyleTag(options)}.
+   * Shortcut for {@link Frame.addStyleTag |
+   * page.mainFrame().addStyleTag(options)}.
    *
    * @returns An {@link ElementHandle | element handle} to the injected `<link>`
    * or `<style>` element.
@@ -1060,8 +1045,7 @@ export class CDPPage extends Page {
    *
    * :::note
    *
-   * @example
-   * An example of adding an `md5` function into the page:
+   * @example An example of adding an `md5` function into the page:
    *
    * ```ts
    * const puppeteer = require('puppeteer');
@@ -1084,8 +1068,7 @@ export class CDPPage extends Page {
    * })();
    * ```
    *
-   * @example
-   * An example of adding a `window.readfile` function into the page:
+   * @example An example of adding a `window.readfile` function into the page:
    *
    * ```ts
    * const puppeteer = require('puppeteer');
@@ -1112,8 +1095,8 @@ export class CDPPage extends Page {
    * })();
    * ```
    *
-   * @param name - Name of the function on the window object
-   * @param pptrFunction - Callback function which will be called in Puppeteer's
+   * @param name - Name of the function on the window object @param
+   * pptrFunction - Callback function which will be called in Puppeteer's
    * context.
    */
   override async exposeFunction(
@@ -1153,8 +1136,7 @@ export class CDPPage extends Page {
   /**
    * Provide credentials for `HTTP authentication`.
    *
-   * @remarks
-   * To disable authentication, pass `null`.
+   * @remarks To disable authentication, pass `null`.
    */
   override async authenticate(credentials: Credentials): Promise<void> {
     return this.#frameManager.networkManager.authenticate(credentials);
@@ -1165,15 +1147,15 @@ export class CDPPage extends Page {
    *
    * :::tip
    *
-   * All HTTP header names are lowercased. (HTTP headers are
-   * case-insensitive, so this shouldn’t impact your server code.)
+   * All HTTP header names are lowercased. (HTTP headers are case-insensitive,
+   * so this shouldn’t impact your server code.)
    *
    * :::
    *
    * :::note
    *
-   * page.setExtraHTTPHeaders does not guarantee the order of headers in
-   * the outgoing requests.
+   * page.setExtraHTTPHeaders does not guarantee the order of headers in the
+   * outgoing requests.
    *
    * :::
    *
@@ -1187,9 +1169,8 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @param userAgent - Specific user agent to use in this page
-   * @param userAgentData - Specific user agent client hint data to use in this
-   * page
+   * @param userAgent - Specific user agent to use in this page @param
+   * userAgentData - Specific user agent client hint data to use in this page
    * @returns Promise which resolves when the user agent is set.
    */
   override async setUserAgent(
@@ -1232,9 +1213,8 @@ export class CDPPage extends Page {
    *
    * - `JSHeapTotalSize` : Total JavaScript heap size.
    *
-   * @remarks
-   * All timestamps are in monotonic time: monotonically increasing time
-   * in seconds since an arbitrary point in the past.
+   * @remarks All timestamps are in monotonic time: monotonically increasing
+   * time in seconds since an arbitrary point in the past.
    */
   override async metrics(): Promise<Metrics> {
     const response = await this.#client.send('Performance.getMetrics');
@@ -1417,10 +1397,7 @@ export class CDPPage extends Page {
   }
 
   /**
-   *
-   * @returns
-   * @remarks Shortcut for
-   * {@link Frame.url | page.mainFrame().url()}.
+   * @returns @remarks Shortcut for {@link Frame.url | page.mainFrame().url()}.
    */
   override url(): string {
     return this.mainFrame().url();
@@ -1431,22 +1408,21 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @param html - HTML markup to assign to the page.
-   * @param options - Parameters that has some properties.
-   * @remarks
-   * The parameter `options` might have the following options.
+   * @param html - HTML markup to assign to the page. @param options -
+   * Parameters that has some properties. @remarks The parameter `options` might
+   * have the following options.
    *
    * - `timeout` : Maximum time in milliseconds for resources to load, defaults
    *   to 30 seconds, pass `0` to disable timeout. The default value can be
-   *   changed by using the {@link Page.setDefaultNavigationTimeout} or
-   *   {@link Page.setDefaultTimeout} methods.
+   *   changed by using the {@link Page.setDefaultNavigationTimeout} or {@link
+   *   Page.setDefaultTimeout} methods.
    *
    * - `waitUntil`: When to consider setting markup succeeded, defaults to
-   *   `load`. Given an array of event strings, setting content is considered
-   *   to be successful after all events have been fired. Events can be
+   *   `load`. Given an array of event strings, setting content is considered to
+   *   be successful after all events have been fired. Events can be
    *   either:<br/>
-   * - `load` : consider setting content to be finished when the `load` event
-   *   is fired.<br/>
+   * - `load` : consider setting content to be finished when the `load` event is
+   *   fired.<br/>
    * - `domcontentloaded` : consider setting content to be finished when the
    *   `DOMContentLoaded` event is fired.<br/>
    * - `networkidle0` : consider setting content to be finished when there are
@@ -1463,18 +1439,15 @@ export class CDPPage extends Page {
 
   /**
    * @param url - URL to navigate page to. The URL should include scheme, e.g.
-   * `https://`
-   * @param options - Navigation Parameter
-   * @returns Promise which resolves to the main resource response. In case of
-   * multiple redirects, the navigation will resolve with the response of the
-   * last redirect.
-   * @remarks
+   * `https://` @param options - Navigation Parameter @returns Promise which
+   * resolves to the main resource response. In case of multiple redirects, the
+   * navigation will resolve with the response of the last redirect. @remarks
    * The argument `options` might have the following properties:
    *
    * - `timeout` : Maximum navigation time in milliseconds, defaults to 30
    *   seconds, pass 0 to disable timeout. The default value can be changed by
-   *   using the {@link Page.setDefaultNavigationTimeout} or
-   *   {@link Page.setDefaultTimeout} methods.
+   *   using the {@link Page.setDefaultNavigationTimeout} or {@link
+   *   Page.setDefaultTimeout} methods.
    *
    * - `waitUntil`:When to consider navigation succeeded, defaults to `load`.
    *   Given an array of event strings, navigation is considered to be
@@ -1489,8 +1462,8 @@ export class CDPPage extends Page {
    *   more than 2 network connections for at least `500` ms.
    *
    * - `referer` : Referer header value. If provided it will take preference
-   *   over the referer header value set by
-   *   {@link Page.setExtraHTTPHeaders |page.setExtraHTTPHeaders()}.
+   *   over the referer header value set by {@link Page.setExtraHTTPHeaders
+   *   |page.setExtraHTTPHeaders()}.
    *
    * `page.goto` will throw an error if:
    *
@@ -1501,9 +1474,9 @@ export class CDPPage extends Page {
    * - the main resource failed to load.
    *
    * `page.goto` will not throw an error when any valid HTTP status code is
-   * returned by the remote server, including 404 "Not Found" and 500
-   * "Internal Server Error". The status code for such responses can be
-   * retrieved by calling response.status().
+   * returned by the remote server, including 404 "Not Found" and 500 "Internal
+   * Server Error". The status code for such responses can be retrieved by
+   * calling response.status().
    *
    * NOTE: `page.goto` either throws an error or returns a main resource
    * response. The only exceptions are navigation to about:blank or navigation
@@ -1524,17 +1497,15 @@ export class CDPPage extends Page {
 
   /**
    * @param options - Navigation parameters which might have the following
-   * properties:
-   * @returns Promise which resolves to the main resource response. In case of
-   * multiple redirects, the navigation will resolve with the response of the
-   * last redirect.
-   * @remarks
-   * The argument `options` might have the following properties:
+   * properties: @returns Promise which resolves to the main resource response.
+   * In case of multiple redirects, the navigation will resolve with the
+   * response of the last redirect. @remarks The argument `options` might have
+   * the following properties:
    *
    * - `timeout` : Maximum navigation time in milliseconds, defaults to 30
    *   seconds, pass 0 to disable timeout. The default value can be changed by
-   *   using the {@link Page.setDefaultNavigationTimeout} or
-   *   {@link Page.setDefaultTimeout} methods.
+   *   using the {@link Page.setDefaultNavigationTimeout} or {@link
+   *   Page.setDefaultTimeout} methods.
    *
    * - `waitUntil`: When to consider navigation succeeded, defaults to `load`.
    *   Given an array of event strings, navigation is considered to be
@@ -1572,14 +1543,13 @@ export class CDPPage extends Page {
    * ]);
    * ```
    *
-   * @remarks
-   * Usage of the
-   * {@link https://developer.mozilla.org/en-US/docs/Web/API/History_API | History API}
+   * @remarks Usage of the {@link
+   * https://developer.mozilla.org/en-US/docs/Web/API/History_API | History API}
    * to change the URL is considered a navigation.
    *
    * @param options - Navigation parameters which might have the following
-   * properties:
-   * @returns A `Promise` which resolves to the main resource response.
+   * properties: @returns A `Promise` which resolves to the main resource
+   * response.
    *
    * - In case of multiple redirects, the navigation will resolve with the
    *   response of the last redirect.
@@ -1604,10 +1574,9 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @param urlOrPredicate - A URL or predicate to wait for
-   * @param options - Optional waiting parameters
-   * @returns Promise which resolves to the matched response
-   * @example
+   * @param urlOrPredicate - A URL or predicate to wait for @param options -
+   * Optional waiting parameters @returns Promise which resolves to the matched
+   * response @example
    *
    * ```ts
    * const firstResponse = await page.waitForResponse(
@@ -1623,12 +1592,11 @@ export class CDPPage extends Page {
    * return finalResponse.ok();
    * ```
    *
-   * @remarks
-   * Optional Waiting Parameters have:
+   * @remarks Optional Waiting Parameters have:
    *
-   * - `timeout`: Maximum wait time in milliseconds, defaults to `30` seconds, pass
-   *   `0` to disable the timeout. The default value can be changed by using the
-   *   {@link Page.setDefaultTimeout} method.
+   * - `timeout`: Maximum wait time in milliseconds, defaults to `30` seconds,
+   *   pass `0` to disable the timeout. The default value can be changed by
+   *   using the {@link Page.setDefaultTimeout} method.
    */
   override async waitForRequest(
     urlOrPredicate: string | ((req: HTTPRequest) => boolean | Promise<boolean>),
@@ -1653,10 +1621,9 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @param urlOrPredicate - A URL or predicate to wait for.
-   * @param options - Optional waiting parameters
-   * @returns Promise which resolves to the matched response.
-   * @example
+   * @param urlOrPredicate - A URL or predicate to wait for. @param options -
+   * Optional waiting parameters @returns Promise which resolves to the matched
+   * response. @example
    *
    * ```ts
    * const firstResponse = await page.waitForResponse(
@@ -1672,12 +1639,11 @@ export class CDPPage extends Page {
    * return finalResponse.ok();
    * ```
    *
-   * @remarks
-   * Optional Parameter have:
+   * @remarks Optional Parameter have:
    *
    * - `timeout`: Maximum wait time in milliseconds, defaults to `30` seconds,
-   *   pass `0` to disable the timeout. The default value can be changed by using
-   *   the {@link Page.setDefaultTimeout} method.
+   *   pass `0` to disable the timeout. The default value can be changed by
+   *   using the {@link Page.setDefaultTimeout} method.
    */
   override async waitForResponse(
     urlOrPredicate:
@@ -1704,8 +1670,8 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @param options - Optional waiting parameters
-   * @returns Promise which resolves when network is idle
+   * @param options - Optional waiting parameters @returns Promise which
+   * resolves when network is idle
    */
   override async waitForNetworkIdle(
     options: {idleTime?: number; timeout?: number} = {}
@@ -1780,10 +1746,9 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @param urlOrPredicate - A URL or predicate to wait for.
-   * @param options - Optional waiting parameters
-   * @returns Promise which resolves to the matched frame.
-   * @example
+   * @param urlOrPredicate - A URL or predicate to wait for. @param options -
+   * Optional waiting parameters @returns Promise which resolves to the matched
+   * frame. @example
    *
    * ```ts
    * const frame = await page.waitForFrame(async frame => {
@@ -1791,12 +1756,11 @@ export class CDPPage extends Page {
    * });
    * ```
    *
-   * @remarks
-   * Optional Parameter have:
+   * @remarks Optional Parameter have:
    *
    * - `timeout`: Maximum wait time in milliseconds, defaults to `30` seconds,
-   *   pass `0` to disable the timeout. The default value can be changed by using
-   *   the {@link Page.setDefaultTimeout} method.
+   *   pass `0` to disable the timeout. The default value can be changed by
+   *   using the {@link Page.setDefaultTimeout} method.
    */
   override async waitForFrame(
     urlOrPredicate: string | ((frame: Frame) => boolean | Promise<boolean>),
@@ -1846,18 +1810,16 @@ export class CDPPage extends Page {
   }
 
   /**
-   * This method navigate to the previous page in history.
-   * @param options - Navigation parameters
-   * @returns Promise which resolves to the main resource response. In case of
-   * multiple redirects, the navigation will resolve with the response of the
-   * last redirect. If can not go back, resolves to `null`.
-   * @remarks
-   * The argument `options` might have the following properties:
+   * This method navigate to the previous page in history. @param options -
+   * Navigation parameters @returns Promise which resolves to the main resource
+   * response. In case of multiple redirects, the navigation will resolve with
+   * the response of the last redirect. If can not go back, resolves to `null`.
+   * @remarks The argument `options` might have the following properties:
    *
    * - `timeout` : Maximum navigation time in milliseconds, defaults to 30
    *   seconds, pass 0 to disable timeout. The default value can be changed by
-   *   using the {@link Page.setDefaultNavigationTimeout} or
-   *   {@link Page.setDefaultTimeout} methods.
+   *   using the {@link Page.setDefaultNavigationTimeout} or {@link
+   *   Page.setDefaultTimeout} methods.
    *
    * - `waitUntil` : When to consider navigation succeeded, defaults to `load`.
    *   Given an array of event strings, navigation is considered to be
@@ -1878,18 +1840,17 @@ export class CDPPage extends Page {
   }
 
   /**
-   * This method navigate to the next page in history.
-   * @param options - Navigation Parameter
-   * @returns Promise which resolves to the main resource response. In case of
-   * multiple redirects, the navigation will resolve with the response of the
-   * last redirect. If can not go forward, resolves to `null`.
-   * @remarks
-   * The argument `options` might have the following properties:
+   * This method navigate to the next page in history. @param options -
+   * Navigation Parameter @returns Promise which resolves to the main resource
+   * response. In case of multiple redirects, the navigation will resolve with
+   * the response of the last redirect. If can not go forward, resolves to
+   * `null`. @remarks The argument `options` might have the following
+   * properties:
    *
    * - `timeout` : Maximum navigation time in milliseconds, defaults to 30
    *   seconds, pass 0 to disable timeout. The default value can be changed by
-   *   using the {@link Page.setDefaultNavigationTimeout} or
-   *   {@link Page.setDefaultTimeout} methods.
+   *   using the {@link Page.setDefaultNavigationTimeout} or {@link
+   *   Page.setDefaultTimeout} methods.
    *
    * - `waitUntil`: When to consider navigation succeeded, defaults to `load`.
    *   Given an array of event strings, navigation is considered to be
@@ -1933,11 +1894,9 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @param enabled - Whether or not to enable JavaScript on the page.
-   * @returns
-   * @remarks
-   * NOTE: changing this value won't affect scripts that have already been run.
-   * It will take full effect on the next navigation.
+   * @param enabled - Whether or not to enable JavaScript on the page. @returns
+   * @remarks NOTE: changing this value won't affect scripts that have already
+   * been run. It will take full effect on the next navigation.
    */
   override async setJavaScriptEnabled(enabled: boolean): Promise<void> {
     if (this.#javascriptEnabled === enabled) {
@@ -1950,12 +1909,11 @@ export class CDPPage extends Page {
   }
 
   /**
-   * Toggles bypassing page's Content-Security-Policy.
-   * @param enabled - sets bypassing of page's Content-Security-Policy.
-   * @remarks
-   * NOTE: CSP bypassing happens at the moment of CSP initialization rather than
-   * evaluation. Usually, this means that `page.setBypassCSP` should be called
-   * before navigating to the domain.
+   * Toggles bypassing page's Content-Security-Policy. @param enabled - sets
+   * bypassing of page's Content-Security-Policy. @remarks NOTE: CSP bypassing
+   * happens at the moment of CSP initialization rather than evaluation.
+   * Usually, this means that `page.setBypassCSP` should be called before
+   * navigating to the domain.
    */
   override async setBypassCSP(enabled: boolean): Promise<void> {
     await this.#client.send('Page.setBypassCSP', {enabled});
@@ -1964,8 +1922,7 @@ export class CDPPage extends Page {
   /**
    * @param type - Changes the CSS media type of the page. The only allowed
    * values are `screen`, `print` and `null`. Passing `null` disables CSS media
-   * emulation.
-   * @example
+   * emulation. @example
    *
    * ```ts
    * await page.evaluate(() => matchMedia('screen').matches);
@@ -1999,8 +1956,8 @@ export class CDPPage extends Page {
   }
 
   /**
-   * Enables CPU throttling to emulate slow CPUs.
-   * @param factor - slowdown factor (1 is no throttle, 2 is 2x slowdown, etc).
+   * Enables CPU throttling to emulate slow CPUs. @param factor - slowdown
+   * factor (1 is no throttle, 2 is 2x slowdown, etc).
    */
   override async emulateCPUThrottling(factor: number | null): Promise<void> {
     assert(
@@ -2015,8 +1972,7 @@ export class CDPPage extends Page {
   /**
    * @param features - `<?Array<Object>>` Given an array of media feature
    * objects, emulates CSS media features on the page. Each media feature object
-   * must have the following properties:
-   * @example
+   * must have the following properties: @example
    *
    * ```ts
    * await page.emulateMediaFeatures([
@@ -2096,10 +2052,10 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @param timezoneId - Changes the timezone of the page. See
-   * {@link https://source.chromium.org/chromium/chromium/deps/icu.git/+/faee8bc70570192d82d2978a71e2a615788597d1:source/data/misc/metaZones.txt | ICU’s metaZones.txt}
-   * for a list of supported timezone IDs. Passing
-   * `null` disables timezone emulation.
+   * @param timezoneId - Changes the timezone of the page. See {@link
+   * https://source.chromium.org/chromium/chromium/deps/icu.git/+/faee8bc70570192d82d2978a71e2a615788597d1:source/data/misc/metaZones.txt
+   * | ICU’s metaZones.txt} for a list of supported timezone IDs. Passing `null`
+   * disables timezone emulation.
    */
   override async emulateTimezone(timezoneId?: string): Promise<void> {
     try {
@@ -2115,8 +2071,7 @@ export class CDPPage extends Page {
   }
 
   /**
-   * Emulates the idle state.
-   * If no arguments set, clears idle state emulation.
+   * Emulates the idle state. If no arguments set, clears idle state emulation.
    *
    * @example
    *
@@ -2207,8 +2162,7 @@ export class CDPPage extends Page {
    * the page.
    *
    * In the case of multiple pages in a single browser, each page can have its
-   * own viewport size.
-   * @example
+   * own viewport size. @example
    *
    * ```ts
    * const page = await browser.newPage();
@@ -2220,9 +2174,7 @@ export class CDPPage extends Page {
    * await page.goto('https://example.com');
    * ```
    *
-   * @param viewport -
-   * @remarks
-   * Argument viewport have following properties:
+   * @param viewport - @remarks Argument viewport have following properties:
    *
    * - `width`: page width in pixels. required
    *
@@ -2234,9 +2186,11 @@ export class CDPPage extends Page {
    * - `isMobile`: Whether the meta viewport tag is taken into account. Defaults
    *   to `false`.
    *
-   * - `hasTouch`: Specifies if viewport supports touch events. Defaults to `false`
+   * - `hasTouch`: Specifies if viewport supports touch events. Defaults to
+   *   `false`
    *
-   * - `isLandScape`: Specifies if viewport is in landscape mode. Defaults to false.
+   * - `isLandScape`: Specifies if viewport is in landscape mode. Defaults to
+   *   false.
    *
    * NOTE: in certain cases, setting viewport will reload the page in order to
    * set the isMobile or hasTouch properties.
@@ -2296,8 +2250,8 @@ export class CDPPage extends Page {
    * const aHandle = await page.evaluate('1 + 2');
    * ```
    *
-   * To get the best TypeScript experience, you should pass in as the
-   * generic the type of `pageFunction`:
+   * To get the best TypeScript experience, you should pass in as the generic
+   * the type of `pageFunction`:
    *
    * ```ts
    * const aHandle = await page.evaluate(() => 2);
@@ -2314,8 +2268,8 @@ export class CDPPage extends Page {
    * await bodyHandle.dispose();
    * ```
    *
-   * @param pageFunction - a function that is run within the page
-   * @param args - arguments to be passed to the pageFunction
+   * @param pageFunction - a function that is run within the page @param args -
+   * arguments to be passed to the pageFunction
    *
    * @returns the return value of `pageFunction`.
    */
@@ -2339,11 +2293,10 @@ export class CDPPage extends Page {
    *
    * The function is invoked after the document was created but before any of
    * its scripts were run. This is useful to amend the JavaScript environment,
-   * e.g. to seed `Math.random`.
-   * @param pageFunction - Function to be evaluated in browser context
-   * @param args - Arguments to pass to `pageFunction`
-   * @example
-   * An example of overriding the navigator.languages property before the page loads:
+   * e.g. to seed `Math.random`. @param pageFunction - Function to be evaluated
+   * in browser context @param args - Arguments to pass to `pageFunction`
+   * @example An example of overriding the navigator.languages property before
+   * the page loads:
    *
    * ```ts
    * // preload.js
@@ -2373,61 +2326,59 @@ export class CDPPage extends Page {
 
   /**
    * Toggles ignoring cache for each request based on the enabled state. By
-   * default, caching is enabled.
-   * @param enabled - sets the `enabled` state of cache
+   * default, caching is enabled. @param enabled - sets the `enabled` state of
+   * cache
    */
   override async setCacheEnabled(enabled = true): Promise<void> {
     await this.#frameManager.networkManager.setCacheEnabled(enabled);
   }
 
   /**
-   * @remarks
-   * Options object which might have the following properties:
+   * @remarks Options object which might have the following properties:
    *
-   * - `path` : The file path to save the image to. The screenshot type
-   *   will be inferred from file extension. If `path` is a relative path, then
-   *   it is resolved relative to
-   *   {@link https://nodejs.org/api/process.html#process_process_cwd
-   *   | current working directory}.
-   *   If no path is provided, the image won't be saved to the disk.
+   * - `path` : The file path to save the image to. The screenshot type will be
+   *   inferred from file extension. If `path` is a relative path, then it is
+   *   resolved relative to {@link
+   *   https://nodejs.org/api/process.html#process_process_cwd | current working
+   *   directory}. If no path is provided, the image won't be saved to the disk.
    *
-   * - `type` : Specify screenshot type, can be either `jpeg` or `png`.
-   *   Defaults to 'png'.
+   * - `type` : Specify screenshot type, can be either `jpeg` or `png`. Defaults
+   *   to 'png'.
    *
-   * - `quality` : The quality of the image, between 0-100. Not
-   *   applicable to `png` images.
+   * - `quality` : The quality of the image, between 0-100. Not applicable to
+   *   `png` images.
    *
-   * - `fullPage` : When true, takes a screenshot of the full
-   *   scrollable page. Defaults to `false`.
+   * - `fullPage` : When true, takes a screenshot of the full scrollable page.
+   *   Defaults to `false`.
    *
-   * - `clip` : An object which specifies clipping region of the page.
-   *   Should have the following fields:<br/>
+   * - `clip` : An object which specifies clipping region of the page. Should
+   *   have the following fields:<br/>
    * - `x` : x-coordinate of top-left corner of clip area.<br/>
    * - `y` : y-coordinate of top-left corner of clip area.<br/>
    * - `width` : width of clipping area.<br/>
    * - `height` : height of clipping area.
    *
-   * - `omitBackground` : Hides default white background and allows
-   *   capturing screenshots with transparency. Defaults to `false`.
+   * - `omitBackground` : Hides default white background and allows capturing
+   *   screenshots with transparency. Defaults to `false`.
    *
-   * - `encoding` : The encoding of the image, can be either base64 or
-   *   binary. Defaults to `binary`.
+   * - `encoding` : The encoding of the image, can be either base64 or binary.
+   *   Defaults to `binary`.
    *
-   * - `captureBeyondViewport` : When true, captures screenshot
-   *   {@link https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-captureScreenshot
-   *   | beyond the viewport}. When false, falls back to old behaviour,
-   *   and cuts the screenshot by the viewport size. Defaults to `true`.
+   * - `captureBeyondViewport` : When true, captures screenshot {@link
+   *   https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-captureScreenshot
+   *   | beyond the viewport}. When false, falls back to old behaviour, and cuts
+   *   the screenshot by the viewport size. Defaults to `true`.
    *
-   * - `fromSurface` : When true, captures screenshot
-   *   {@link https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-captureScreenshot
+   * - `fromSurface` : When true, captures screenshot {@link
+   *   https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-captureScreenshot
    *   | from the surface rather than the view}. When false, works only in
-   *   headful mode and ignores page viewport (but not browser window's
-   *   bounds). Defaults to `true`.
+   *   headful mode and ignores page viewport (but not browser window's bounds).
+   *   Defaults to `true`.
    *
-   * NOTE: Screenshots take at least 1/6 second on OS X. See
-   * {@link https://crbug.com/741689} for discussion.
-   * @returns Promise which resolves to buffer or a base64 string (depending on
-   * the value of `encoding`) with captured screenshot.
+   * NOTE: Screenshots take at least 1/6 second on OS X. See {@link
+   * https://crbug.com/741689} for discussion. @returns Promise which resolves
+   * to buffer or a base64 string (depending on the value of `encoding`) with
+   * captured screenshot.
    */
   override async screenshot(
     options: ScreenshotOptions = {}
@@ -2624,19 +2575,19 @@ export class CDPPage extends Page {
   }
 
   /**
-   * Generates a PDF of the page with the `print` CSS media type.
-   * @remarks
+   * Generates a PDF of the page with the `print` CSS media type. @remarks
    *
    * NOTE: PDF generation is only supported in Chrome headless mode.
    *
-   * To generate a PDF with the `screen` media type, call
-   * {@link Page.emulateMediaType | `page.emulateMediaType('screen')`} before
-   * calling `page.pdf()`.
+   * To generate a PDF with the `screen` media type, call {@link
+   * Page.emulateMediaType | `page.emulateMediaType('screen')`} before calling
+   * `page.pdf()`.
    *
    * By default, `page.pdf()` generates a pdf with modified colors for printing.
-   * Use the
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-print-color-adjust | `-webkit-print-color-adjust`}
-   * property to force rendering of exact colors.
+   * Use the {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-print-color-adjust
+   * | `-webkit-print-color-adjust`} property to force rendering of exact
+   * colors.
    *
    * @param options - options for generating the PDF.
    */
@@ -2711,8 +2662,7 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @param options -
-   * @returns
+   * @param options - @returns
    */
   override async pdf(options: PDFOptions = {}): Promise<Buffer> {
     const {path = undefined} = options;
@@ -2723,9 +2673,8 @@ export class CDPPage extends Page {
   }
 
   /**
-   * @returns The page's title
-   * @remarks
-   * Shortcut for {@link Frame.title | page.mainFrame().title()}.
+   * @returns The page's title @remarks Shortcut for {@link Frame.title |
+   * page.mainFrame().title()}.
    */
   override async title(): Promise<string> {
     return this.mainFrame().title();
@@ -2751,8 +2700,7 @@ export class CDPPage extends Page {
   }
 
   /**
-   * Indicates that the page has been closed.
-   * @returns
+   * Indicates that the page has been closed. @returns
    */
   override isClosed(): boolean {
     return this.#closed;
@@ -2766,10 +2714,9 @@ export class CDPPage extends Page {
    * This method fetches an element with `selector`, scrolls it into view if
    * needed, and then uses {@link Page.mouse} to click in the center of the
    * element. If there's no element matching `selector`, the method throws an
-   * error.
-   * @remarks Bear in mind that if `click()` triggers a navigation event and
-   * there's a separate `page.waitForNavigation()` promise to be resolved, you
-   * may end up with a race condition that yields unexpected results. The
+   * error. @remarks Bear in mind that if `click()` triggers a navigation event
+   * and there's a separate `page.waitForNavigation()` promise to be resolved,
+   * you may end up with a race condition that yields unexpected results. The
    * correct pattern for click and wait for navigation is the following:
    *
    * ```ts
@@ -2779,13 +2726,12 @@ export class CDPPage extends Page {
    * ]);
    * ```
    *
-   * Shortcut for {@link Frame.click | page.mainFrame().click(selector[, options]) }.
-   * @param selector - A `selector` to search for element to click. If there are
-   * multiple elements satisfying the `selector`, the first will be clicked
-   * @param options - `Object`
-   * @returns Promise which resolves when the element matching `selector` is
-   * successfully clicked. The Promise will be rejected if there is no element
-   * matching `selector`.
+   * Shortcut for {@link Frame.click | page.mainFrame().click(selector[,
+   * options]) }. @param selector - A `selector` to search for element to click.
+   * If there are multiple elements satisfying the `selector`, the first will be
+   * clicked @param options - `Object` @returns Promise which resolves when the
+   * element matching `selector` is successfully clicked. The Promise will be
+   * rejected if there is no element matching `selector`.
    */
   override click(
     selector: string,
@@ -2799,17 +2745,15 @@ export class CDPPage extends Page {
   }
 
   /**
-   * This method fetches an element with `selector` and focuses it. If there's no
-   * element matching `selector`, the method throws an error.
-   * @param selector - A
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector }
+   * This method fetches an element with `selector` and focuses it. If there's
+   * no element matching `selector`, the method throws an error. @param
+   * selector - A {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector }
    * of an element to focus. If there are multiple elements satisfying the
-   * selector, the first will be focused.
-   * @returns Promise which resolves when the element matching selector is
-   * successfully focused. The promise will be rejected if there is no element
-   * matching selector.
-   * @remarks
-   * Shortcut for {@link Frame.focus | page.mainFrame().focus(selector)}.
+   * selector, the first will be focused. @returns Promise which resolves when
+   * the element matching selector is successfully focused. The promise will be
+   * rejected if there is no element matching selector. @remarks Shortcut for
+   * {@link Frame.focus | page.mainFrame().focus(selector)}.
    */
   override focus(selector: string): Promise<void> {
     return this.mainFrame().focus(selector);
@@ -2817,26 +2761,24 @@ export class CDPPage extends Page {
 
   /**
    * This method fetches an element with `selector`, scrolls it into view if
-   * needed, and then uses {@link Page.mouse} to hover over the center of the element.
-   * If there's no element matching `selector`, the method throws an error.
-   * @param selector - A
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
+   * needed, and then uses {@link Page.mouse} to hover over the center of the
+   * element. If there's no element matching `selector`, the method throws an
+   * error. @param selector - A {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
    * to search for element to hover. If there are multiple elements satisfying
-   * the selector, the first will be hovered.
-   * @returns Promise which resolves when the element matching `selector` is
-   * successfully hovered. Promise gets rejected if there's no element matching
-   * `selector`.
-   * @remarks
-   * Shortcut for {@link Page.hover | page.mainFrame().hover(selector)}.
+   * the selector, the first will be hovered. @returns Promise which resolves
+   * when the element matching `selector` is successfully hovered. Promise gets
+   * rejected if there's no element matching `selector`. @remarks Shortcut for
+   * {@link Page.hover | page.mainFrame().hover(selector)}.
    */
   override hover(selector: string): Promise<void> {
     return this.mainFrame().hover(selector);
   }
 
   /**
-   * Triggers a `change` and `input` event once all the provided options have been
-   * selected. If there's no `<select>` element matching `selector`, the method
-   * throws an error.
+   * Triggers a `change` and `input` event once all the provided options have
+   * been selected. If there's no `<select>` element matching `selector`, the
+   * method throws an error.
    *
    * @example
    *
@@ -2845,16 +2787,13 @@ export class CDPPage extends Page {
    * page.select('select#colors', 'red', 'green', 'blue'); // multiple selections
    * ```
    *
-   * @param selector - A
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | Selector}
-   * to query the page for
-   * @param values - Values of options to select. If the `<select>` has the
-   * `multiple` attribute, all values are considered, otherwise only the first one
-   * is taken into account.
-   * @returns
+   * @param selector - A {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | Selector}
+   * to query the page for @param values - Values of options to select. If the
+   * `<select>` has the `multiple` attribute, all values are considered,
+   * otherwise only the first one is taken into account. @returns
    *
-   * @remarks
-   * Shortcut for {@link Frame.select | page.mainFrame().select()}
+   * @remarks Shortcut for {@link Frame.select | page.mainFrame().select()}
    */
   override select(selector: string, ...values: string[]): Promise<string[]> {
     return this.mainFrame().select(selector, ...values);
@@ -2862,15 +2801,13 @@ export class CDPPage extends Page {
 
   /**
    * This method fetches an element with `selector`, scrolls it into view if
-   * needed, and then uses {@link Page.touchscreen} to tap in the center of the element.
-   * If there's no element matching `selector`, the method throws an error.
-   * @param selector - A
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | Selector}
+   * needed, and then uses {@link Page.touchscreen} to tap in the center of the
+   * element. If there's no element matching `selector`, the method throws an
+   * error. @param selector - A {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | Selector}
    * to search for element to tap. If there are multiple elements satisfying the
-   * selector, the first will be tapped.
-   * @returns
-   * @remarks
-   * Shortcut for {@link Frame.tap | page.mainFrame().tap(selector)}.
+   * selector, the first will be tapped. @returns @remarks Shortcut for {@link
+   * Frame.tap | page.mainFrame().tap(selector)}.
    */
   override tap(selector: string): Promise<void> {
     return this.mainFrame().tap(selector);
@@ -2880,8 +2817,8 @@ export class CDPPage extends Page {
    * Sends a `keydown`, `keypress/input`, and `keyup` event for each character
    * in the text.
    *
-   * To press a special key, like `Control` or `ArrowDown`, use {@link Keyboard.press}.
-   * @example
+   * To press a special key, like `Control` or `ArrowDown`, use {@link
+   * Keyboard.press}. @example
    *
    * ```ts
    * await page.type('#mytextarea', 'Hello');
@@ -2890,14 +2827,12 @@ export class CDPPage extends Page {
    * // Types slower, like a user
    * ```
    *
-   * @param selector - A
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
+   * @param selector - A {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
    * of an element to type into. If there are multiple elements satisfying the
-   * selector, the first will be used.
-   * @param text - A text to type into a focused element.
-   * @param options - have property `delay` which is the Time to wait between
-   * key presses in milliseconds. Defaults to `0`.
-   * @returns
+   * selector, the first will be used. @param text - A text to type into a
+   * focused element. @param options - have property `delay` which is the Time
+   * to wait between key presses in milliseconds. Defaults to `0`. @returns
    * @remarks
    */
   override type(
@@ -2913,10 +2848,10 @@ export class CDPPage extends Page {
    *
    * Causes your script to wait for the given number of milliseconds.
    *
-   * @remarks
-   * It's generally recommended to not wait for a number of seconds, but instead
-   * use {@link Frame.waitForSelector}, {@link Frame.waitForXPath} or
-   * {@link Frame.waitForFunction} to wait for exactly the conditions you want.
+   * @remarks It's generally recommended to not wait for a number of seconds,
+   * but instead use {@link Frame.waitForSelector}, {@link Frame.waitForXPath}
+   * or {@link Frame.waitForFunction} to wait for exactly the conditions you
+   * want.
    *
    * @example
    *
@@ -2934,9 +2869,9 @@ export class CDPPage extends Page {
 
   /**
    * Wait for the `selector` to appear in page. If at the moment of calling the
-   * method the `selector` already exists, the method will return immediately. If
-   * the `selector` doesn't appear after the `timeout` milliseconds of waiting, the
-   * function will throw.
+   * method the `selector` already exists, the method will return immediately.
+   * If the `selector` doesn't appear after the `timeout` milliseconds of
+   * waiting, the function will throw.
    *
    * This method works across navigations:
    *
@@ -2960,27 +2895,25 @@ export class CDPPage extends Page {
    * })();
    * ```
    *
-   * @param selector - A
-   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
-   * of an element to wait for
-   * @param options - Optional waiting parameters
+   * @param selector - A {@link
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | selector}
+   * of an element to wait for @param options - Optional waiting parameters
    * @returns Promise which resolves when element specified by selector string
    * is added to DOM. Resolves to `null` if waiting for hidden: `true` and
-   * selector is not found in DOM.
-   * @remarks
-   * The optional Parameter in Arguments `options` are :
+   * selector is not found in DOM. @remarks The optional Parameter in Arguments
+   * `options` are :
    *
    * - `Visible`: A boolean wait for element to be present in DOM and to be
    *   visible, i.e. to not have `display: none` or `visibility: hidden` CSS
    *   properties. Defaults to `false`.
    *
    * - `hidden`: Wait for element to not be found in the DOM or to be hidden,
-   *   i.e. have `display: none` or `visibility: hidden` CSS properties. Defaults to
-   *   `false`.
+   *   i.e. have `display: none` or `visibility: hidden` CSS properties.
+   *   Defaults to `false`.
    *
    * - `timeout`: maximum time to wait for in milliseconds. Defaults to `30000`
-   *   (30 seconds). Pass `0` to disable timeout. The default value can be changed
-   *   by using the {@link Page.setDefaultTimeout} method.
+   *   (30 seconds). Pass `0` to disable timeout. The default value can be
+   *   changed by using the {@link Page.setDefaultTimeout} method.
    */
   override async waitForSelector<Selector extends string>(
     selector: Selector,
@@ -3017,15 +2950,12 @@ export class CDPPage extends Page {
    * })();
    * ```
    *
-   * @param xpath - A
-   * {@link https://developer.mozilla.org/en-US/docs/Web/XPath | xpath} of an
-   * element to wait for
-   * @param options - Optional waiting parameters
-   * @returns Promise which resolves when element specified by xpath string is
-   * added to DOM. Resolves to `null` if waiting for `hidden: true` and xpath is
-   * not found in DOM.
-   * @remarks
-   * The optional Argument `options` have properties:
+   * @param xpath - A {@link https://developer.mozilla.org/en-US/docs/Web/XPath
+   * | xpath} of an element to wait for @param options - Optional waiting
+   * parameters @returns Promise which resolves when element specified by xpath
+   * string is added to DOM. Resolves to `null` if waiting for `hidden: true`
+   * and xpath is not found in DOM. @remarks The optional Argument `options`
+   * have properties:
    *
    * - `visible`: A boolean to wait for element to be present in DOM and to be
    *   visible, i.e. to not have `display: none` or `visibility: hidden` CSS
@@ -3036,8 +2966,9 @@ export class CDPPage extends Page {
    *   Defaults to `false`.
    *
    * - `timeout`: A number which is maximum time to wait for in milliseconds.
-   *   Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default
-   *   value can be changed by using the {@link Page.setDefaultTimeout} method.
+   *   Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The
+   *   default value can be changed by using the {@link Page.setDefaultTimeout}
+   *   method.
    */
   override waitForXPath(
     xpath: string,
@@ -3053,8 +2984,8 @@ export class CDPPage extends Page {
   /**
    * Waits for a function to finish evaluating in the page's context.
    *
-   * @example
-   * The {@link Page.waitForFunction} can be used to observe viewport size change:
+   * @example The {@link Page.waitForFunction} can be used to observe viewport
+   * size change:
    *
    * ```ts
    * const puppeteer = require('puppeteer');
@@ -3068,9 +2999,8 @@ export class CDPPage extends Page {
    * })();
    * ```
    *
-   * @example
-   * To pass arguments from node.js to the predicate of
-   * {@link Page.waitForFunction} function:
+   * @example To pass arguments from node.js to the predicate of {@link
+   * Page.waitForFunction} function:
    *
    * ```ts
    * const selector = '.foo';
@@ -3081,8 +3011,8 @@ export class CDPPage extends Page {
    * );
    * ```
    *
-   * @example
-   * The predicate of {@link Page.waitForFunction} can be asynchronous too:
+   * @example The predicate of {@link Page.waitForFunction} can be asynchronous
+   * too:
    *
    * ```ts
    * const username = 'github-username';
@@ -3104,8 +3034,8 @@ export class CDPPage extends Page {
    * );
    * ```
    *
-   * @param pageFunction - Function to be evaluated in browser context
-   * @param options - Options for configuring waiting behavior.
+   * @param pageFunction - Function to be evaluated in browser context @param
+   * options - Options for configuring waiting behavior.
    */
   override waitForFunction<
     Params extends unknown[],

@@ -4,7 +4,8 @@ sidebar_label: ElementHandle.uploadFile
 
 # ElementHandle.uploadFile() method
 
-This method expects `elementHandle` to point to an [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
+This method expects `elementHandle` to point to an
+[input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
 
 **Signature:**
 

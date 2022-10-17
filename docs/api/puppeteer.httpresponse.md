@@ -4,7 +4,8 @@ sidebar_label: HTTPResponse
 
 # HTTPResponse class
 
-The HTTPResponse class represents responses which are received by the [Page](./puppeteer.page.md) class.
+The HTTPResponse class represents responses which are received by the
+[Page](./puppeteer.page.md) class.
 
 **Signature:**
 
@@ -14,7 +15,9 @@ export declare class HTTPResponse
 
 ## Remarks
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `HTTPResponse` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`HTTPResponse` class.
 
 ## Methods
 

@@ -16,9 +16,14 @@ export declare class EventEmitter implements CommonEventEmitter
 
 ## Remarks
 
-This allows you to listen to events that Puppeteer classes fire and act accordingly. Therefore you'll mostly use [on](./puppeteer.eventemitter.on.md) and [off](./puppeteer.eventemitter.off.md) to bind and unbind to event listeners.
+This allows you to listen to events that Puppeteer classes fire and act
+accordingly. Therefore you'll mostly use [on](./puppeteer.eventemitter.on.md)
+and [off](./puppeteer.eventemitter.off.md) to bind and unbind to event
+listeners.
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `EventEmitter` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`EventEmitter` class.
 
 ## Methods
 

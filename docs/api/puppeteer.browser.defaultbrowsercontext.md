@@ -4,7 +4,8 @@ sidebar_label: Browser.defaultBrowserContext
 
 # Browser.defaultBrowserContext() method
 
-Returns the default browser context. The default browser context cannot be closed.
+Returns the default browser context. The default browser context cannot be
+closed.
 
 **Signature:**
 

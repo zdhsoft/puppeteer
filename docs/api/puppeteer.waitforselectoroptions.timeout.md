@@ -6,7 +6,8 @@ sidebar_label: WaitForSelectorOptions.timeout
 
 Maximum time to wait in milliseconds. Pass `0` to disable timeout.
 
-The default value can be changed by using [Page.setDefaultTimeout()](./puppeteer.page.setdefaulttimeout.md)
+The default value can be changed by using
+[Page.setDefaultTimeout()](./puppeteer.page.setdefaulttimeout.md)
 
 **Signature:**
 

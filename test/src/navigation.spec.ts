@@ -1,17 +1,17 @@
 /**
  * Copyright 2018 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import utils from './utils.js';
@@ -156,12 +156,11 @@ describe('navigation', function () {
     function getExpectedSSLCertMessage(): string {
       const {headless} = getTestState();
       /**
-       * If you are running this on pre-Catalina versions of macOS this will fail
-       * locally. Mac OSX Catalina outputs a different message than other
+       * If you are running this on pre-Catalina versions of macOS this will
+       * fail locally. Mac OSX Catalina outputs a different message than other
        * platforms. See https://support.google.com/chrome/thread/18125056?hl=en
        * for details. If you're running pre-Catalina Mac OSX this test will fail
-       * locally.
-       * In chrome-headless, the message is also different.
+       * locally. In chrome-headless, the message is also different.
        */
       return os.platform() === 'darwin' && headless !== 'chrome'
         ? 'net::ERR_CERT_INVALID'

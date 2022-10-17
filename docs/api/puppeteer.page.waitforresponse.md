@@ -36,7 +36,9 @@ Promise which resolves to the matched response.
 
 Optional Parameter have:
 
-- `timeout`: Maximum wait time in milliseconds, defaults to `30` seconds, pass `0` to disable the timeout. The default value can be changed by using the [Page.setDefaultTimeout()](./puppeteer.page.setdefaulttimeout.md) method.
+- `timeout`: Maximum wait time in milliseconds, defaults to `30` seconds, pass
+  `0` to disable the timeout. The default value can be changed by using the
+  [Page.setDefaultTimeout()](./puppeteer.page.setdefaulttimeout.md) method.
 
 ## Example
 

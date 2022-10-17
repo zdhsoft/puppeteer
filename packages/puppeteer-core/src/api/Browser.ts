@@ -1,17 +1,17 @@
 /**
  * Copyright 2017 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -29,8 +29,8 @@ import type {Target} from '../common/Target.js'; // TODO: move to ./api
  */
 export interface BrowserContextOptions {
   /**
-   * Proxy server with optional port to use for all requests.
-   * Username and password can be set in `Page.authenticate`.
+   * Proxy server with optional port to use for all requests. Username and
+   * password can be set in `Page.authenticate`.
    */
   proxyServer?: string;
   /**
@@ -137,7 +137,8 @@ export const enum BrowserEmittedEvents {
   Disconnected = 'disconnected',
 
   /**
-   * Emitted when the url of a target changes. Contains a {@link Target} instance.
+   * Emitted when the url of a target changes. Contains a {@link Target}
+   * instance.
    *
    * @remarks
    *
@@ -147,8 +148,8 @@ export const enum BrowserEmittedEvents {
 
   /**
    * Emitted when a target is created, for example when a new page is opened by
-   * {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/open | window.open}
-   * or by {@link Browser.newPage | browser.newPage}
+   * {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/open |
+   * window.open} or by {@link Browser.newPage | browser.newPage}
    *
    * Contains a {@link Target} instance.
    *
@@ -169,15 +170,17 @@ export const enum BrowserEmittedEvents {
 }
 
 /**
- * A Browser is created when Puppeteer connects to a Chromium instance, either through
- * {@link PuppeteerNode.launch} or {@link Puppeteer.connect}.
+ * A Browser is created when Puppeteer connects to a Chromium instance, either
+ * through {@link PuppeteerNode.launch} or {@link Puppeteer.connect}.
  *
  * @remarks
  *
- * The Browser class extends from Puppeteer's {@link EventEmitter} class and will
- * emit various events which are documented in the {@link BrowserEmittedEvents} enum.
+ * The Browser class extends from Puppeteer's {@link EventEmitter} class and
+ * will emit various events which are documented in the {@link
+ * BrowserEmittedEvents} enum.
  *
  * @example
+ *
  * An example of using a {@link Browser} to create a {@link Page}:
  *
  * ```ts
@@ -192,6 +195,7 @@ export const enum BrowserEmittedEvents {
  * ```
  *
  * @example
+ *
  * An example of disconnecting from and reconnecting to a {@link Browser}:
  *
  * ```ts
@@ -243,8 +247,8 @@ export class Browser extends EventEmitter {
   }
 
   /**
-   * The spawned browser process. Returns `null` if the browser instance was created with
-   * {@link Puppeteer.connect}.
+   * The spawned browser process. Returns `null` if the browser instance was
+   * created with {@link Puppeteer.connect}.
    */
   process(): ChildProcess | null {
     throw new Error('Not implemented');
@@ -258,8 +262,8 @@ export class Browser extends EventEmitter {
   }
 
   /**
-   * Creates a new incognito browser context. This won't share cookies/cache with other
-   * browser contexts.
+   * Creates a new incognito browser context. This won't share cookies/cache
+   * with other browser contexts.
    *
    * @example
    *
@@ -283,15 +287,16 @@ export class Browser extends EventEmitter {
   }
 
   /**
-   * Returns an array of all open browser contexts. In a newly created browser, this will
-   * return a single instance of {@link BrowserContext}.
+   * Returns an array of all open browser contexts. In a newly created browser,
+   * this will return a single instance of {@link BrowserContext}.
    */
   browserContexts(): BrowserContext[] {
     throw new Error('Not implemented');
   }
 
   /**
-   * Returns the default browser context. The default browser context cannot be closed.
+   * Returns the default browser context. The default browser context cannot be
+   * closed.
    */
   defaultBrowserContext(): BrowserContext {
     throw new Error('Not implemented');
@@ -306,8 +311,8 @@ export class Browser extends EventEmitter {
   }
 
   /**
-   * The browser websocket endpoint which can be used as an argument to
-   * {@link Puppeteer.connect}.
+   * The browser websocket endpoint which can be used as an argument to {@link
+   * Puppeteer.connect}.
    *
    * @returns The Browser websocket url.
    *
@@ -315,9 +320,9 @@ export class Browser extends EventEmitter {
    *
    * The format is `ws://${host}:${port}/devtools/browser/<id>`.
    *
-   * You can find the `webSocketDebuggerUrl` from `http://${host}:${port}/json/version`.
-   * Learn more about the
-   * {@link https://chromedevtools.github.io/devtools-protocol | devtools protocol} and
+   * You can find the `webSocketDebuggerUrl` from
+   * `http://${host}:${port}/json/version`. Learn more about the {@link
+   * https://chromedevtools.github.io/devtools-protocol | devtools protocol} and
    * the {@link
    * https://chromedevtools.github.io/devtools-protocol/#how-do-i-access-the-browser-target
    * | browser endpoint}.
@@ -343,8 +348,8 @@ export class Browser extends EventEmitter {
   }
 
   /**
-   * All active targets inside the Browser. In case of multiple browser contexts, returns
-   * an array with all the targets in all browser contexts.
+   * All active targets inside the Browser. In case of multiple browser
+   * contexts, returns an array with all the targets in all browser contexts.
    */
   targets(): Target[] {
     throw new Error('Not implemented');
@@ -360,8 +365,8 @@ export class Browser extends EventEmitter {
   /**
    * Searches for a target in all browser contexts.
    *
-   * @param predicate - A function to be run for every target.
-   * @returns The first target found that matches the `predicate` function.
+   * @param predicate - A function to be run for every target. @returns The
+   * first target found that matches the `predicate` function.
    *
    * @example
    *
@@ -387,9 +392,9 @@ export class Browser extends EventEmitter {
    *
    * @remarks
    *
-   * In case of multiple browser contexts, returns an array with all the pages in all
-   * browser contexts. Non-visible pages, such as `"background_page"`, will not be listed
-   * here. You can find them using {@link Target.page}.
+   * In case of multiple browser contexts, returns an array with all the pages
+   * in all browser contexts. Non-visible pages, such as `"background_page"`,
+   * will not be listed here. You can find them using {@link Target.page}.
    */
   pages(): Promise<Page[]> {
     throw new Error('Not implemented');
@@ -403,32 +408,34 @@ export class Browser extends EventEmitter {
    * For headless Chromium, this is similar to `HeadlessChrome/61.0.3153.0`. For
    * non-headless, this is similar to `Chrome/61.0.3153.0`.
    *
-   * The format of browser.version() might change with future releases of Chromium.
+   * The format of browser.version() might change with future releases of
+   * Chromium.
    */
   version(): Promise<string> {
     throw new Error('Not implemented');
   }
 
   /**
-   * The browser's original user agent. Pages can override the browser user agent with
-   * {@link Page.setUserAgent}.
+   * The browser's original user agent. Pages can override the browser user
+   * agent with {@link Page.setUserAgent}.
    */
   userAgent(): Promise<string> {
     throw new Error('Not implemented');
   }
 
   /**
-   * Closes Chromium and all of its pages (if any were opened). The {@link Browser} object
-   * itself is considered to be disposed and cannot be used anymore.
+   * Closes Chromium and all of its pages (if any were opened). The {@link
+   * Browser} object itself is considered to be disposed and cannot be used
+   * anymore.
    */
   close(): Promise<void> {
     throw new Error('Not implemented');
   }
 
   /**
-   * Disconnects Puppeteer from the browser, but leaves the Chromium process running.
-   * After calling `disconnect`, the {@link Browser} object is considered disposed and
-   * cannot be used anymore.
+   * Disconnects Puppeteer from the browser, but leaves the Chromium process
+   * running. After calling `disconnect`, the {@link Browser} object is
+   * considered disposed and cannot be used anymore.
    */
   disconnect(): void {
     throw new Error('Not implemented');
@@ -453,8 +460,8 @@ export const enum BrowserContextEmittedEvents {
 
   /**
    * Emitted when a target is created within the browser context, for example
-   * when a new page is opened by
-   * {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/open | window.open}
+   * when a new page is opened by {@link
+   * https://developer.mozilla.org/en-US/docs/Web/API/Window/open | window.open}
    * or by {@link BrowserContext.newPage | browserContext.newPage}
    *
    * Contains a {@link Target} instance.
@@ -476,15 +483,16 @@ export const enum BrowserContextEmittedEvents {
  * @remarks
  *
  * The Browser class extends from Puppeteer's {@link EventEmitter} class and
- * will emit various events which are documented in the
- * {@link BrowserContextEmittedEvents} enum.
+ * will emit various events which are documented in the {@link
+ * BrowserContextEmittedEvents} enum.
  *
  * If a page opens another page, e.g. with a `window.open` call, the popup will
  * belong to the parent page's browser context.
  *
- * Puppeteer allows creation of "incognito" browser contexts with
- * {@link Browser.createIncognitoBrowserContext | Browser.createIncognitoBrowserContext}
- * method. "Incognito" browser contexts don't write any browsing data to disk.
+ * Puppeteer allows creation of "incognito" browser contexts with {@link
+ * Browser.createIncognitoBrowserContext |
+ * Browser.createIncognitoBrowserContext} method. "Incognito" browser contexts
+ * don't write any browsing data to disk.
  *
  * @example
  *
@@ -519,8 +527,8 @@ export class BrowserContext extends EventEmitter {
   /**
    * This searches for a target in this specific browser context.
    *
-   * @example
-   * An example of finding a target for a page opened via `window.open`:
+   * @example An example of finding a target for a page opened via
+   * `window.open`:
    *
    * ```ts
    * await page.evaluate(() => window.open('https://www.example.com/'));
@@ -529,12 +537,11 @@ export class BrowserContext extends EventEmitter {
    * );
    * ```
    *
-   * @param predicate - A function to be run for every target
-   * @param options - An object of options. Accepts a timout,
-   * which is the maximum wait time in milliseconds.
-   * Pass `0` to disable the timeout. Defaults to 30 seconds.
-   * @returns Promise which resolves to the first target found
-   * that matches the `predicate` function.
+   * @param predicate - A function to be run for every target @param options -
+   * An object of options. Accepts a timout, which is the maximum wait time in
+   * milliseconds. Pass `0` to disable the timeout. Defaults to 30 seconds.
+   * @returns Promise which resolves to the first target found that matches the
+   * `predicate` function.
    */
   waitForTarget(
     predicate: (x: Target) => boolean | Promise<boolean>,
@@ -547,20 +554,19 @@ export class BrowserContext extends EventEmitter {
   /**
    * An array of all pages inside the browser context.
    *
-   * @returns Promise which resolves to an array of all open pages.
-   * Non visible pages, such as `"background_page"`, will not be listed here.
-   * You can find them using {@link Target.page | the target page}.
+   * @returns Promise which resolves to an array of all open pages. Non visible
+   * pages, such as `"background_page"`, will not be listed here. You can find
+   * them using {@link Target.page | the target page}.
    */
   pages(): Promise<Page[]> {
     throw new Error('Not implemented');
   }
 
   /**
-   * Returns whether BrowserContext is incognito.
-   * The default browser context is the only non-incognito browser context.
+   * Returns whether BrowserContext is incognito. The default browser context is
+   * the only non-incognito browser context.
    *
-   * @remarks
-   * The default browser context cannot be closed.
+   * @remarks The default browser context cannot be closed.
    */
   isIncognito(): boolean {
     throw new Error('Not implemented');
@@ -576,9 +582,10 @@ export class BrowserContext extends EventEmitter {
    * ]);
    * ```
    *
-   * @param origin - The origin to grant permissions to, e.g. "https://example.com".
-   * @param permissions - An array of permissions to grant.
-   * All permissions that are not listed here will be automatically denied.
+   * @param origin - The origin to grant permissions to, e.g.
+   * "https://example.com". @param permissions - An array of permissions to
+   * grant. All permissions that are not listed here will be automatically
+   * denied.
    */
   overridePermissions(origin: string, permissions: Permission[]): Promise<void>;
   overridePermissions(): Promise<void> {
@@ -616,11 +623,10 @@ export class BrowserContext extends EventEmitter {
   }
 
   /**
-   * Closes the browser context. All the targets that belong to the browser context
-   * will be closed.
+   * Closes the browser context. All the targets that belong to the browser
+   * context will be closed.
    *
-   * @remarks
-   * Only incognito browser contexts can be closed.
+   * @remarks Only incognito browser contexts can be closed.
    */
   close(): Promise<void> {
     throw new Error('Not implemented');

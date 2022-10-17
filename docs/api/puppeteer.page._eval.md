@@ -4,7 +4,8 @@ sidebar_label: Page.$eval
 
 # Page.$eval() method
 
-This method runs `document.querySelector` within the page and passes the result as the first argument to the `pageFunction`.
+This method runs `document.querySelector` within the page and passes the result
+as the first argument to the `pageFunction`.
 
 **Signature:**
 
@@ -36,13 +37,16 @@ class Page {
 
 Promise&lt;Awaited&lt;ReturnType&lt;Func&gt;&gt;&gt;
 
-The result of calling `pageFunction`. If it returns an element it is wrapped in an [ElementHandle](./puppeteer.elementhandle.md), else the raw value itself is returned.
+The result of calling `pageFunction`. If it returns an element it is wrapped in
+an [ElementHandle](./puppeteer.elementhandle.md), else the raw value itself is
+returned.
 
 ## Remarks
 
 If no element is found matching `selector`, the method will throw an error.
 
-If `pageFunction` returns a promise `$eval` will wait for the promise to resolve and then return its value.
+If `pageFunction` returns a promise `$eval` will wait for the promise to resolve
+and then return its value.
 
 ## Example 1
 
@@ -52,7 +56,9 @@ const preloadHref = await page.$eval('link[rel=preload]', el => el.href);
 const html = await page.$eval('.main-container', el => el.outerHTML);
 ```
 
-If you are using TypeScript, you may have to provide an explicit type to the first argument of the `pageFunction`. By default it is typed as `Element`, but you may need to provide a more specific sub-type:
+If you are using TypeScript, you may have to provide an explicit type to the
+first argument of the `pageFunction`. By default it is typed as `Element`, but
+you may need to provide a more specific sub-type:
 
 ## Example 2
 
@@ -65,7 +71,9 @@ const searchValue = await page.$eval(
 );
 ```
 
-The compiler should be able to infer the return type from the `pageFunction` you provide. If it is unable to, you can use the generic type to tell the compiler what return type you expect from `$eval`:
+The compiler should be able to infer the return type from the `pageFunction` you
+provide. If it is unable to, you can use the generic type to tell the compiler
+what return type you expect from `$eval`:
 
 ## Example 3
 

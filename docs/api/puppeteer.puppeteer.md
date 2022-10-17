@@ -6,7 +6,11 @@ sidebar_label: Puppeteer
 
 The main Puppeteer class.
 
-IMPORTANT: if you are using Puppeteer in a Node environment, you will get an instance of [PuppeteerNode](./puppeteer.puppeteernode.md) when you import or require `puppeteer`. That class extends `Puppeteer`, so has all the methods documented below as well as all that are defined on [PuppeteerNode](./puppeteer.puppeteernode.md).
+IMPORTANT: if you are using Puppeteer in a Node environment, you will get an
+instance of [PuppeteerNode](./puppeteer.puppeteernode.md) when you import or
+require `puppeteer`. That class extends `Puppeteer`, so has all the methods
+documented below as well as all that are defined on
+[PuppeteerNode](./puppeteer.puppeteernode.md).
 
 **Signature:**
 
@@ -16,7 +20,9 @@ export declare class Puppeteer
 
 ## Remarks
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `Puppeteer` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`Puppeteer` class.
 
 ## Methods
 

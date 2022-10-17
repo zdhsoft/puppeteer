@@ -34,7 +34,10 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-If `click()` triggers a navigation event and there's a separate `page.waitForNavigation()` promise to be resolved, you may end up with a race condition that yields unexpected results. The correct pattern for click and wait for navigation is the following:
+If `click()` triggers a navigation event and there's a separate
+`page.waitForNavigation()` promise to be resolved, you may end up with a race
+condition that yields unexpected results. The correct pattern for click and wait
+for navigation is the following:
 
 ```ts
 const [response] = await Promise.all([

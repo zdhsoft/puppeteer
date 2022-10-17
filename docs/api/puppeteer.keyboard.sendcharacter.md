@@ -4,7 +4,8 @@ sidebar_label: Keyboard.sendCharacter
 
 # Keyboard.sendCharacter() method
 
-Dispatches a `keypress` and `input` event. This does not send a `keydown` or `keyup` event.
+Dispatches a `keypress` and `input` event. This does not send a `keydown` or
+`keyup` event.
 
 **Signature:**
 
@@ -26,7 +27,9 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-Modifier keys DO NOT effect [Keyboard.sendCharacter](./puppeteer.keyboard.sendcharacter.md). Holding down `Shift` will not type the text in upper case.
+Modifier keys DO NOT effect
+[Keyboard.sendCharacter](./puppeteer.keyboard.sendcharacter.md). Holding down
+`Shift` will not type the text in upper case.
 
 ## Example
 

@@ -10,7 +10,9 @@ sidebar_label: PuppeteerLaunchOptions
 export interface PuppeteerLaunchOptions extends LaunchOptions, BrowserLaunchArgumentOptions, BrowserConnectOptions
 ```
 
-**Extends:** [LaunchOptions](./puppeteer.launchoptions.md), [BrowserLaunchArgumentOptions](./puppeteer.browserlaunchargumentoptions.md), [BrowserConnectOptions](./puppeteer.browserconnectoptions.md)
+**Extends:** [LaunchOptions](./puppeteer.launchoptions.md),
+[BrowserLaunchArgumentOptions](./puppeteer.browserlaunchargumentoptions.md),
+[BrowserConnectOptions](./puppeteer.browserconnectoptions.md)
 
 ## Properties
 

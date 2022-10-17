@@ -1,17 +1,17 @@
 /**
  * Copyright 2020 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {Protocol} from 'devtools-protocol';
@@ -57,14 +57,16 @@ function isKnownAttribute(
 
 /**
  * The selectors consist of an accessible name to query for and optionally
- * further aria attributes on the form `[<attribute>=<value>]`.
- * Currently, we only support the `name` and `role` attribute.
- * The following examples showcase how the syntax works wrt. querying:
+ * further aria attributes on the form `[<attribute>=<value>]`. Currently, we
+ * only support the `name` and `role` attribute. The following examples showcase
+ * how the syntax works wrt. querying:
  *
- * - 'title[role="heading"]' queries for elements with name 'title' and role 'heading'.
+ * - 'title[role="heading"]' queries for elements with name 'title' and role
+ *   'heading'.
  * - '[role="img"]' queries for elements with role 'img' and any name.
  * - 'label' queries for elements with name 'label' and any role.
- * - '[name=""][role="button"]' queries for elements with no name and role 'button'.
+ * - '[name=""][role="button"]' queries for elements with no name and role
+ *   'button'.
  */
 function parseAriaSelector(selector: string): ARIAQueryOption {
   const queryOptions: ARIAQueryOption = {};

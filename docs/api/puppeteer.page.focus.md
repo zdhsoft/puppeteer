@@ -4,7 +4,8 @@ sidebar_label: Page.focus
 
 # Page.focus() method
 
-This method fetches an element with `selector` and focuses it. If there's no element matching `selector`, the method throws an error.
+This method fetches an element with `selector` and focuses it. If there's no
+element matching `selector`, the method throws an error.
 
 **Signature:**
 
@@ -24,7 +25,8 @@ class Page {
 
 Promise&lt;void&gt;
 
-Promise which resolves when the element matching selector is successfully focused. The promise will be rejected if there is no element matching selector.
+Promise which resolves when the element matching selector is successfully
+focused. The promise will be rejected if there is no element matching selector.
 
 ## Remarks
 

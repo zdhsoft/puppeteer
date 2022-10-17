@@ -14,23 +14,32 @@ export declare class HTTPRequest
 
 ## Remarks
 
-Whenever the page sends a request, such as for a network resource, the following events are emitted by Puppeteer's `page`:
+Whenever the page sends a request, such as for a network resource, the following
+events are emitted by Puppeteer's `page`:
 
-- `request`: emitted when the request is issued by the page. - `requestfinished` - emitted when the response body is downloaded and the request is complete.
+- `request`: emitted when the request is issued by the page. -
+  `requestfinished` - emitted when the response body is downloaded and the
+  request is complete.
 
-If request fails at some point, then instead of `requestfinished` event the `requestfailed` event is emitted.
+If request fails at some point, then instead of `requestfinished` event the
+`requestfailed` event is emitted.
 
-All of these events provide an instance of `HTTPRequest` representing the request that occurred:
+All of these events provide an instance of `HTTPRequest` representing the
+request that occurred:
 
 ```
 page.on('request', request => ...)
 ```
 
-NOTE: HTTP Error responses, such as 404 or 503, are still successful responses from HTTP standpoint, so request will complete with `requestfinished` event.
+NOTE: HTTP Error responses, such as 404 or 503, are still successful responses
+from HTTP standpoint, so request will complete with `requestfinished` event.
 
-If request gets a 'redirect' response, the request is successfully finished with the `requestfinished` event, and a new request is issued to a redirected url.
+If request gets a 'redirect' response, the request is successfully finished with
+the `requestfinished` event, and a new request is issued to a redirected url.
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `HTTPRequest` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`HTTPRequest` class.
 
 ## Properties
 

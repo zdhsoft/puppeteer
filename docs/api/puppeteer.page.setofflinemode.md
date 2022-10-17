@@ -6,7 +6,8 @@ sidebar_label: Page.setOfflineMode
 
 Sets the network connection to offline.
 
-It does not change the parameters used in [Page.emulateNetworkConditions()](./puppeteer.page.emulatenetworkconditions.md)
+It does not change the parameters used in
+[Page.emulateNetworkConditions()](./puppeteer.page.emulatenetworkconditions.md)
 
 **Signature:**
 

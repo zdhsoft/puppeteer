@@ -4,7 +4,8 @@ sidebar_label: WebWorker
 
 # WebWorker class
 
-This class represents a [WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API).
+This class represents a
+[WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API).
 
 **Signature:**
 
@@ -16,9 +17,12 @@ export declare class WebWorker extends EventEmitter
 
 ## Remarks
 
-The events `workercreated` and `workerdestroyed` are emitted on the page object to signal the worker lifecycle.
+The events `workercreated` and `workerdestroyed` are emitted on the page object
+to signal the worker lifecycle.
 
-The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `WebWorker` class.
+The constructor for this class is marked as internal. Third-party code should
+not call the constructor directly or create subclasses that extend the
+`WebWorker` class.
 
 ## Example
 

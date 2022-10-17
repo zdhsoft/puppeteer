@@ -4,7 +4,8 @@ sidebar_label: ProductLauncher
 
 # ProductLauncher interface
 
-Describes a launcher - a class that is able to create and launch a browser instance.
+Describes a launcher - a class that is able to create and launch a browser
+instance.
 
 **Signature:**
 

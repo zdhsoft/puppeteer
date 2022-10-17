@@ -4,7 +4,8 @@ sidebar_label: ElementHandle.contentFrame
 
 # ElementHandle.contentFrame() method
 
-Resolves to the content frame for element handles referencing iframe nodes, or null otherwise
+Resolves to the content frame for element handles referencing iframe nodes, or
+null otherwise
 
 **Signature:**
 

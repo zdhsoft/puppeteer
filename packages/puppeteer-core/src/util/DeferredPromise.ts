@@ -22,8 +22,8 @@ export interface DeferredPromiseOptions {
  * Creates and returns a promise along with the resolve/reject functions.
  *
  * If the promise has not been resolved/rejected within the `timeout` period,
- * the promise gets rejected with a timeout error. `timeout` has to be greater than 0 or
- * it is ignored.
+ * the promise gets rejected with a timeout error. `timeout` has to be greater
+ * than 0 or it is ignored.
  *
  * @internal
  */

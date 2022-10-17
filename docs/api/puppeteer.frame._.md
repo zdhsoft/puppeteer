@@ -24,6 +24,8 @@ class Frame {
 
 **Returns:**
 
-Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;[NodeFor](./puppeteer.nodefor.md)&lt;Selector&gt;&gt; \| null&gt;
+Promise&lt;[ElementHandle](./puppeteer.elementhandle.md)&lt;[NodeFor](./puppeteer.nodefor.md)&lt;Selector&gt;&gt;
+\| null&gt;
 
-A [element handle](./puppeteer.elementhandle.md) to the first element matching the given selector. Otherwise, `null`.
+A [element handle](./puppeteer.elementhandle.md) to the first element matching
+the given selector. Otherwise, `null`.

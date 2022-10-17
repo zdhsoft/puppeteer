@@ -1,17 +1,17 @@
 /**
  * Copyright 2020 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import PuppeteerUtil from '../injected/injected.js';
@@ -33,7 +33,8 @@ export interface CustomQueryHandler {
    */
   queryOne?: (node: Node, selector: string) => Node | null;
   /**
-   * @returns Some {@link Node}s matching the given `selector` from {@link node}.
+   * @returns Some {@link Node}s matching the given `selector` from {@link
+   * node}.
    */
   queryAll?: (node: Node, selector: string) => Node[];
 }
@@ -51,7 +52,8 @@ export interface InternalQueryHandler {
     PuppeteerUtil: PuppeteerUtil
   ) => Node | null;
   /**
-   * @returns Some {@link Node}s matching the given `selector` from {@link node}.
+   * @returns Some {@link Node}s matching the given `selector` from {@link
+   * node}.
    */
   queryAll?: (
     node: Node,
@@ -84,8 +86,8 @@ export interface PuppeteerQueryHandler {
   ) => Promise<Array<ElementHandle<Node>>>;
 
   /**
-   * Waits until a single node appears for a given selector and
-   * {@link ElementHandle}.
+   * Waits until a single node appears for a given selector and {@link
+   * ElementHandle}.
    */
   waitFor?: (
     elementOrFrame: ElementHandle<Node> | Frame,
@@ -237,8 +239,8 @@ const INTERNAL_QUERY_HANDLERS = new Map<string, RegisteredQueryHandler>([
 const QUERY_HANDLERS = new Map<string, RegisteredQueryHandler>();
 
 /**
- * @deprecated Import {@link Puppeteer} and use the static method
- * {@link Puppeteer.registerCustomQueryHandler}
+ * @deprecated Import {@link Puppeteer} and use the static method {@link
+ * Puppeteer.registerCustomQueryHandler}
  *
  * @public
  */
@@ -262,8 +264,8 @@ export function registerCustomQueryHandler(
 }
 
 /**
- * @deprecated Import {@link Puppeteer} and use the static method
- * {@link Puppeteer.unregisterCustomQueryHandler}
+ * @deprecated Import {@link Puppeteer} and use the static method {@link
+ * Puppeteer.unregisterCustomQueryHandler}
  *
  * @public
  */
@@ -272,8 +274,8 @@ export function unregisterCustomQueryHandler(name: string): void {
 }
 
 /**
- * @deprecated Import {@link Puppeteer} and use the static method
- * {@link Puppeteer.customQueryHandlerNames}
+ * @deprecated Import {@link Puppeteer} and use the static method {@link
+ * Puppeteer.customQueryHandlerNames}
  *
  * @public
  */
@@ -282,8 +284,8 @@ export function customQueryHandlerNames(): string[] {
 }
 
 /**
- * @deprecated Import {@link Puppeteer} and use the static method
- * {@link Puppeteer.clearCustomQueryHandlers}
+ * @deprecated Import {@link Puppeteer} and use the static method {@link
+ * Puppeteer.clearCustomQueryHandlers}
  *
  * @public
  */

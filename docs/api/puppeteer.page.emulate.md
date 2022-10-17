@@ -6,7 +6,8 @@ sidebar_label: Page.emulate
 
 Emulates a given device's metrics and user agent.
 
-To aid emulation, Puppeteer provides a list of known devices that can be via [KnownDevices](./puppeteer.knowndevices.md).
+To aid emulation, Puppeteer provides a list of known devices that can be via
+[KnownDevices](./puppeteer.knowndevices.md).
 
 **Signature:**
 
@@ -28,7 +29,8 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-This method will resize the page. A lot of websites don't expect phones to change size, so you should emulate before navigating to the page.
+This method will resize the page. A lot of websites don't expect phones to
+change size, so you should emulate before navigating to the page.
 
 ## Example
 

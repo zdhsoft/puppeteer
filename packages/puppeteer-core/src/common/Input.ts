@@ -1,17 +1,17 @@
 /**
  * Copyright 2017 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the 'License');
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the 'License'); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an 'AS IS' BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {assert} from '../util/assert.js';
@@ -25,21 +25,19 @@ type KeyDescription = Required<
 >;
 
 /**
- * Keyboard provides an api for managing a virtual keyboard.
- * The high level api is {@link Keyboard."type"},
- * which takes raw characters and generates proper keydown, keypress/input,
- * and keyup events on your page.
+ * Keyboard provides an api for managing a virtual keyboard. The high level api
+ * is {@link Keyboard."type"}, which takes raw characters and generates proper
+ * keydown, keypress/input, and keyup events on your page.
  *
- * @remarks
- * For finer control, you can use {@link Keyboard.down},
- * {@link Keyboard.up}, and {@link Keyboard.sendCharacter}
- * to manually fire events as if they were generated from a real keyboard.
+ * @remarks For finer control, you can use {@link Keyboard.down}, {@link
+ * Keyboard.up}, and {@link Keyboard.sendCharacter} to manually fire events as
+ * if they were generated from a real keyboard.
  *
- * On macOS, keyboard shortcuts like `⌘ A` -\> Select All do not work.
- * See {@link https://github.com/puppeteer/puppeteer/issues/1313 | #1313}.
+ * On macOS, keyboard shortcuts like `⌘ A` -\> Select All do not work. See
+ * {@link https://github.com/puppeteer/puppeteer/issues/1313 | #1313}.
  *
- * @example
- * An example of holding down `Shift` in order to select and delete some text:
+ * @example An example of holding down `Shift` in order to select and delete
+ * some text:
  *
  * ```ts
  * await page.keyboard.type('Hello World!');
@@ -54,8 +52,7 @@ type KeyDescription = Required<
  * // Result text will end up saying 'Hello!'
  * ```
  *
- * @example
- * An example of pressing `A`
+ * @example An example of pressing `A`
  *
  * ```ts
  * await page.keyboard.down('Shift');
@@ -84,24 +81,23 @@ export class Keyboard {
   /**
    * Dispatches a `keydown` event.
    *
-   * @remarks
-   * If `key` is a single character and no modifier keys besides `Shift`
-   * are being held down, a `keypress`/`input` event will also generated.
-   * The `text` option can be specified to force an input event to be generated.
-   * If `key` is a modifier key, `Shift`, `Meta`, `Control`, or `Alt`,
-   * subsequent key presses will be sent with that modifier active.
-   * To release the modifier key, use {@link Keyboard.up}.
+   * @remarks If `key` is a single character and no modifier keys besides
+   * `Shift` are being held down, a `keypress`/`input` event will also
+   * generated. The `text` option can be specified to force an input event to be
+   * generated. If `key` is a modifier key, `Shift`, `Meta`, `Control`, or
+   * `Alt`, subsequent key presses will be sent with that modifier active. To
+   * release the modifier key, use {@link Keyboard.up}.
    *
-   * After the key is pressed once, subsequent calls to
-   * {@link Keyboard.down} will have
-   * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat | repeat}
-   * set to true. To release the key, use {@link Keyboard.up}.
+   * After the key is pressed once, subsequent calls to {@link Keyboard.down}
+   * will have {@link
+   * https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat |
+   * repeat} set to true. To release the key, use {@link Keyboard.up}.
    *
-   * Modifier keys DO influence {@link Keyboard.down}.
-   * Holding down `Shift` will type the text in upper case.
+   * Modifier keys DO influence {@link Keyboard.down}. Holding down `Shift` will
+   * type the text in upper case.
    *
-   * @param key - Name of key to press, such as `ArrowLeft`.
-   * See {@link KeyInput} for a list of all key names.
+   * @param key - Name of key to press, such as `ArrowLeft`. See {@link
+   * KeyInput} for a list of all key names.
    *
    * @param options - An object of options. Accepts text which, if specified,
    * generates an input event with this text.
@@ -204,9 +200,8 @@ export class Keyboard {
   /**
    * Dispatches a `keyup` event.
    *
-   * @param key - Name of key to release, such as `ArrowLeft`.
-   * See {@link KeyInput | KeyInput}
-   * for a list of all key names.
+   * @param key - Name of key to release, such as `ArrowLeft`. See {@link
+   * KeyInput | KeyInput} for a list of all key names.
    */
   async up(key: KeyInput): Promise<void> {
     const description = this.#keyDescriptionForString(key);
@@ -224,12 +219,12 @@ export class Keyboard {
   }
 
   /**
-   * Dispatches a `keypress` and `input` event.
-   * This does not send a `keydown` or `keyup` event.
+   * Dispatches a `keypress` and `input` event. This does not send a `keydown`
+   * or `keyup` event.
    *
-   * @remarks
-   * Modifier keys DO NOT effect {@link Keyboard.sendCharacter | Keyboard.sendCharacter}.
-   * Holding down `Shift` will not type the text in upper case.
+   * @remarks Modifier keys DO NOT effect {@link Keyboard.sendCharacter |
+   * Keyboard.sendCharacter}. Holding down `Shift` will not type the text in
+   * upper case.
    *
    * @example
    *
@@ -248,15 +243,14 @@ export class Keyboard {
   }
 
   /**
-   * Sends a `keydown`, `keypress`/`input`,
-   * and `keyup` event for each character in the text.
+   * Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character
+   * in the text.
    *
-   * @remarks
-   * To press a special key, like `Control` or `ArrowDown`,
-   * use {@link Keyboard.press}.
+   * @remarks To press a special key, like `Control` or `ArrowDown`, use {@link
+   * Keyboard.press}.
    *
-   * Modifier keys DO NOT effect `keyboard.type`.
-   * Holding down `Shift` will not type the text in upper case.
+   * Modifier keys DO NOT effect `keyboard.type`. Holding down `Shift` will not
+   * type the text in upper case.
    *
    * @example
    *
@@ -265,10 +259,9 @@ export class Keyboard {
    * await page.keyboard.type('World', {delay: 100}); // Types slower, like a user
    * ```
    *
-   * @param text - A text to type into a focused element.
-   * @param options - An object of options. Accepts delay which,
-   * if specified, is the time to wait between `keydown` and `keyup` in milliseconds.
-   * Defaults to 0.
+   * @param text - A text to type into a focused element. @param options - An
+   * object of options. Accepts delay which, if specified, is the time to wait
+   * between `keydown` and `keyup` in milliseconds. Defaults to 0.
    */
   async type(text: string, options: {delay?: number} = {}): Promise<void> {
     const delay = options.delay || undefined;
@@ -287,24 +280,23 @@ export class Keyboard {
   }
 
   /**
-   * Shortcut for {@link Keyboard.down}
-   * and {@link Keyboard.up}.
+   * Shortcut for {@link Keyboard.down} and {@link Keyboard.up}.
    *
-   * @remarks
-   * If `key` is a single character and no modifier keys besides `Shift`
-   * are being held down, a `keypress`/`input` event will also generated.
-   * The `text` option can be specified to force an input event to be generated.
+   * @remarks If `key` is a single character and no modifier keys besides
+   * `Shift` are being held down, a `keypress`/`input` event will also
+   * generated. The `text` option can be specified to force an input event to be
+   * generated.
    *
-   * Modifier keys DO effect {@link Keyboard.press}.
-   * Holding down `Shift` will type the text in upper case.
+   * Modifier keys DO effect {@link Keyboard.press}. Holding down `Shift` will
+   * type the text in upper case.
    *
-   * @param key - Name of key to press, such as `ArrowLeft`.
-   * See {@link KeyInput} for a list of all key names.
+   * @param key - Name of key to press, such as `ArrowLeft`. See {@link
+   * KeyInput} for a list of all key names.
    *
    * @param options - An object of options. Accepts text which, if specified,
-   * generates an input event with this text. Accepts delay which,
-   * if specified, is the time to wait between `keydown` and `keyup` in milliseconds.
-   * Defaults to 0.
+   * generates an input event with this text. Accepts delay which, if specified,
+   * is the time to wait between `keydown` and `keyup` in milliseconds. Defaults
+   * to 0.
    */
   async press(
     key: KeyInput,
@@ -343,10 +335,9 @@ export interface MouseWheelOptions {
 }
 
 /**
- * The Mouse class operates in main-frame CSS pixels
- * relative to the top-left corner of the viewport.
- * @remarks
- * Every `page` object has its own Mouse, accessible with [`page.mouse`](#pagemouse).
+ * The Mouse class operates in main-frame CSS pixels relative to the top-left
+ * corner of the viewport. @remarks Every `page` object has its own Mouse,
+ * accessible with [`page.mouse`](#pagemouse).
  *
  * @example
  *
@@ -361,15 +352,17 @@ export interface MouseWheelOptions {
  * await page.mouse.up();
  * ```
  *
- * **Note**: The mouse events trigger synthetic `MouseEvent`s.
- * This means that it does not fully replicate the functionality of what a normal user
- * would be able to do with their mouse.
+ * **Note**: The mouse events trigger synthetic `MouseEvent`s. This means that
+ * it does not fully replicate the functionality of what a normal user would be
+ * able to do with their mouse.
  *
  * For example, dragging and selecting text is not possible using `page.mouse`.
- * Instead, you can use the {@link https://developer.mozilla.org/en-US/docs/Web/API/DocumentOrShadowRoot/getSelection | `DocumentOrShadowRoot.getSelection()`} functionality implemented in the platform.
+ * Instead, you can use the {@link
+ * https://developer.mozilla.org/en-US/docs/Web/API/DocumentOrShadowRoot/getSelection
+ * | `DocumentOrShadowRoot.getSelection()`} functionality implemented in the
+ * platform.
  *
- * @example
- * For example, if you want to select all content between nodes:
+ * @example For example, if you want to select all content between nodes:
  *
  * ```ts
  * await page.evaluate(
@@ -386,7 +379,8 @@ export interface MouseWheelOptions {
  * );
  * ```
  *
- * If you then would want to copy-paste your selection, you can use the clipboard api:
+ * If you then would want to copy-paste your selection, you can use the
+ * clipboard api:
  *
  * ```ts
  * // The clipboard api does not allow you to copy, unless the tab is focused.
@@ -399,8 +393,8 @@ export interface MouseWheelOptions {
  * });
  * ```
  *
- * **Note**: If you want access to the clipboard API,
- * you have to give it permission to do so:
+ * **Note**: If you want access to the clipboard API, you have to give it
+ * permission to do so:
  *
  * ```ts
  * await browser
@@ -429,11 +423,10 @@ export class Mouse {
   }
 
   /**
-   * Dispatches a `mousemove` event.
-   * @param x - Horizontal position of the mouse.
-   * @param y - Vertical position of the mouse.
-   * @param options - Optional object. If specified, the `steps` property
-   * sends intermediate `mousemove` events when set to `1` (default).
+   * Dispatches a `mousemove` event. @param x - Horizontal position of the
+   * mouse. @param y - Vertical position of the mouse. @param options - Optional
+   * object. If specified, the `steps` property sends intermediate `mousemove`
+   * events when set to `1` (default).
    */
   async move(
     x: number,
@@ -457,10 +450,9 @@ export class Mouse {
   }
 
   /**
-   * Shortcut for `mouse.move`, `mouse.down` and `mouse.up`.
-   * @param x - Horizontal position of the mouse.
-   * @param y - Vertical position of the mouse.
-   * @param options - Optional `MouseOptions`.
+   * Shortcut for `mouse.move`, `mouse.down` and `mouse.up`. @param x -
+   * Horizontal position of the mouse. @param y - Vertical position of the
+   * mouse. @param options - Optional `MouseOptions`.
    */
   async click(
     x: number,
@@ -483,8 +475,7 @@ export class Mouse {
   }
 
   /**
-   * Dispatches a `mousedown` event.
-   * @param options - Optional `MouseOptions`.
+   * Dispatches a `mousedown` event. @param options - Optional `MouseOptions`.
    */
   async down(options: MouseOptions = {}): Promise<void> {
     const {button = 'left', clickCount = 1} = options;
@@ -500,8 +491,7 @@ export class Mouse {
   }
 
   /**
-   * Dispatches a `mouseup` event.
-   * @param options - Optional `MouseOptions`.
+   * Dispatches a `mouseup` event. @param options - Optional `MouseOptions`.
    */
   async up(options: MouseOptions = {}): Promise<void> {
     const {button = 'left', clickCount = 1} = options;
@@ -517,11 +507,10 @@ export class Mouse {
   }
 
   /**
-   * Dispatches a `mousewheel` event.
-   * @param options - Optional: `MouseWheelOptions`.
+   * Dispatches a `mousewheel` event. @param options - Optional:
+   * `MouseWheelOptions`.
    *
-   * @example
-   * An example of zooming into an element:
+   * @example An example of zooming into an element:
    *
    * ```ts
    * await page.goto(
@@ -552,9 +541,8 @@ export class Mouse {
   }
 
   /**
-   * Dispatches a `drag` event.
-   * @param start - starting point for drag
-   * @param target - point to drag to
+   * Dispatches a `drag` event. @param start - starting point for drag @param
+   * target - point to drag to
    */
   async drag(start: Point, target: Point): Promise<Protocol.Input.DragData> {
     const promise = new Promise<Protocol.Input.DragData>(resolve => {
@@ -569,9 +557,9 @@ export class Mouse {
   }
 
   /**
-   * Dispatches a `dragenter` event.
-   * @param target - point for emitting `dragenter` event
-   * @param data - drag data containing items and operations mask
+   * Dispatches a `dragenter` event. @param target - point for emitting
+   * `dragenter` event @param data - drag data containing items and operations
+   * mask
    */
   async dragEnter(target: Point, data: Protocol.Input.DragData): Promise<void> {
     await this.#client.send('Input.dispatchDragEvent', {
@@ -584,9 +572,9 @@ export class Mouse {
   }
 
   /**
-   * Dispatches a `dragover` event.
-   * @param target - point for emitting `dragover` event
-   * @param data - drag data containing items and operations mask
+   * Dispatches a `dragover` event. @param target - point for emitting
+   * `dragover` event @param data - drag data containing items and operations
+   * mask
    */
   async dragOver(target: Point, data: Protocol.Input.DragData): Promise<void> {
     await this.#client.send('Input.dispatchDragEvent', {
@@ -599,9 +587,8 @@ export class Mouse {
   }
 
   /**
-   * Performs a dragenter, dragover, and drop in sequence.
-   * @param target - point to drop on
-   * @param data - drag data containing items and operations mask
+   * Performs a dragenter, dragover, and drop in sequence. @param target - point
+   * to drop on @param data - drag data containing items and operations mask
    */
   async drop(target: Point, data: Protocol.Input.DragData): Promise<void> {
     await this.#client.send('Input.dispatchDragEvent', {
@@ -614,12 +601,10 @@ export class Mouse {
   }
 
   /**
-   * Performs a drag, dragenter, dragover, and drop in sequence.
-   * @param start - point to drag from
-   * @param target - point to drop on
-   * @param options - An object of options. Accepts delay which,
-   * if specified, is the time to wait between `dragover` and `drop` in milliseconds.
-   * Defaults to 0.
+   * Performs a drag, dragenter, dragover, and drop in sequence. @param start -
+   * point to drag from @param target - point to drop on @param options - An
+   * object of options. Accepts delay which, if specified, is the time to wait
+   * between `dragover` and `drop` in milliseconds. Defaults to 0.
    */
   async dragAndDrop(
     start: Point,
@@ -641,8 +626,7 @@ export class Mouse {
 }
 
 /**
- * The Touchscreen class exposes touchscreen events.
- * @public
+ * The Touchscreen class exposes touchscreen events. @public
  */
 export class Touchscreen {
   #client: CDPSession;
@@ -657,9 +641,8 @@ export class Touchscreen {
   }
 
   /**
-   * Dispatches a `touchstart` and `touchend` event.
-   * @param x - Horizontal position of the tap.
-   * @param y - Vertical position of the tap.
+   * Dispatches a `touchstart` and `touchend` event. @param x - Horizontal
+   * position of the tap. @param y - Vertical position of the tap.
    */
   async tap(x: number, y: number): Promise<void> {
     const touchPoints = [{x: Math.round(x), y: Math.round(y)}];

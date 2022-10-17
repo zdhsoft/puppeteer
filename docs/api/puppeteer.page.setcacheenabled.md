@@ -4,7 +4,8 @@ sidebar_label: Page.setCacheEnabled
 
 # Page.setCacheEnabled() method
 
-Toggles ignoring cache for each request based on the enabled state. By default, caching is enabled.
+Toggles ignoring cache for each request based on the enabled state. By default,
+caching is enabled.
 
 **Signature:**
 

@@ -16,4 +16,5 @@ class HTTPResponse {
 
 Record&lt;string, string&gt;
 
-An object with HTTP headers associated with the response. All header names are lower-case.
+An object with HTTP headers associated with the response. All header names are
+lower-case.

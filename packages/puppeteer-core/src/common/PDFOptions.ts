@@ -1,17 +1,17 @@
 /**
  * Copyright 2020 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 /**
@@ -77,8 +77,7 @@ export type PaperFormat =
   | LowerCasePaperFormat;
 
 /**
- * Valid options to configure PDF generation via {@link Page.pdf}.
- * @public
+ * Valid options to configure PDF generation via {@link Page.pdf}. @public
  */
 export interface PDFOptions {
   /**
@@ -87,8 +86,7 @@ export interface PDFOptions {
    */
   scale?: number;
   /**
-   * Whether to show the header and footer.
-   * @defaultValue false
+   * Whether to show the header and footer. @defaultValue false
    */
   displayHeaderFooter?: boolean;
   /**
@@ -112,23 +110,20 @@ export interface PDFOptions {
    */
   footerTemplate?: string;
   /**
-   * Set to `true` to print background graphics.
-   * @defaultValue false
+   * Set to `true` to print background graphics. @defaultValue false
    */
   printBackground?: boolean;
   /**
-   * Whether to print in landscape orientation.
-   * @defaultValue = false
+   * Whether to print in landscape orientation. @defaultValue = false
    */
   landscape?: boolean;
   /**
-   * Paper ranges to print, e.g. `1-5, 8, 11-13`.
-   * @defaultValue The empty string, which means all pages are printed.
+   * Paper ranges to print, e.g. `1-5, 8, 11-13`. @defaultValue The empty
+   * string, which means all pages are printed.
    */
   pageRanges?: string;
   /**
-   * @remarks
-   * If set, this takes priority over the `width` and `height` options.
+   * @remarks If set, this takes priority over the `width` and `height` options.
    * @defaultValue `letter`.
    */
   format?: PaperFormat;
@@ -142,13 +137,12 @@ export interface PDFOptions {
   height?: string | number;
   /**
    * Give any CSS `@page` size declared in the page priority over what is
-   * declared in the `width` or `height` or `format` option.
-   * @defaultValue `false`, which will scale the content to fit the paper size.
+   * declared in the `width` or `height` or `format` option. @defaultValue
+   * `false`, which will scale the content to fit the paper size.
    */
   preferCSSPageSize?: boolean;
   /**
-   * Set the PDF margins.
-   * @defaultValue no margins are set.
+   * Set the PDF margins. @defaultValue no margins are set.
    */
   margin?: PDFMargin;
   /**
@@ -156,19 +150,20 @@ export interface PDFOptions {
    *
    * @remarks
    *
-   * If the path is relative, it's resolved relative to the current working directory.
+   * If the path is relative, it's resolved relative to the current working
+   * directory.
    *
-   * @defaultValue the empty string, which means the PDF will not be written to disk.
+   * @defaultValue the empty string, which means the PDF will not be written to
+   * disk.
    */
   path?: string;
   /**
-   * Hides default white background and allows generating pdfs with transparency.
-   * @defaultValue false
+   * Hides default white background and allows generating pdfs with
+   * transparency. @defaultValue false
    */
   omitBackground?: boolean;
   /**
-   * Timeout in milliseconds
-   * @defaultValue 30000
+   * Timeout in milliseconds @defaultValue 30000
    */
   timeout?: number;
 }

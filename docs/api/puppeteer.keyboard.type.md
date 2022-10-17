@@ -4,7 +4,8 @@ sidebar_label: Keyboard.type
 
 # Keyboard.type() method
 
-Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character in the text.
+Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character in
+the text.
 
 **Signature:**
 
@@ -32,9 +33,11 @@ Promise&lt;void&gt;
 
 ## Remarks
 
-To press a special key, like `Control` or `ArrowDown`, use [Keyboard.press()](./puppeteer.keyboard.press.md).
+To press a special key, like `Control` or `ArrowDown`, use
+[Keyboard.press()](./puppeteer.keyboard.press.md).
 
-Modifier keys DO NOT effect `keyboard.type`. Holding down `Shift` will not type the text in upper case.
+Modifier keys DO NOT effect `keyboard.type`. Holding down `Shift` will not type
+the text in upper case.
 
 ## Example
 

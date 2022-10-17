@@ -1,17 +1,17 @@
 /**
  * Copyright 2019 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {Protocol} from 'devtools-protocol';
@@ -60,9 +60,9 @@ export interface BoundingBox extends Point {
  * are auto-disposed when their associated frame is navigated away or the parent
  * context gets destroyed.
  *
- * Handles can be used as arguments for any evaluation function such as
- * {@link Page.$eval}, {@link Page.evaluate}, and {@link Page.evaluateHandle}.
- * They are resolved to their referenced object.
+ * Handles can be used as arguments for any evaluation function such as {@link
+ * Page.$eval}, {@link Page.evaluate}, and {@link Page.evaluateHandle}. They are
+ * resolved to their referenced object.
  *
  * @example
  *
@@ -209,11 +209,10 @@ export class JSHandle<T = unknown> {
 
   /**
    * @returns A vanilla object representing the serializable portions of the
-   * referenced object.
-   * @throws Throws if the object cannot be serialized due to circularity.
+   * referenced object. @throws Throws if the object cannot be serialized due to
+   * circularity.
    *
-   * @remarks
-   * If the object has a `toJSON` function, it **will not** be called.
+   * @remarks If the object has a `toJSON` function, it **will not** be called.
    */
   async jsonValue(): Promise<T> {
     if (!this.#remoteObject.objectId) {
@@ -229,8 +228,8 @@ export class JSHandle<T = unknown> {
   }
 
   /**
-   * @returns Either `null` or the handle itself if the handle is an
-   * instance of {@link ElementHandle}.
+   * @returns Either `null` or the handle itself if the handle is an instance of
+   * {@link ElementHandle}.
    */
   asElement(): ElementHandle<Node> | null {
     return null;
@@ -250,8 +249,7 @@ export class JSHandle<T = unknown> {
   /**
    * Returns a string representation of the JSHandle.
    *
-   * @remarks
-   * Useful during debugging.
+   * @remarks Useful during debugging.
    */
   toString(): string {
     if (!this.#remoteObject.objectId) {
@@ -276,11 +274,13 @@ export class JSHandle<T = unknown> {
  */
 export interface Offset {
   /**
-   * x-offset for the clickable point relative to the top-left corner of the border box.
+   * x-offset for the clickable point relative to the top-left corner of the
+   * border box.
    */
   x: number;
   /**
-   * y-offset for the clickable point relative to the top-left corner of the border box.
+   * y-offset for the clickable point relative to the top-left corner of the
+   * border box.
    */
   y: number;
 }
@@ -304,7 +304,8 @@ export interface ClickOptions {
    */
   clickCount?: number;
   /**
-   * Offset for the clickable point relative to the top-left corner of the border box.
+   * Offset for the clickable point relative to the top-left corner of the
+   * border box.
    */
   offset?: Offset;
 }

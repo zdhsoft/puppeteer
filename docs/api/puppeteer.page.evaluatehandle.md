@@ -31,11 +31,15 @@ Promise&lt;[HandleFor](./puppeteer.handlefor.md)&lt;Awaited&lt;ReturnType&lt;Fun
 
 ## Remarks
 
-The only difference between [page.evaluate](./puppeteer.page.evaluate.md) and `page.evaluateHandle` is that `evaluateHandle` will return the value wrapped in an in-page object.
+The only difference between [page.evaluate](./puppeteer.page.evaluate.md) and
+`page.evaluateHandle` is that `evaluateHandle` will return the value wrapped in
+an in-page object.
 
-If the function passed to `page.evaluteHandle` returns a Promise, the function will wait for the promise to resolve and return its value.
+If the function passed to `page.evaluteHandle` returns a Promise, the function
+will wait for the promise to resolve and return its value.
 
-You can pass a string instead of a function (although functions are recommended as they are easier to debug and use with TypeScript):
+You can pass a string instead of a function (although functions are recommended
+as they are easier to debug and use with TypeScript):
 
 ## Example 1
 
@@ -45,7 +49,8 @@ const aHandle = await page.evaluateHandle('document');
 
 ## Example 2
 
-[JSHandle](./puppeteer.jshandle.md) instances can be passed as arguments to the `pageFunction`:
+[JSHandle](./puppeteer.jshandle.md) instances can be passed as arguments to the
+`pageFunction`:
 
 ```ts
 const aHandle = await page.evaluateHandle(() => document.body);
@@ -54,7 +59,9 @@ console.log(await resultHandle.jsonValue());
 await resultHandle.dispose();
 ```
 
-Most of the time this function returns a [JSHandle](./puppeteer.jshandle.md), but if `pageFunction` returns a reference to an element, you instead get an [ElementHandle](./puppeteer.elementhandle.md) back:
+Most of the time this function returns a [JSHandle](./puppeteer.jshandle.md),
+but if `pageFunction` returns a reference to an element, you instead get an
+[ElementHandle](./puppeteer.elementhandle.md) back:
 
 ## Example 3
 
@@ -66,7 +73,9 @@ const button = await page.evaluateHandle(() =>
 await button.click();
 ```
 
-The TypeScript definitions assume that `evaluateHandle` returns a `JSHandle`, but if you know it's going to return an `ElementHandle`, pass it as the generic argument:
+The TypeScript definitions assume that `evaluateHandle` returns a `JSHandle`,
+but if you know it's going to return an `ElementHandle`, pass it as the generic
+argument:
 
 ```ts
 const button = await page.evaluateHandle<ElementHandle>(...);

@@ -24,7 +24,8 @@ class BrowserFetcher {
 
 Promise&lt;boolean&gt;
 
-A promise that resolves to `true` if the revision could be downloaded from the host.
+A promise that resolves to `true` if the revision could be downloaded from the
+host.
 
 ## Remarks
 

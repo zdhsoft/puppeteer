@@ -6,7 +6,8 @@ sidebar_label: createBrowserFetcher
 
 > Warning: This API is now obsolete.
 >
-> Import [BrowserFetcher](./puppeteer.browserfetcher.md) directly and use the constructor.
+> Import [BrowserFetcher](./puppeteer.browserfetcher.md) directly and use the
+> constructor.
 
 **Signature:**
 

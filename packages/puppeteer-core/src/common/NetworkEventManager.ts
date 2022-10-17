@@ -1,17 +1,17 @@
 /**
  * Copyright 2022 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {Protocol} from 'devtools-protocol';
@@ -52,36 +52,31 @@ export type NetworkRequestId = string;
  */
 export class NetworkEventManager {
   /**
-   * There are four possible orders of events:
-   * A. `_onRequestWillBeSent`
-   * B. `_onRequestWillBeSent`, `_onRequestPaused`
-   * C. `_onRequestPaused`, `_onRequestWillBeSent`
-   * D. `_onRequestPaused`, `_onRequestWillBeSent`, `_onRequestPaused`,
-   * `_onRequestWillBeSent`, `_onRequestPaused`, `_onRequestPaused`
-   * (see crbug.com/1196004)
+   * There are four possible orders of events: A. `_onRequestWillBeSent` B.
+   * `_onRequestWillBeSent`, `_onRequestPaused` C. `_onRequestPaused`,
+   * `_onRequestWillBeSent` D. `_onRequestPaused`, `_onRequestWillBeSent`,
+   * `_onRequestPaused`, `_onRequestWillBeSent`, `_onRequestPaused`,
+   * `_onRequestPaused` (see crbug.com/1196004)
    *
    * For `_onRequest` we need the event from `_onRequestWillBeSent` and
    * optionally the `interceptionId` from `_onRequestPaused`.
    *
    * If request interception is disabled, call `_onRequest` once per call to
-   * `_onRequestWillBeSent`.
-   * If request interception is enabled, call `_onRequest` once per call to
-   * `_onRequestPaused` (once per `interceptionId`).
+   * `_onRequestWillBeSent`. If request interception is enabled, call
+   * `_onRequest` once per call to `_onRequestPaused` (once per
+   * `interceptionId`).
    *
    * Events are stored to allow for subsequent events to call `_onRequest`.
    *
    * Note that (chains of) redirect requests have the same `requestId` (!) as
-   * the original request. We have to anticipate series of events like these:
-   * A. `_onRequestWillBeSent`,
-   * `_onRequestWillBeSent`, ...
-   * B. `_onRequestWillBeSent`, `_onRequestPaused`,
-   * `_onRequestWillBeSent`, `_onRequestPaused`, ...
-   * C. `_onRequestWillBeSent`, `_onRequestPaused`,
-   * `_onRequestPaused`, `_onRequestWillBeSent`, ...
-   * D. `_onRequestPaused`, `_onRequestWillBeSent`,
+   * the original request. We have to anticipate series of events like these: A.
+   * `_onRequestWillBeSent`, `_onRequestWillBeSent`, ... B.
+   * `_onRequestWillBeSent`, `_onRequestPaused`, `_onRequestWillBeSent`,
+   * `_onRequestPaused`, ... C. `_onRequestWillBeSent`, `_onRequestPaused`,
+   * `_onRequestPaused`, `_onRequestWillBeSent`, ... D. `_onRequestPaused`,
+   * `_onRequestWillBeSent`, `_onRequestPaused`, `_onRequestWillBeSent`,
    * `_onRequestPaused`, `_onRequestWillBeSent`, `_onRequestPaused`,
-   * `_onRequestWillBeSent`, `_onRequestPaused`, `_onRequestPaused`, ...
-   * (see crbug.com/1196004)
+   * `_onRequestPaused`, ... (see crbug.com/1196004)
    */
   #requestWillBeSentMap = new Map<
     NetworkRequestId,

@@ -1,17 +1,17 @@
 /**
  * Copyright 2017 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {Protocol} from 'devtools-protocol';
@@ -72,9 +72,8 @@ export interface FrameAddScriptTagOptions {
   /**
    * Path to a JavaScript file to be injected into the frame.
    *
-   * @remarks
-   * If `path` is a relative path, it is resolved relative to the current
-   * working directory (`process.cwd()` in Node.js).
+   * @remarks If `path` is a relative path, it is resolved relative to the
+   * current working directory (`process.cwd()` in Node.js).
    */
   path?: string;
   /**
@@ -82,7 +81,8 @@ export interface FrameAddScriptTagOptions {
    */
   content?: string;
   /**
-   * Sets the `type` of the script. Use `module` in order to load an ES2015 module.
+   * Sets the `type` of the script. Use `module` in order to load an ES2015
+   * module.
    */
   type?: string;
   /**
@@ -100,10 +100,9 @@ export interface FrameAddStyleTagOptions {
    */
   url?: string;
   /**
-   * The path to a CSS file to be injected into the frame.
-   * @remarks
-   * If `path` is a relative path, it is resolved relative to the current
-   * working directory (`process.cwd()` in Node.js).
+   * The path to a CSS file to be injected into the frame. @remarks If `path` is
+   * a relative path, it is resolved relative to the current working directory
+   * (`process.cwd()` in Node.js).
    */
   path?: string;
   /**
@@ -120,12 +119,11 @@ export interface FrameAddStyleTagOptions {
  * frame, the JavaScript does not effect frames inside the ambient frame the
  * JavaScript executes in.
  *
- * @example
- * At any point in time, {@link Page | pages} expose their current frame
- * tree via the {@link Page.mainFrame} and {@link Frame.childFrames} methods.
+ * @example At any point in time, {@link Page | pages} expose their current
+ * frame tree via the {@link Page.mainFrame} and {@link Frame.childFrames}
+ * methods.
  *
- * @example
- * An example of dumping frame tree:
+ * @example An example of dumping frame tree:
  *
  * ```ts
  * const puppeteer = require('puppeteer');
@@ -146,8 +144,7 @@ export interface FrameAddStyleTagOptions {
  * })();
  * ```
  *
- * @example
- * An example of getting text from an iframe element:
+ * @example An example of getting text from an iframe element:
  *
  * ```ts
  * const frame = page.frames().find(frame => frame.name() === 'myframe');
@@ -155,9 +152,8 @@ export interface FrameAddStyleTagOptions {
  * console.log(text);
  * ```
  *
- * @remarks
- * Frame lifecycles are controlled by three events that are all dispatched on
- * the parent {@link Frame.page | page}:
+ * @remarks Frame lifecycles are controlled by three events that are all
+ * dispatched on the parent {@link Frame.page | page}:
  *
  * - {@link PageEmittedEvents.FrameAttached}
  * - {@link PageEmittedEvents.FrameNavigated}
@@ -252,9 +248,8 @@ export class Frame {
   /**
    * Navigates a frame to the given url.
    *
-   * @remarks
-   * Navigation to `about:blank` or navigation to the same URL with a different
-   * hash will succeed and return `null`.
+   * @remarks Navigation to `about:blank` or navigation to the same URL with a
+   * different hash will succeed and return `null`.
    *
    * :::warning
    *
@@ -265,15 +260,13 @@ export class Frame {
    * :::
    *
    * @param url - the URL to navigate the frame to. This should include the
-   * scheme, e.g. `https://`.
-   * @param options - navigation options. `waitUntil` is useful to define when
-   * the navigation should be considered successful - see the docs for
-   * {@link PuppeteerLifeCycleEvent} for more details.
+   * scheme, e.g. `https://`. @param options - navigation options. `waitUntil`
+   * is useful to define when the navigation should be considered successful -
+   * see the docs for {@link PuppeteerLifeCycleEvent} for more details.
    *
    * @returns A promise which resolves to the main resource response. In case of
    * multiple redirects, the navigation will resolve with the response of the
-   * last redirect.
-   * @throws This method will throw an error if:
+   * last redirect. @throws This method will throw an error if:
    *
    * - there's an SSL error (e.g. in case of self-signed certificates).
    * - target URL is invalid.
@@ -358,8 +351,8 @@ export class Frame {
    * Waits for the frame to navigate. It is useful for when you run code which
    * will indirectly cause the frame to navigate.
    *
-   * Usage of the
-   * {@link https://developer.mozilla.org/en-US/docs/Web/API/History_API | History API}
+   * Usage of the {@link
+   * https://developer.mozilla.org/en-US/docs/Web/API/History_API | History API}
    * to change the URL is considered a navigation.
    *
    * @example
@@ -374,8 +367,8 @@ export class Frame {
    * ```
    *
    * @param options - options to configure when the navigation is consided
-   * finished.
-   * @returns a promise that resolves when the frame navigates to a new URL.
+   * finished. @returns a promise that resolves when the frame navigates to a
+   * new URL.
    */
   async waitForNavigation(
     options: {
@@ -439,8 +432,8 @@ export class Frame {
   }
 
   /**
-   * Behaves identically to {@link Page.evaluate} except it's run within the
-   * the context of this frame.
+   * Behaves identically to {@link Page.evaluate} except it's run within the the
+   * context of this frame.
    *
    * @see {@link Page.evaluate} for details.
    */
@@ -457,9 +450,9 @@ export class Frame {
   /**
    * Queries the frame for an element matching the given selector.
    *
-   * @param selector - The selector to query for.
-   * @returns A {@link ElementHandle | element handle} to the first element
-   * matching the given selector. Otherwise, `null`.
+   * @param selector - The selector to query for. @returns A {@link
+   * ElementHandle | element handle} to the first element matching the given
+   * selector. Otherwise, `null`.
    */
   async $<Selector extends string>(
     selector: Selector
@@ -470,9 +463,9 @@ export class Frame {
   /**
    * Queries the frame for all elements matching the given selector.
    *
-   * @param selector - The selector to query for.
-   * @returns An array of {@link ElementHandle | element handles} that point to
-   * elements matching the given selector.
+   * @param selector - The selector to query for. @returns An array of {@link
+   * ElementHandle | element handles} that point to elements matching the given
+   * selector.
    */
   async $$<Selector extends string>(
     selector: Selector
@@ -493,12 +486,11 @@ export class Frame {
    * const searchValue = await frame.$eval('#search', el => el.value);
    * ```
    *
-   * @param selector - The selector to query for.
-   * @param pageFunction - The function to be evaluated in the frame's context.
-   * The first element matching the selector will be passed to the function as
-   * its first argument.
-   * @param args - Additional arguments to pass to `pageFunction`.
-   * @returns A promise to the result of the function.
+   * @param selector - The selector to query for. @param pageFunction - The
+   * function to be evaluated in the frame's context. The first element matching
+   * the selector will be passed to the function as its first argument. @param
+   * args - Additional arguments to pass to `pageFunction`. @returns A promise
+   * to the result of the function.
    */
   async $eval<
     Selector extends string,
@@ -527,11 +519,10 @@ export class Frame {
    * const divsCounts = await frame.$$eval('div', divs => divs.length);
    * ```
    *
-   * @param selector - The selector to query for.
-   * @param pageFunction - The function to be evaluated in the frame's context.
-   * An array of elements matching the given selector will be passed to the
-   * function as its first argument.
-   * @param args - Additional arguments to pass to `pageFunction`.
+   * @param selector - The selector to query for. @param pageFunction - The
+   * function to be evaluated in the frame's context. An array of elements
+   * matching the given selector will be passed to the function as its first
+   * argument. @param args - Additional arguments to pass to `pageFunction`.
    * @returns A promise to the result of the function.
    */
   async $$eval<
@@ -555,8 +546,7 @@ export class Frame {
    *
    * This method evaluates the given XPath expression and returns the results.
    * If `xpath` starts with `//` instead of `.//`, the dot will be appended
-   * automatically.
-   * @param expression - the XPath expression to evaluate.
+   * automatically. @param expression - the XPath expression to evaluate.
    */
   async $x(expression: string): Promise<Array<ElementHandle<Node>>> {
     return this.worlds[MAIN_WORLD].$x(expression);
@@ -592,10 +582,10 @@ export class Frame {
    * })();
    * ```
    *
-   * @param selector - The selector to query and wait for.
-   * @param options - Options for customizing waiting behavior.
-   * @returns An element matching the given selector.
-   * @throws Throws if an element matching the given selector doesn't appear.
+   * @param selector - The selector to query and wait for. @param options -
+   * Options for customizing waiting behavior. @returns An element matching the
+   * given selector. @throws Throws if an element matching the given selector
+   * doesn't appear.
    */
   async waitForSelector<Selector extends string>(
     selector: Selector,
@@ -616,9 +606,8 @@ export class Frame {
    *
    * Example: `await frame.waitForSelector('xpath/' + xpathExpression)`
    *
-   * The method evaluates the XPath expression relative to the Frame.
-   * If `xpath` starts with `//` instead of `.//`, the dot will be appended
-   * automatically.
+   * The method evaluates the XPath expression relative to the Frame. If `xpath`
+   * starts with `//` instead of `.//`, the dot will be appended automatically.
    *
    * Wait for the `xpath` to appear in page. If at the moment of calling the
    * method the `xpath` already exists, the method will return immediately. If
@@ -629,9 +618,9 @@ export class Frame {
    * function behaves identically other than taking a CSS selector rather than
    * an XPath.
    *
-   * @param xpath - the XPath expression to wait for.
-   * @param options - options to configure the visiblity of the element and how
-   * long to wait before timing out.
+   * @param xpath - the XPath expression to wait for. @param options - options
+   * to configure the visiblity of the element and how long to wait before
+   * timing out.
    */
   async waitForXPath(
     xpath: string,
@@ -644,8 +633,7 @@ export class Frame {
   }
 
   /**
-   * @example
-   * The `waitForFunction` can be used to observe viewport size change:
+   * @example The `waitForFunction` can be used to observe viewport size change:
    *
    * ```ts
    * const puppeteer = require('puppeteer');
@@ -660,7 +648,8 @@ export class Frame {
    * })();
    * ```
    *
-   * To pass arguments from Node.js to the predicate of `page.waitForFunction` function:
+   * To pass arguments from Node.js to the predicate of `page.waitForFunction`
+   * function:
    *
    * ```ts
    * const selector = '.foo';
@@ -671,10 +660,10 @@ export class Frame {
    * );
    * ```
    *
-   * @param pageFunction - the function to evaluate in the frame context.
-   * @param options - options to configure the polling method and timeout.
-   * @param args - arguments to pass to the `pageFunction`.
-   * @returns the promise which resolve when the `pageFunction` returns a truthy value.
+   * @param pageFunction - the function to evaluate in the frame context. @param
+   * options - options to configure the polling method and timeout. @param
+   * args - arguments to pass to the `pageFunction`. @returns the promise which
+   * resolve when the `pageFunction` returns a truthy value.
    */
   waitForFunction<
     Params extends unknown[],
@@ -701,9 +690,9 @@ export class Frame {
   /**
    * Set the content of the frame.
    *
-   * @param html - HTML markup to assign to the page.
-   * @param options - Options to configure how long before timing out and at
-   * what point to consider the content setting successful.
+   * @param html - HTML markup to assign to the page. @param options - Options
+   * to configure how long before timing out and at what point to consider the
+   * content setting successful.
    */
   async setContent(
     html: string,
@@ -718,12 +707,10 @@ export class Frame {
   /**
    * @returns The frame's `name` attribute as specified in the tag.
    *
-   * @remarks
-   * If the name is empty, it returns the `id` attribute instead.
+   * @remarks If the name is empty, it returns the `id` attribute instead.
    *
-   * @remarks
-   * This value is calculated once when the frame is created, and will not
-   * update if the attribute is changed later.
+   * @remarks This value is calculated once when the frame is created, and will
+   * not update if the attribute is changed later.
    */
   name(): string {
     return this._name || '';
@@ -760,9 +747,8 @@ export class Frame {
   /**
    * Adds a `<script>` tag into the page with the desired url or content.
    *
-   * @param options - Options for the script.
-   * @returns An {@link ElementHandle | element handle} to the injected
-   * `<script>` element.
+   * @param options - Options for the script. @returns An {@link ElementHandle |
+   * element handle} to the injected `<script>` element.
    */
   async addScriptTag(
     options: FrameAddScriptTagOptions
@@ -921,8 +907,7 @@ export class Frame {
   /**
    * Clicks the first element found that matches `selector`.
    *
-   * @remarks
-   * If `click()` triggers a navigation event and there's a separate
+   * @remarks If `click()` triggers a navigation event and there's a separate
    * `page.waitForNavigation()` promise to be resolved, you may end up with a
    * race condition that yields unexpected results. The correct pattern for
    * click and wait for navigation is the following:
@@ -950,8 +935,8 @@ export class Frame {
   /**
    * Focuses the first element that matches the `selector`.
    *
-   * @param selector - The selector to query for.
-   * @throws Throws if there's no element matching `selector`.
+   * @param selector - The selector to query for. @throws Throws if there's no
+   * element matching `selector`.
    */
   async focus(selector: string): Promise<void> {
     return this.worlds[PUPPETEER_WORLD].focus(selector);
@@ -961,8 +946,8 @@ export class Frame {
    * Hovers the pointer over the center of the first element that matches the
    * `selector`.
    *
-   * @param selector - The selector to query for.
-   * @throws Throws if there's no element matching `selector`.
+   * @param selector - The selector to query for. @throws Throws if there's no
+   * element matching `selector`.
    */
   async hover(selector: string): Promise<void> {
     return this.worlds[PUPPETEER_WORLD].hover(selector);
@@ -979,12 +964,11 @@ export class Frame {
    * frame.select('select#colors', 'red', 'green', 'blue'); // multiple selections
    * ```
    *
-   * @param selector - The selector to query for.
-   * @param values - The array of values to select. If the `<select>` has the
-   * `multiple` attribute, all values are considered, otherwise only the first
-   * one is taken into account.
-   * @returns the list of values that were successfully selected.
-   * @throws Throws if there's no `<select>` matching `selector`.
+   * @param selector - The selector to query for. @param values - The array of
+   * values to select. If the `<select>` has the `multiple` attribute, all
+   * values are considered, otherwise only the first one is taken into account.
+   * @returns the list of values that were successfully selected. @throws Throws
+   * if there's no `<select>` matching `selector`.
    */
   select(selector: string, ...values: string[]): Promise<string[]> {
     return this.worlds[PUPPETEER_WORLD].select(selector, ...values);
@@ -993,8 +977,8 @@ export class Frame {
   /**
    * Taps the first element that matches the `selector`.
    *
-   * @param selector - The selector to query for.
-   * @throws Throws if there's no element matching `selector`.
+   * @param selector - The selector to query for. @throws Throws if there's no
+   * element matching `selector`.
    */
   async tap(selector: string): Promise<void> {
     return this.worlds[PUPPETEER_WORLD].tap(selector);
@@ -1004,9 +988,8 @@ export class Frame {
    * Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character
    * in the text.
    *
-   * @remarks
-   * To press a special key, like `Control` or `ArrowDown`, use
-   * {@link Keyboard.press}.
+   * @remarks To press a special key, like `Control` or `ArrowDown`, use {@link
+   * Keyboard.press}.
    *
    * @example
    *
@@ -1016,10 +999,9 @@ export class Frame {
    * ```
    *
    * @param selector - the selector for the element to type into. If there are
-   * multiple the first will be used.
-   * @param text - text to type into the element
-   * @param options - takes one option, `delay`, which sets the time to wait
-   * between key presses in milliseconds. Defaults to `0`.
+   * multiple the first will be used. @param text - text to type into the
+   * element @param options - takes one option, `delay`, which sets the time to
+   * wait between key presses in milliseconds. Defaults to `0`.
    */
   async type(
     selector: string,
@@ -1034,10 +1016,10 @@ export class Frame {
    *
    * Causes your script to wait for the given number of milliseconds.
    *
-   * @remarks
-   * It's generally recommended to not wait for a number of seconds, but instead
-   * use {@link Frame.waitForSelector}, {@link Frame.waitForXPath} or
-   * {@link Frame.waitForFunction} to wait for exactly the conditions you want.
+   * @remarks It's generally recommended to not wait for a number of seconds,
+   * but instead use {@link Frame.waitForSelector}, {@link Frame.waitForXPath}
+   * or {@link Frame.waitForFunction} to wait for exactly the conditions you
+   * want.
    *
    * @example
    *

@@ -6,7 +6,8 @@ sidebar_label: Page.evaluate
 
 Evaluates a function in the page's context and returns the result.
 
-If the function passed to `page.evaluteHandle` returns a Promise, the function will wait for the promise to resolve and return its value.
+If the function passed to `page.evaluteHandle` returns a Promise, the function
+will wait for the promise to resolve and return its value.
 
 **Signature:**
 
@@ -44,7 +45,8 @@ const result = await frame.evaluate(() => {
 console.log(result); // prints "56"
 ```
 
-You can pass a string instead of a function (although functions are recommended as they are easier to debug and use with TypeScript):
+You can pass a string instead of a function (although functions are recommended
+as they are easier to debug and use with TypeScript):
 
 ## Example 2
 
@@ -52,7 +54,8 @@ You can pass a string instead of a function (although functions are recommended 
 const aHandle = await page.evaluate('1 + 2');
 ```
 
-To get the best TypeScript experience, you should pass in as the generic the type of `pageFunction`:
+To get the best TypeScript experience, you should pass in as the generic the
+type of `pageFunction`:
 
 ```ts
 const aHandle = await page.evaluate(() => 2);
@@ -60,7 +63,9 @@ const aHandle = await page.evaluate(() => 2);
 
 ## Example 3
 
-[ElementHandle](./puppeteer.elementhandle.md) instances (including [JSHandle](./puppeteer.jshandle.md)s) can be passed as arguments to the `pageFunction`:
+[ElementHandle](./puppeteer.elementhandle.md) instances (including
+[JSHandle](./puppeteer.jshandle.md)s) can be passed as arguments to the
+`pageFunction`:
 
 ```ts
 const bodyHandle = await page.$('body');

@@ -16,4 +16,5 @@ class JSHandle {
 
 [ElementHandle](./puppeteer.elementhandle.md)&lt;Node&gt; \| null
 
-Either `null` or the handle itself if the handle is an instance of [ElementHandle](./puppeteer.elementhandle.md).
+Either `null` or the handle itself if the handle is an instance of
+[ElementHandle](./puppeteer.elementhandle.md).

@@ -6,7 +6,8 @@ sidebar_label: customQueryHandlerNames
 
 > Warning: This API is now obsolete.
 >
-> Import [Puppeteer](./puppeteer.puppeteer.md) and use the static method [Puppeteer.customQueryHandlerNames()](./puppeteer.puppeteer.customqueryhandlernames.md)
+> Import [Puppeteer](./puppeteer.puppeteer.md) and use the static method
+> [Puppeteer.customQueryHandlerNames()](./puppeteer.puppeteer.customqueryhandlernames.md)
 
 **Signature:**
 

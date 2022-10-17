@@ -30,7 +30,8 @@ class BrowserContext {
 
 Promise&lt;[Target](./puppeteer.target.md)&gt;
 
-Promise which resolves to the first target found that matches the `predicate` function.
+Promise which resolves to the first target found that matches the `predicate`
+function.
 
 ## Example
 

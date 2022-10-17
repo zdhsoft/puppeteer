@@ -4,7 +4,8 @@ sidebar_label: Frame.hover
 
 # Frame.hover() method
 
-Hovers the pointer over the center of the first element that matches the `selector`.
+Hovers the pointer over the center of the first element that matches the
+`selector`.
 
 **Signature:**
 

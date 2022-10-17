@@ -1,17 +1,17 @@
 /**
  * Copyright 2017 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import {ChildProcess} from 'child_process';
@@ -200,8 +200,8 @@ export class CDPBrowser extends BrowserBase {
   }
 
   /**
-   * The spawned browser process. Returns `null` if the browser instance was created with
-   * {@link Puppeteer.connect}.
+   * The spawned browser process. Returns `null` if the browser instance was
+   * created with {@link Puppeteer.connect}.
    */
   override process(): ChildProcess | null {
     return this.#process ?? null;
@@ -234,8 +234,8 @@ export class CDPBrowser extends BrowserBase {
   }
 
   /**
-   * Creates a new incognito browser context. This won't share cookies/cache with other
-   * browser contexts.
+   * Creates a new incognito browser context. This won't share cookies/cache
+   * with other browser contexts.
    *
    * @example
    *
@@ -273,15 +273,16 @@ export class CDPBrowser extends BrowserBase {
   }
 
   /**
-   * Returns an array of all open browser contexts. In a newly created browser, this will
-   * return a single instance of {@link BrowserContext}.
+   * Returns an array of all open browser contexts. In a newly created browser,
+   * this will return a single instance of {@link BrowserContext}.
    */
   override browserContexts(): CDPBrowserContext[] {
     return [this.#defaultContext, ...Array.from(this.#contexts.values())];
   }
 
   /**
-   * Returns the default browser context. The default browser context cannot be closed.
+   * Returns the default browser context. The default browser context cannot be
+   * closed.
    */
   override defaultBrowserContext(): CDPBrowserContext {
     return this.#defaultContext;
@@ -375,8 +376,8 @@ export class CDPBrowser extends BrowserBase {
   };
 
   /**
-   * The browser websocket endpoint which can be used as an argument to
-   * {@link Puppeteer.connect}.
+   * The browser websocket endpoint which can be used as an argument to {@link
+   * Puppeteer.connect}.
    *
    * @returns The Browser websocket url.
    *
@@ -384,9 +385,9 @@ export class CDPBrowser extends BrowserBase {
    *
    * The format is `ws://${host}:${port}/devtools/browser/<id>`.
    *
-   * You can find the `webSocketDebuggerUrl` from `http://${host}:${port}/json/version`.
-   * Learn more about the
-   * {@link https://chromedevtools.github.io/devtools-protocol | devtools protocol} and
+   * You can find the `webSocketDebuggerUrl` from
+   * `http://${host}:${port}/json/version`. Learn more about the {@link
+   * https://chromedevtools.github.io/devtools-protocol | devtools protocol} and
    * the {@link
    * https://chromedevtools.github.io/devtools-protocol/#how-do-i-access-the-browser-target
    * | browser endpoint}.
@@ -429,8 +430,8 @@ export class CDPBrowser extends BrowserBase {
   }
 
   /**
-   * All active targets inside the Browser. In case of multiple browser contexts, returns
-   * an array with all the targets in all browser contexts.
+   * All active targets inside the Browser. In case of multiple browser
+   * contexts, returns an array with all the targets in all browser contexts.
    */
   override targets(): Target[] {
     return Array.from(
@@ -456,8 +457,8 @@ export class CDPBrowser extends BrowserBase {
   /**
    * Searches for a target in all browser contexts.
    *
-   * @param predicate - A function to be run for every target.
-   * @returns The first target found that matches the `predicate` function.
+   * @param predicate - A function to be run for every target. @returns The
+   * first target found that matches the `predicate` function.
    *
    * @example
    *
@@ -506,9 +507,9 @@ export class CDPBrowser extends BrowserBase {
    *
    * @remarks
    *
-   * In case of multiple browser contexts, returns an array with all the pages in all
-   * browser contexts. Non-visible pages, such as `"background_page"`, will not be listed
-   * here. You can find them using {@link Target.page}.
+   * In case of multiple browser contexts, returns an array with all the pages
+   * in all browser contexts. Non-visible pages, such as `"background_page"`,
+   * will not be listed here. You can find them using {@link Target.page}.
    */
   override async pages(): Promise<Page[]> {
     const contextPages = await Promise.all(
@@ -530,7 +531,8 @@ export class CDPBrowser extends BrowserBase {
    * For headless Chromium, this is similar to `HeadlessChrome/61.0.3153.0`. For
    * non-headless, this is similar to `Chrome/61.0.3153.0`.
    *
-   * The format of browser.version() might change with future releases of Chromium.
+   * The format of browser.version() might change with future releases of
+   * Chromium.
    */
   override async version(): Promise<string> {
     const version = await this.#getVersion();
@@ -538,8 +540,8 @@ export class CDPBrowser extends BrowserBase {
   }
 
   /**
-   * The browser's original user agent. Pages can override the browser user agent with
-   * {@link Page.setUserAgent}.
+   * The browser's original user agent. Pages can override the browser user
+   * agent with {@link Page.setUserAgent}.
    */
   override async userAgent(): Promise<string> {
     const version = await this.#getVersion();
@@ -547,9 +549,9 @@ export class CDPBrowser extends BrowserBase {
   }
 
   /**
-   * Closes Chromium and all of its pages (if any were opened). The
-   * {@link CDPBrowser} object itself is considered to be disposed and cannot be
-   * used anymore.
+   * Closes Chromium and all of its pages (if any were opened). The {@link
+   * CDPBrowser} object itself is considered to be disposed and cannot be used
+   * anymore.
    */
   override async close(): Promise<void> {
     await this.#closeCallback.call(null);
@@ -557,9 +559,9 @@ export class CDPBrowser extends BrowserBase {
   }
 
   /**
-   * Disconnects Puppeteer from the browser, but leaves the Chromium process running.
-   * After calling `disconnect`, the {@link CDPBrowser} object is considered disposed and
-   * cannot be used anymore.
+   * Disconnects Puppeteer from the browser, but leaves the Chromium process
+   * running. After calling `disconnect`, the {@link CDPBrowser} object is
+   * considered disposed and cannot be used anymore.
    */
   override disconnect(): void {
     this.#targetManager.dispose();
@@ -608,8 +610,8 @@ export class CDPBrowserContext extends BrowserContext {
   /**
    * This searches for a target in this specific browser context.
    *
-   * @example
-   * An example of finding a target for a page opened via `window.open`:
+   * @example An example of finding a target for a page opened via
+   * `window.open`:
    *
    * ```ts
    * await page.evaluate(() => window.open('https://www.example.com/'));
@@ -618,12 +620,11 @@ export class CDPBrowserContext extends BrowserContext {
    * );
    * ```
    *
-   * @param predicate - A function to be run for every target
-   * @param options - An object of options. Accepts a timout,
-   * which is the maximum wait time in milliseconds.
-   * Pass `0` to disable the timeout. Defaults to 30 seconds.
-   * @returns Promise which resolves to the first target found
-   * that matches the `predicate` function.
+   * @param predicate - A function to be run for every target @param options -
+   * An object of options. Accepts a timout, which is the maximum wait time in
+   * milliseconds. Pass `0` to disable the timeout. Defaults to 30 seconds.
+   * @returns Promise which resolves to the first target found that matches the
+   * `predicate` function.
    */
   override waitForTarget(
     predicate: (x: Target) => boolean | Promise<boolean>,
@@ -637,9 +638,9 @@ export class CDPBrowserContext extends BrowserContext {
   /**
    * An array of all pages inside the browser context.
    *
-   * @returns Promise which resolves to an array of all open pages.
-   * Non visible pages, such as `"background_page"`, will not be listed here.
-   * You can find them using {@link Target.page | the target page}.
+   * @returns Promise which resolves to an array of all open pages. Non visible
+   * pages, such as `"background_page"`, will not be listed here. You can find
+   * them using {@link Target.page | the target page}.
    */
   override async pages(): Promise<Page[]> {
     const pages = await Promise.all(
@@ -663,11 +664,10 @@ export class CDPBrowserContext extends BrowserContext {
   }
 
   /**
-   * Returns whether BrowserContext is incognito.
-   * The default browser context is the only non-incognito browser context.
+   * Returns whether BrowserContext is incognito. The default browser context is
+   * the only non-incognito browser context.
    *
-   * @remarks
-   * The default browser context cannot be closed.
+   * @remarks The default browser context cannot be closed.
    */
   override isIncognito(): boolean {
     return !!this.#id;
@@ -683,9 +683,10 @@ export class CDPBrowserContext extends BrowserContext {
    * ]);
    * ```
    *
-   * @param origin - The origin to grant permissions to, e.g. "https://example.com".
-   * @param permissions - An array of permissions to grant.
-   * All permissions that are not listed here will be automatically denied.
+   * @param origin - The origin to grant permissions to, e.g.
+   * "https://example.com". @param permissions - An array of permissions to
+   * grant. All permissions that are not listed here will be automatically
+   * denied.
    */
   override async overridePermissions(
     origin: string,
@@ -739,11 +740,10 @@ export class CDPBrowserContext extends BrowserContext {
   }
 
   /**
-   * Closes the browser context. All the targets that belong to the browser context
-   * will be closed.
+   * Closes the browser context. All the targets that belong to the browser
+   * context will be closed.
    *
-   * @remarks
-   * Only incognito browser contexts can be closed.
+   * @remarks Only incognito browser contexts can be closed.
    */
   override async close(): Promise<void> {
     assert(this.#id, 'Non-incognito profiles cannot be closed!');

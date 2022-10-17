@@ -473,12 +473,12 @@ export class FirefoxLauncher implements ProductLauncher {
   /**
    * Populates the user.js file with custom preferences as needed to allow
    * Firefox's CDP support to properly function. These preferences will be
-   * automatically copied over to prefs.js during startup of Firefox. To be
-   * able to restore the original values of preferences a backup of prefs.js
-   * will be created.
+   * automatically copied over to prefs.js during startup of Firefox. To be able
+   * to restore the original values of preferences a backup of prefs.js will be
+   * created.
    *
-   * @param prefs - List of preferences to add.
-   * @param profilePath - Firefox profile to write the preferences to.
+   * @param prefs - List of preferences to add. @param profilePath - Firefox
+   * profile to write the preferences to.
    */
   async writePreferences(
     prefs: {[x: string]: unknown},

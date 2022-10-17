@@ -11,7 +11,9 @@ body:
     id: summary
     attributes:
       label: Bug description
-      description: What did you do? What did you expect to happen? What actually happened instead?
+      description:
+        What did you do? What did you expect to happen? What actually happened
+        instead?
       value: |
         Steps to reproduce the problem:
 
@@ -54,5 +56,7 @@ body:
     id: logs
     attributes:
       label: Relevant log output
-      description: Please copy and paste any relevant log output. No need for backticks — this automatically gets formatted into code.
+      description:
+        Please copy and paste any relevant log output. No need for backticks —
+        this automatically gets formatted into code.
       render: shell

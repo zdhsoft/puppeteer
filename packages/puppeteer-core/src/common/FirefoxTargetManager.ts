@@ -1,17 +1,17 @@
 /**
  * Copyright 2022 Google Inc. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 import Protocol from 'devtools-protocol';
@@ -38,8 +38,7 @@ import {EventEmitter} from './EventEmitter.js';
  * Firefox does not support targetInfoChanged and detachedFromTarget events:
  *
  * - https://bugzilla.mozilla.org/show_bug.cgi?id=1610855
- * - https://bugzilla.mozilla.org/show_bug.cgi?id=1636979
- *   @internal
+ * - https://bugzilla.mozilla.org/show_bug.cgi?id=1636979 @internal
  */
 export class FirefoxTargetManager
   extends EventEmitter
@@ -50,17 +49,16 @@ export class FirefoxTargetManager
    * Keeps track of the following events: 'Target.targetCreated',
    * 'Target.targetDestroyed'.
    *
-   * A target becomes discovered when 'Target.targetCreated' is received.
-   * A target is removed from this map once 'Target.targetDestroyed' is
-   * received.
+   * A target becomes discovered when 'Target.targetCreated' is received. A
+   * target is removed from this map once 'Target.targetDestroyed' is received.
    *
    * `targetFilterCallback` has no effect on this map.
    */
   #discoveredTargetsByTargetId: Map<string, Protocol.Target.TargetInfo> =
     new Map();
   /**
-   * Keeps track of targets that were created via 'Target.targetCreated'
-   * and which one are not filtered out by `targetFilterCallback`.
+   * Keeps track of targets that were created via 'Target.targetCreated' and
+   * which one are not filtered out by `targetFilterCallback`.
    *
    * The target is removed from here once it's been destroyed.
    */
@@ -71,7 +69,8 @@ export class FirefoxTargetManager
   #availableTargetsBySessionId: Map<string, Target> = new Map();
   /**
    * If a target was filtered out by `targetFilterCallback`, we still receive
-   * events about it from CDP, but we don't forward them to the rest of Puppeteer.
+   * events about it from CDP, but we don't forward them to the rest of
+   * Puppeteer.
    */
   #ignoredTargets = new Set<string>();
   #targetFilterCallback: TargetFilterCallback | undefined;
