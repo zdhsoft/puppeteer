@@ -1,1 +1,7 @@
-module.exports = require('gts/.prettierrc.json');
+/**
+ * @type {import('prettier').Config}
+ */
+module.exports = {
+  ...require('gts/.prettierrc.json'),
+  proseWrap: 'always',
+};
